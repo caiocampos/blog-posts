@@ -1,6 +1,6 @@
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
-import { Posts } from 'modules/posts';
-import { Authors } from 'modules/authors';
+import Posts from 'modules/posts';
+import Authors from 'modules/authors';
 import { RouterPath } from './router-path';
 import { EmptyRoute } from './empty-route';
 

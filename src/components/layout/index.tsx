@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { Layout as AntLayout, PageHeader, Menu } from 'antd';
 import { useLocation, useHistory } from 'react-router-dom';
 import { pages, IPages, IPage } from 'routing/router-path';
-import { useStores } from 'common/hooks/use-stores';
+import useStores from 'common/hooks/use-stores';
 
 const { Content, Sider } = AntLayout;
 
@@ -43,4 +43,6 @@ const _Layout = ({ children, title, subtitle }: { children?: ReactNode; title?: 
 	);
 };
 
-export const Layout = observer(_Layout);
+const Layout = observer(_Layout);
+
+export default Layout;

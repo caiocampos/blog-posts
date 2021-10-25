@@ -3,4 +3,6 @@ import MainStore from 'common/stores/main-store';
 
 const storesContext = createContext<MainStore>(new MainStore());
 
-export const useStores = (): MainStore => useContext(storesContext);
+const useStores = (): MainStore => useContext(storesContext);
+
+export default useStores;
