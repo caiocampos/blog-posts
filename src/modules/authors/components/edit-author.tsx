@@ -1,7 +1,8 @@
 import { useState } from 'react';
 import { observer } from 'mobx-react-lite';
-import { Form, Input, Button, DatePicker, Modal } from 'antd';
+import { Form, Input, Button, Modal } from 'antd';
 import { IAddAuthorRequestDTO } from '../interfaces/author.interface';
+import CustomDatePicker from 'components/custom-date-picker';
 
 const layout = {
 	labelCol: { span: 8 },
@@ -45,7 +46,7 @@ const _EditAuthor = ({ onSubmit }: { onSubmit: (values: IAddAuthorRequestDTO) =>
 						<Input />
 					</Form.Item>
 					<Form.Item name="birthDate" label="Data de Nascimento" rules={[{ required: true }]}>
-						<DatePicker />
+						<CustomDatePicker />
 					</Form.Item>
 					<Form.Item {...tailLayout}>
 						<Button type="primary" htmlType="submit">

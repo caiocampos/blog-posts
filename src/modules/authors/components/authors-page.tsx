@@ -6,7 +6,7 @@ import Layout from 'components/layout';
 import useStores from 'common/hooks/use-stores';
 import CustomProTable from 'components/custom-pro-table';
 import authorsColumns from './authors-columns';
-import { IAuthor } from '../interfaces/author.interface';
+import { IAddAuthorRequestDTO, IAuthor } from '../interfaces/author.interface';
 import { ActionType } from '@ant-design/pro-table';
 import EditAuthor from './edit-author';
 
@@ -21,6 +21,14 @@ const _Authors = () => {
 			success: true
 		};
 	}, [authors]);
+
+	const requestNewAuthor = useCallback(
+		async (values: IAddAuthorRequestDTO) => {
+			await authors.create(values);
+			actionRef?.current?.reload();
+		},
+		[authors]
+	);
 
 	const columns = useMemo(() => {
 		const deleteItem = async (author: IAuthor) => {
@@ -51,8 +59,8 @@ const _Authors = () => {
 				rowKey="id"
 				request={requestAuthors}
 				columns={columns}
+				toolBarRender={() => [<EditAuthor onSubmit={requestNewAuthor} key="ea" />]}
 			/>
-			<EditAuthor onSubmit={() => {}}></EditAuthor>
 		</Layout>
 	);
 };
