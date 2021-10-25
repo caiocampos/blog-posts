@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 import MainStore from 'common/stores/main-store';
 import AuthorService from './author-service';
-import { IAuthorResponseDTO } from './interfaces/author.interface';
+import { IAddAuthorRequestDTO, IAuthor } from './interfaces/author.interface';
 
 export default class AuthorStore {
 	mainStore: MainStore;
@@ -11,12 +11,29 @@ export default class AuthorStore {
 		this.mainStore = mainStore;
 	}
 
-	getAll = async (): Promise<Array<IAuthorResponseDTO>> => {
+	getAll = async (): Promise<Array<IAuthor>> => {
 		try {
 			return await AuthorService.getAll();
 		} catch (e) {
 			this.mainStore.setErrorFromAxios(e);
 			return [];
+		}
+	};
+
+	create = async (author: IAddAuthorRequestDTO): Promise<IAuthor | null> => {
+		try {
+			return await AuthorService.create(author);
+		} catch (e) {
+			this.mainStore.setErrorFromAxios(e);
+			return null;
+		}
+	};
+
+	delete = async (id: number): Promise<void> => {
+		try {
+			await AuthorService.delete(id);
+		} catch (e) {
+			this.mainStore.setErrorFromAxios(e);
 		}
 	};
 }

@@ -4,6 +4,7 @@ import { Layout as AntLayout, PageHeader, Menu } from 'antd';
 import { useLocation, useHistory } from 'react-router-dom';
 import { pages, IPages, IPage } from 'routing/router-path';
 import useStores from 'common/hooks/use-stores';
+import classes from './layout.module.scss';
 
 const { Content, Sider } = AntLayout;
 
@@ -19,9 +20,9 @@ const _Layout = ({ children, title, subtitle }: { children?: ReactNode; title?: 
 		setCollapsed(collapsed);
 	};
 	return (
-		<AntLayout style={{ minHeight: '100vh' }}>
+		<AntLayout className={classes.Page}>
 			<Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
-				<div className="logo" />
+				<div className={classes.Logo} />
 				<Menu theme="dark" selectedKeys={[page.id]} mode="inline">
 					{Object.values(pages).map(({ id, icon: Icon, path, name }: IPage) => (
 						<Menu.Item key={id} icon={<Icon />} onClick={() => history.push(path)}>
@@ -30,13 +31,9 @@ const _Layout = ({ children, title, subtitle }: { children?: ReactNode; title?: 
 					))}
 				</Menu>
 			</Sider>
-			<AntLayout className="site-layout">
-				<PageHeader className="site-page-header" title={title} subTitle={subtitle}>
-					<Content style={{ margin: '0 16px' }}>
-						<div className="site-layout-background" style={{ padding: 24, minHeight: 360 }}>
-							{children}
-						</div>
-					</Content>
+			<AntLayout>
+				<PageHeader title={title} subTitle={subtitle}>
+					<Content className={classes.Content}>{children}</Content>
 				</PageHeader>
 			</AntLayout>
 		</AntLayout>
