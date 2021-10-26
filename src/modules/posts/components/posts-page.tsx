@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
+import { List } from 'antd';
 import { observer } from 'mobx-react-lite';
 import Layout from 'components/layout';
 import useStores from 'common/hooks/use-stores';
@@ -50,17 +51,27 @@ const _Posts = () => {
 
 	return (
 		<Layout title="Postagens" className={classes.PostsPage}>
-			<EditPost onSubmit={requestNewPost} />
-			{postList.map(({ id, title, body, creationDate, author }) => (
-				<PostCard
-					id={id}
-					title={title}
-					body={body}
-					creationDate={creationDate}
-					author={author.nickname || author.name}
-					deletePost={deletePost}
-				/>
-			))}
+			<List
+				loading={isLoading}
+				size="small"
+				dataSource={postList}
+				header={
+					<div className={classes.NewPostButton}>
+						<EditPost onSubmit={requestNewPost} />
+					</div>
+				}
+				renderItem={({ id, title, body, creationDate, author }) => (
+					<PostCard
+						key={id}
+						id={id}
+						title={title}
+						body={body}
+						creationDate={creationDate}
+						author={author.nickname || author.name}
+						deletePost={deletePost}
+					/>
+				)}
+			/>
 		</Layout>
 	);
 };

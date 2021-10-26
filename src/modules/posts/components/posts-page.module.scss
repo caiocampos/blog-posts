@@ -1,7 +1,12 @@
 .PostsPage {
-		:global(.ant-layout-content) {
-			> * {
-				margin-bottom: 1rem;
-			}
+	.NewPostButton {
+		width: 100%;
+		text-align: right;
+	}
+
+	:global(.ant-layout-content) {
+		:global(.ant-card) {
+			margin: 0.3rem;
 		}
+	}
 }

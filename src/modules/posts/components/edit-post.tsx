@@ -15,7 +15,14 @@ const tailLayout = {
 
 const requiredRule = [{ required: true }];
 
-const EditPost = ({ onSubmit }: { onSubmit: (idAuthor: number, post: IAddPostRequestDTO) => Promise<void> }) => {
+const EditPost = ({
+	onSubmit,
+	className,
+	...rest
+}: {
+	onSubmit: (idAuthor: number, post: IAddPostRequestDTO) => Promise<void>;
+	className?: string;
+}) => {
 	const [isModalVisible, setIsModalVisible] = useState(false);
 	const [isInserting, setIsInserting] = useState(false);
 	const [form] = Form.useForm();
@@ -40,7 +47,7 @@ const EditPost = ({ onSubmit }: { onSubmit: (idAuthor: number, post: IAddPostReq
 
 	return (
 		<>
-			<Button type="primary" onClick={openModal} icon={<PlusOutlined />}>
+			<Button type="primary" onClick={openModal} icon={<PlusOutlined />} className={className} {...rest}>
 				Novo
 			</Button>
 			<Modal

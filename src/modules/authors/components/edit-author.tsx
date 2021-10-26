@@ -15,7 +15,14 @@ const tailLayout = {
 
 const requiredRule = [{ required: true }];
 
-const EditAuthor = ({ onSubmit }: { onSubmit: (values: IAddAuthorRequestDTO) => Promise<void> }) => {
+const EditAuthor = ({
+	onSubmit,
+	className,
+	...rest
+}: {
+	onSubmit: (values: IAddAuthorRequestDTO) => Promise<void>;
+	className?: string;
+}) => {
 	const [isModalVisible, setIsModalVisible] = useState(false);
 	const [isInserting, setIsInserting] = useState(false);
 	const [form] = Form.useForm();
@@ -41,7 +48,7 @@ const EditAuthor = ({ onSubmit }: { onSubmit: (values: IAddAuthorRequestDTO) => 
 
 	return (
 		<>
-			<Button type="primary" onClick={openModal} icon={<PlusOutlined />}>
+			<Button type="primary" onClick={openModal} icon={<PlusOutlined />} className={className} {...rest}>
 				Novo
 			</Button>
 			<Modal title="Novo Author" visible={isModalVisible} footer={null} onCancel={() => setIsModalVisible(false)}>
