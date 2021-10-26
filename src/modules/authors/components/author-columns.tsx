@@ -1,7 +1,6 @@
 import { Tooltip, Button, Popconfirm } from 'antd';
 import { ProColumns } from '@ant-design/pro-table';
 import { DeleteOutlined } from '@ant-design/icons';
-import { IAuthor } from '../interfaces/author.interface';
 
 const baseAuthorColumns: Array<ProColumns> = [
 	{
@@ -32,7 +31,7 @@ export const getAuthorColumns = (deleteAuthor: (id: number) => Promise<void>): A
 		render: (_, row) => [
 			<div className="cell-button-group" key="bg">
 				<Popconfirm title="Title" onConfirm={() => deleteAuthor(row.id)}>
-					<Tooltip title="Apagar">
+					<Tooltip title="Apagar" placement="bottom">
 						<Button type="primary" shape="circle" icon={<DeleteOutlined />} size="small" danger />
 					</Tooltip>
 				</Popconfirm>

@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import Layout from 'components/layout';
 import useStores from 'common/hooks/use-stores';
 import CustomProTable, { CustomActionType } from 'components/custom-pro-table';
-import { IAddAuthorRequestDTO, IAuthor } from '../interfaces/author.interface';
+import { IAddAuthorRequestDTO } from '../interfaces/author.interface';
 import EditAuthor from './edit-author';
 import { getAuthorColumns } from './author-columns';
 

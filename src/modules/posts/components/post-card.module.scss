@@ -1,0 +1,11 @@
+.PostCard {
+	:global(.ant-card-actions) {
+		li > span {
+			text-align: right;
+
+			button {
+				margin: 1rem;
+			}
+		}
+	}
+}
