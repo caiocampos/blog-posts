@@ -1,14 +1,12 @@
 import { useCallback, useMemo, useRef } from 'react';
 import { observer } from 'mobx-react-lite';
-import { Tooltip, Button, Popconfirm } from 'antd';
-import { DeleteOutlined } from '@ant-design/icons';
+import { ActionType } from '@ant-design/pro-table';
 import Layout from 'components/layout';
 import useStores from 'common/hooks/use-stores';
 import CustomProTable from 'components/custom-pro-table';
-import authorsColumns from './authors-columns';
 import { IAddAuthorRequestDTO, IAuthor } from '../interfaces/author.interface';
-import { ActionType } from '@ant-design/pro-table';
 import EditAuthor from './edit-author';
+import { getAuthorColumns } from './author-columns';
 
 const _Authors = () => {
 	const { authors } = useStores();
@@ -30,26 +28,15 @@ const _Authors = () => {
 		[authors]
 	);
 
-	const columns = useMemo(() => {
-		const deleteItem = async (author: IAuthor) => {
+	const deleteAuthor = useCallback(
+		async (author: IAuthor) => {
 			await authors.delete(author.id);
 			actionRef?.current?.reload();
-		};
+		},
+		[authors]
+	);
 
-		return authorsColumns.concat({
-			title: 'Ações',
-			key: 'actions',
-			render: (_, row) => [
-				<div className="cell-button-group" key="bg">
-					<Popconfirm title="Title" onConfirm={() => deleteItem(row as IAuthor)}>
-						<Tooltip title="Apagar">
-							<Button type="primary" shape="circle" icon={<DeleteOutlined />} size="small" danger />
-						</Tooltip>
-					</Popconfirm>
-				</div>
-			]
-		});
-	}, [authors]);
+	const columns = useMemo(() => getAuthorColumns(deleteAuthor), [deleteAuthor]);
 
 	return (
 		<Layout title="Autores">

@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { observer } from 'mobx-react-lite';
-import { Layout as AntLayout, PageHeader, Menu } from 'antd';
+import { Layout as AntLayout, PageHeader, Menu, Modal } from 'antd';
 import { useLocation, useHistory } from 'react-router-dom';
 import { pages, IPages, IPage } from 'routing/router-path';
 import useStores from 'common/hooks/use-stores';
@@ -12,8 +12,11 @@ const _Layout = ({ children, title, subtitle }: { children?: ReactNode; title?: 
 	const location = useLocation();
 	const history = useHistory();
 	const {
+		error,
+		clearError,
 		layout: { collapsed, setCollapsed }
 	} = useStores();
+
 	const page: IPage = pages[(location.pathname || '').slice(1) as keyof IPages] || {};
 
 	const onCollapse = (collapsed: boolean) => {
@@ -33,6 +36,9 @@ const _Layout = ({ children, title, subtitle }: { children?: ReactNode; title?: 
 			</Sider>
 			<AntLayout>
 				<PageHeader title={title} subTitle={subtitle}>
+					<Modal title="Basic Modal" visible={!!error} onOk={clearError} onCancel={clearError}>
+						{error}
+					</Modal>
 					<Content className={classes.Content}>{children}</Content>
 				</PageHeader>
 			</AntLayout>

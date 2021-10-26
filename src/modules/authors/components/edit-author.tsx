@@ -1,6 +1,6 @@
 import { useState } from 'react';
-import { observer } from 'mobx-react-lite';
 import { Form, Input, Button, Modal } from 'antd';
+import { PlusOutlined } from '@ant-design/icons';
 import { IAddAuthorRequestDTO } from '../interfaces/author.interface';
 import CustomDatePicker from 'components/custom-date-picker';
 
@@ -8,18 +8,24 @@ const layout = {
 	labelCol: { span: 8 },
 	wrapperCol: { span: 16 }
 };
+
 const tailLayout = {
 	wrapperCol: { offset: 8, span: 16 }
 };
 
-const _EditAuthor = ({ onSubmit }: { onSubmit: (values: IAddAuthorRequestDTO) => void }) => {
+const requiredRule = [{ required: true }];
+
+const EditAuthor = ({ onSubmit }: { onSubmit: (values: IAddAuthorRequestDTO) => Promise<void> }) => {
 	const [isModalVisible, setIsModalVisible] = useState(false);
+	const [isInserting, setIsInserting] = useState(false);
 	const [form] = Form.useForm();
 
-	const onFinish = (valuefieldsValues: any) => {
+	const onFinish = async (valuefieldsValues: any) => {
+		setIsInserting(true);
 		let values = valuefieldsValues;
 		values = { ...values, birthDate: values.birthDate.format('YYYY-MM-DD') };
-		onSubmit(values);
+		await onSubmit(values);
+		setIsInserting(false);
 		setIsModalVisible(false);
 	};
 
@@ -29,31 +35,32 @@ const _EditAuthor = ({ onSubmit }: { onSubmit: (values: IAddAuthorRequestDTO) =>
 
 	const openModal = () => {
 		form.resetFields();
+		setIsInserting(false);
 		setIsModalVisible(true);
 	};
 
 	return (
 		<>
-			<Button type="primary" onClick={openModal}>
+			<Button type="primary" onClick={openModal} icon={<PlusOutlined />}>
 				Novo
 			</Button>
 			<Modal title="Novo Author" visible={isModalVisible} footer={null} onCancel={() => setIsModalVisible(false)}>
 				<Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
-					<Form.Item name="name" label="Nome" rules={[{ required: true }]}>
+					<Form.Item name="name" label="Nome" rules={requiredRule}>
 						<Input />
 					</Form.Item>
-					<Form.Item name="nickname" label="Apelido" rules={[{ required: true }]}>
+					<Form.Item name="nickname" label="Apelido" rules={requiredRule}>
 						<Input />
 					</Form.Item>
-					<Form.Item name="birthDate" label="Data de Nascimento" rules={[{ required: true }]}>
+					<Form.Item name="birthDate" label="Data de Nascimento" rules={requiredRule}>
 						<CustomDatePicker />
 					</Form.Item>
 					<Form.Item {...tailLayout}>
-						<Button type="primary" htmlType="submit">
-							Submit
+						<Button type="primary" htmlType="submit" loading={isInserting}>
+							Criar
 						</Button>
 						<Button htmlType="button" onClick={onReset}>
-							Reset
+							Limpar
 						</Button>
 					</Form.Item>
 				</Form>
@@ -61,7 +68,5 @@ const _EditAuthor = ({ onSubmit }: { onSubmit: (values: IAddAuthorRequestDTO) =>
 		</>
 	);
 };
-
-const EditAuthor = observer(_EditAuthor);
 
 export default EditAuthor;
