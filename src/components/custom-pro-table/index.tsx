@@ -1,4 +1,4 @@
-import { ReactNode, MutableRefObject } from 'react';
+import { ReactNode, ForwardedRef, useRef, useImperativeHandle, forwardRef, Key } from 'react';
 import { ConfigProvider } from 'antd';
 import ptBR from 'antd/es/locale/pt_BR';
 import type { ActionType, ProColumns } from '@ant-design/pro-table';
@@ -10,26 +10,41 @@ export interface RequestFunctionResponse {
 	success: boolean;
 }
 
-const CustomProTable = ({
-	columns,
-	rowKey = 'key',
-	request,
-	toolBarRender,
-	headerTitle,
-	search = false,
-	actionRef
-}: {
-	columns: Array<ProColumns>;
-	rowKey?: string;
-	request?: () => Promise<RequestFunctionResponse>;
-	toolBarRender?: () => Array<ReactNode>;
-	headerTitle?: ReactNode;
-	search?: false | SearchConfig;
-	actionRef?: MutableRefObject<ActionType | undefined>;
-}) => {
+export interface CustomActionType {
+	reload: () => void;
+}
+
+const _CustomProTable = (
+	{
+		columns,
+		rowKey = 'key',
+		request,
+		toolBarRender,
+		headerTitle,
+		search = false,
+		key,
+		...rest
+	}: {
+		columns: Array<ProColumns>;
+		rowKey?: string;
+		request?: () => Promise<RequestFunctionResponse>;
+		toolBarRender?: () => Array<ReactNode>;
+		headerTitle?: ReactNode;
+		search?: false | SearchConfig;
+		key?: Key;
+	},
+	ref?: ForwardedRef<CustomActionType | undefined>
+) => {
+	const actionRef = useRef<ActionType>();
+	useImperativeHandle(ref, () => ({
+		reload: () => {
+			actionRef?.current?.reload();
+		}
+	}));
 	return (
-		<ConfigProvider locale={ptBR}>
+		<ConfigProvider locale={ptBR} key={key}>
 			<ProTable
+				{...rest}
 				columns={columns}
 				request={request}
 				rowKey={rowKey}
@@ -45,5 +60,7 @@ const CustomProTable = ({
 		</ConfigProvider>
 	);
 };
+
+const CustomProTable = forwardRef(_CustomProTable);
 
 export default CustomProTable;

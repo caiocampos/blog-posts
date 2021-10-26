@@ -8,7 +8,16 @@ import classes from './layout.module.scss';
 
 const { Content, Sider } = AntLayout;
 
-const _Layout = ({ children, title, subtitle }: { children?: ReactNode; title?: string; subtitle?: string }) => {
+const _Layout = ({
+	children,
+	title,
+	subtitle,
+	...rest
+}: {
+	children?: ReactNode;
+	title?: string;
+	subtitle?: string;
+}) => {
 	const location = useLocation();
 	const history = useHistory();
 	const {
@@ -16,15 +25,12 @@ const _Layout = ({ children, title, subtitle }: { children?: ReactNode; title?: 
 		clearError,
 		layout: { collapsed, setCollapsed }
 	} = useStores();
+	const pageKey = (location.pathname || '').slice(1) as keyof IPages;
+	const page: IPage = pages[pageKey] || {};
 
-	const page: IPage = pages[(location.pathname || '').slice(1) as keyof IPages] || {};
-
-	const onCollapse = (collapsed: boolean) => {
-		setCollapsed(collapsed);
-	};
 	return (
-		<AntLayout className={classes.Page}>
-			<Sider collapsible collapsed={collapsed} onCollapse={onCollapse}>
+		<AntLayout className={classes.Page} {...rest}>
+			<Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>
 				<div className={classes.Logo} />
 				<Menu theme="dark" selectedKeys={[page.id]} mode="inline">
 					{Object.values(pages).map(({ id, icon: Icon, path, name }: IPage) => (
