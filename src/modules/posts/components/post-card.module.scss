@@ -1,11 +1,38 @@
 .PostCard {
-	:global(.ant-card-actions) {
-		li > span {
-			text-align: right;
+	margin-bottom: 0.3rem;
 
-			button {
-				margin: 1rem;
+	$cardElBackgroundColor: rgba(
+		$color: #006,
+		$alpha: 0.02
+	);
+
+	:global {
+		.ant-card-actions {
+			background-color: $cardElBackgroundColor;
+
+			li > span {
+				text-align: right;
+
+				button {
+					margin: 1rem;
+				}
 			}
+		}
+
+		.ant-card-head {
+			background-color: $cardElBackgroundColor;
+
+			.ant-card-extra {
+				text-align: right;
+			}
+
+			.ant-card-head-title {
+				text-align: center;
+			}
+		}
+
+		.ant-card-body {
+			white-space: pre;
 		}
 	}
 }

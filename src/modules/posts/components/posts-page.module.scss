@@ -1,12 +1,35 @@
 .PostsPage {
-	.NewPostButton {
-		width: 100%;
-		text-align: right;
+	:global(.ant-list-header) {
+		display: flex;
+		justify-content: space-between;
+
+		.HeaderInputWrapper {
+			width: 50%;
+		}
+
+		.HeaderButtonsWrapper {
+			max-width: 50%;
+			text-align: right;
+
+			> * {
+				margin: 0 0.5rem;
+			}
+		}
 	}
 
-	:global(.ant-layout-content) {
-		:global(.ant-card) {
-			margin: 0.3rem;
+	:global {
+		.ant-layout-content {
+			.ant-list {
+				background-color: white;
+
+				.ant-list-header {
+					margin: 0.3rem;
+				}
+
+				.ant-list-items {
+					padding: 0.3rem;
+				}
+			}
 		}
 	}
 }

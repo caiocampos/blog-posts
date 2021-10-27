@@ -3,17 +3,9 @@ import { Form, Input, Button, Modal } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { IAddPostRequestDTO } from '../interfaces/post.interface';
 import AuthorSelect from 'modules/authors/components/author-select';
+import { formLayout, formTailLayout, requiredRule } from 'common/constants';
 
-const layout = {
-	labelCol: { span: 8 },
-	wrapperCol: { span: 16 }
-};
-
-const tailLayout = {
-	wrapperCol: { offset: 8, span: 16 }
-};
-
-const requiredRule = [{ required: true }];
+const { TextArea } = Input;
 
 const EditPost = ({
 	onSubmit,
@@ -56,17 +48,17 @@ const EditPost = ({
 				footer={null}
 				onCancel={() => setIsModalVisible(false)}
 			>
-				<Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
+				<Form {...formLayout} form={form} name="control-hooks" onFinish={onFinish}>
 					<Form.Item name="title" label="Título" rules={requiredRule}>
 						<Input />
 					</Form.Item>
 					<Form.Item name="body" label="Texto" rules={requiredRule}>
-						<Input />
+						<TextArea />
 					</Form.Item>
 					<Form.Item name="author" label="Autor" rules={requiredRule}>
 						<AuthorSelect />
 					</Form.Item>
-					<Form.Item {...tailLayout}>
+					<Form.Item {...formTailLayout}>
 						<Button type="primary" htmlType="submit" loading={isInserting}>
 							Criar
 						</Button>

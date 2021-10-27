@@ -22,7 +22,7 @@ const _AuthorSelect = ({ onChange, ...rest }: { onChange?: (authorId: number) =>
 			const authorsResult = await getAll();
 			if (!cancel) {
 				setOptions(
-					authorsResult.map((author) => ({ label: author.nickname || author.name, value: author.id }))
+					authorsResult.map((author) => ({ label: `${author.name} (${author.nickname})`, value: author.id }))
 				);
 				setIsLoading(false);
 			}

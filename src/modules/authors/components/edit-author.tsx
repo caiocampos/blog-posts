@@ -3,17 +3,7 @@ import { Form, Input, Button, Modal } from 'antd';
 import { PlusOutlined } from '@ant-design/icons';
 import { IAddAuthorRequestDTO } from '../interfaces/author.interface';
 import CustomDatePicker from 'components/custom-date-picker';
-
-const layout = {
-	labelCol: { span: 8 },
-	wrapperCol: { span: 16 }
-};
-
-const tailLayout = {
-	wrapperCol: { offset: 8, span: 16 }
-};
-
-const requiredRule = [{ required: true }];
+import { formLayout, formTailLayout, requiredRule } from 'common/constants';
 
 const EditAuthor = ({
 	onSubmit,
@@ -52,7 +42,7 @@ const EditAuthor = ({
 				Novo
 			</Button>
 			<Modal title="Novo Author" visible={isModalVisible} footer={null} onCancel={() => setIsModalVisible(false)}>
-				<Form {...layout} form={form} name="control-hooks" onFinish={onFinish}>
+				<Form {...formLayout} form={form} name="control-hooks" onFinish={onFinish}>
 					<Form.Item name="name" label="Nome" rules={requiredRule}>
 						<Input />
 					</Form.Item>
@@ -62,7 +52,7 @@ const EditAuthor = ({
 					<Form.Item name="birthDate" label="Data de Nascimento" rules={requiredRule}>
 						<CustomDatePicker />
 					</Form.Item>
-					<Form.Item {...tailLayout}>
+					<Form.Item {...formTailLayout}>
 						<Button type="primary" htmlType="submit" loading={isInserting}>
 							Criar
 						</Button>

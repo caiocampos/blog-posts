@@ -1,15 +1,17 @@
 import { useCallback, useMemo, useRef } from 'react';
+import ProTable from '@ant-design/pro-table';
+import type { ActionType } from '@ant-design/pro-table';
 import { observer } from 'mobx-react-lite';
 import Layout from 'components/layout';
 import useStores from 'common/hooks/use-stores';
-import CustomProTable, { CustomActionType } from 'components/custom-pro-table';
 import { IAddAuthorRequestDTO } from '../interfaces/author.interface';
 import EditAuthor from './edit-author';
 import { getAuthorColumns } from './author-columns';
+import { defaultProTableProps } from 'common/constants';
 
 const _Authors = () => {
 	const { authors } = useStores();
-	const ref = useRef<CustomActionType>();
+	const actionRef = useRef<ActionType>();
 
 	const requestAuthors = useCallback(async () => {
 		const authorsResult = await authors.getAll();
@@ -22,7 +24,7 @@ const _Authors = () => {
 	const requestNewAuthor = useCallback(
 		async (values: IAddAuthorRequestDTO) => {
 			await authors.create(values);
-			ref?.current?.reload();
+			actionRef?.current?.reload();
 		},
 		[authors]
 	);
@@ -30,7 +32,7 @@ const _Authors = () => {
 	const deleteAuthor = useCallback(
 		async (id: number) => {
 			await authors.delete(id);
-			ref?.current?.reload();
+			actionRef?.current?.reload();
 		},
 		[authors]
 	);
@@ -39,8 +41,9 @@ const _Authors = () => {
 
 	return (
 		<Layout title="Autores">
-			<CustomProTable
-				ref={ref}
+			<ProTable
+				{...defaultProTableProps}
+				actionRef={actionRef}
 				headerTitle="Autores"
 				rowKey="id"
 				request={requestAuthors}

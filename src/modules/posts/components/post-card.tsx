@@ -7,7 +7,8 @@ const PostCard = ({
 	title,
 	body,
 	creationDate,
-	author,
+	authorName,
+	authorNickname,
 	deletePost,
 	className,
 	...rest
@@ -16,7 +17,8 @@ const PostCard = ({
 	title: string;
 	body: string;
 	creationDate: string;
-	author: String;
+	authorName: String;
+	authorNickname: String;
 	deletePost: (id: number) => Promise<void>;
 	className?: string;
 }) => (
@@ -26,7 +28,9 @@ const PostCard = ({
 		title={title}
 		extra={
 			<>
-				<div>Autor: {author}</div>
+				<div>
+					Autor: {authorName} ({authorNickname})
+				</div>
 				<div>Data: {new Date(creationDate).toLocaleDateString()}</div>
 			</>
 		}

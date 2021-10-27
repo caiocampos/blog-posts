@@ -11,9 +11,9 @@ export default class PostStore {
 		this.mainStore = mainStore;
 	}
 
-	getAll = async (): Promise<Array<IPost>> => {
+	getAll = async (author: string): Promise<Array<IPost>> => {
 		try {
-			return await PostService.getAll();
+			return await PostService.getAll(author);
 		} catch (e) {
 			this.mainStore.setErrorFromAxios(e);
 			return [];

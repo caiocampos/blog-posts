@@ -2,8 +2,8 @@ import { axiosInstance } from 'services';
 import { IAddPostRequestDTO, IPost } from './interfaces/post.interface';
 
 export default class PostService {
-	static getAll = async (): Promise<Array<IPost>> => {
-		const { data } = await axiosInstance.get('/posts', {
+	static getAll = async (author: string): Promise<Array<IPost>> => {
+		const { data } = await axiosInstance.get(`/posts${author ? `?authorName=${author}` : ''}`, {
 			headers: { 'Content-Type': 'application/json' }
 		});
 		return data as Array<IPost>;
