@@ -1,5 +1,4 @@
-import { Controller, Delete, Get, Param, Post, Request } from '@nestjs/common';
-import { DeleteResult } from 'typeorm';
+import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
 import PostAddRequestDTO from '../posts/dto/post-add-request.dto';
 import PostResponseDTO from '../posts/dto/post-response.dto';
 import { AuthorsService } from './authors.service';
@@ -16,20 +15,20 @@ export class AuthorsController {
   }
 
   @Post()
-  add(@Request() requestDto: AuthorAddRequestDTO): Promise<AuthorResponseDTO> {
+  add(@Body() requestDto: AuthorAddRequestDTO): Promise<AuthorResponseDTO> {
     return this.authorsService.add(requestDto);
   }
 
   @Post(':id/posts')
   addPost(
     @Param('id') id: string,
-    @Request() requestDto: PostAddRequestDTO,
+    @Body() requestDto: PostAddRequestDTO,
   ): Promise<PostResponseDTO> {
     return this.authorsService.addPost(id, requestDto);
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string): Promise<DeleteResult> {
+  delete(@Param('id') id: string) {
     return this.authorsService.delete(id);
   }
 }

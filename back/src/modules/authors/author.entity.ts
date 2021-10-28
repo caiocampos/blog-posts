@@ -1,19 +1,22 @@
-import { Column, Entity, ObjectIdColumn, ObjectID, OneToMany } from 'typeorm';
-import { Post } from '../posts/post.entity';
+import { Prop, Schema, SchemaFactory } from '@nestjs/mongoose';
+import { Document, Model, Types } from 'mongoose';
+import { Post, PostDocument } from '../posts/post.entity';
 
-@Entity({ name: 'authors' })
+export type AuthorDocument = Author & Document<Types.ObjectId>;
+
+@Schema({ collection: 'authors' })
 export class Author {
-  @ObjectIdColumn() id: ObjectID;
-
-  @Column({ nullable: false })
+  @Prop({ nullable: false })
   name: string;
 
-  @Column({ nullable: false })
+  @Prop({ nullable: false })
   nickname: string;
 
-  @Column({ nullable: false })
+  @Prop()
   birthDate: string;
 
-  @OneToMany(() => Post, (post: Post) => post.author)
-  posts?: Array<Post>;
+  @Prop({ type: [{ type: Types.ObjectId, ref: 'Post' }] })
+  posts: Array<PostDocument>;
 }
+
+export const AuthorSchema = SchemaFactory.createForClass(Author);

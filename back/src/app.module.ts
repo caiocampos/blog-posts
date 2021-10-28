@@ -1,20 +1,15 @@
 import { Module } from '@nestjs/common';
-import { TypeOrmModule } from '@nestjs/typeorm';
 import { AuthorsModule } from './modules/authors/authors.module';
 import { PostsModule } from './modules/posts/posts.module';
 import { ConfigModule } from '@nestjs/config';
+import { MongooseModule } from '@nestjs/mongoose';
 
 @Module({
   imports: [
     ConfigModule.forRoot(),
-    TypeOrmModule.forRoot({
-      type: 'mongodb',
-      url: process.env.MONGO_URI,
-      database: process.env.MONGO_DB,
-      entities: [__dirname + '/**/*.entity{.ts,.js}'],
-      ssl: true,
-      useUnifiedTopology: true,
+    MongooseModule.forRoot(process.env.MONGO_URI, {
       useNewUrlParser: true,
+      useUnifiedTopology: true,
     }),
     AuthorsModule,
     PostsModule,

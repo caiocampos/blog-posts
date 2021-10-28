@@ -1,5 +1,5 @@
 import AuthorResponseDTO from '../../authors/dto/author-response.dto';
-import { Post } from '../post.entity';
+import { PostDocument } from '../post.entity';
 
 export default class PostResponseDTO {
   constructor(
@@ -11,14 +11,14 @@ export default class PostResponseDTO {
   ) {}
 
   static from = ({
-    id,
+    _id,
     title,
     body,
     creationDate,
     author,
-  }: Post): PostResponseDTO =>
+  }: PostDocument): PostResponseDTO =>
     new PostResponseDTO(
-      id.toHexString(),
+      _id.toHexString(),
       title,
       body,
       creationDate,

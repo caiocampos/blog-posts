@@ -1,4 +1,4 @@
-import { Author } from '../author.entity';
+import { AuthorDocument } from '../author.entity';
 
 export default class AuthorResponseDTO {
   constructor(
@@ -10,11 +10,11 @@ export default class AuthorResponseDTO {
   ) {}
 
   static from = ({
-    id,
+    _id,
     name,
     nickname,
     birthDate,
     posts,
-  }: Author): AuthorResponseDTO =>
-    new AuthorResponseDTO(id.toHexString(), name, nickname, birthDate, posts);
+  }: AuthorDocument): AuthorResponseDTO =>
+    new AuthorResponseDTO(_id.toHexString(), name, nickname, birthDate, posts);
 }

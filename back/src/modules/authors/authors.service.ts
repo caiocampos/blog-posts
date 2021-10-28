@@ -1,35 +1,52 @@
-import { Injectable, Logger } from '@nestjs/common';
-import { InjectRepository } from '@nestjs/typeorm';
+import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
+import { InjectModel } from '@nestjs/mongoose';
 import { validateOrReject } from 'class-validator';
-import { DeleteResult, MongoRepository, ObjectID } from 'typeorm';
+import { Model, Types } from 'mongoose';
 import PostAddRequestDTO from '../posts/dto/post-add-request.dto';
 import PostResponseDTO from '../posts/dto/post-response.dto';
-import { Post } from '../posts/post.entity';
-import { Author } from './author.entity';
+import { Post, PostDocument } from '../posts/post.entity';
+import { Author, AuthorDocument } from './author.entity';
 import AuthorAddRequestDTO from './dto/author-add-request.dto';
 import AuthorResponseDTO from './dto/author-response.dto';
+
+const { ObjectId } = Types;
 
 @Injectable()
 export class AuthorsService {
   private readonly logger = new Logger(AuthorsService.name);
 
   constructor(
-    @InjectRepository(Author)
-    private readonly authorsRepository: MongoRepository<Author>,
-    @InjectRepository(Post)
-    private readonly postRepository: MongoRepository<Post>,
+    @InjectModel('Author') private authorModel: Model<AuthorDocument>,
+    @InjectModel('Post') private postModel: Model<PostDocument>,
   ) {}
 
   async findAll(): Promise<Array<AuthorResponseDTO>> {
-    const find = this.authorsRepository.find();
-    const authors = await this.authorsRepository.createCursor(find).toArray();
-    return authors.map(AuthorResponseDTO.from);
+    try {
+      const authors = await this.authorModel.find().exec();
+      return authors.map(AuthorResponseDTO.from);
+    } catch (error) {
+      throw new HttpException(
+        'Erro ao buscar os autores',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
   }
 
   async findOne(id: string): Promise<AuthorResponseDTO> {
-    const objectID = ObjectID.createFromHexString(id);
-    const author = await this.authorsRepository.findOne(objectID);
+    const _id = new ObjectId(id);
+    const author = await this.authorModel.findById(_id).exec();
     return AuthorResponseDTO.from(author);
+  }
+
+  async add(requestDto: AuthorAddRequestDTO): Promise<AuthorResponseDTO> {
+    await validateOrReject(requestDto);
+    try {
+      const newAuthor = new this.authorModel(requestDto as Author);
+      const author = await newAuthor.save();
+      return AuthorResponseDTO.from(author);
+    } catch (error) {
+      throw new HttpException('Erro ao gravar o autor', HttpStatus.BAD_REQUEST);
+    }
   }
 
   async addPost(
@@ -37,23 +54,28 @@ export class AuthorsService {
     requestDto: PostAddRequestDTO,
   ): Promise<PostResponseDTO> {
     await validateOrReject(requestDto);
-    const objectID = ObjectID.createFromHexString(id);
-    const author = await this.authorsRepository.findOne(objectID);
-    const newPost = requestDto as Post;
-    newPost.author = author;
-    newPost.creationDate = new Date().toISOString().slice(0, 10);
-    const post = await this.postRepository.save(newPost);
-    return PostResponseDTO.from(post);
+    try {
+      const newPost = new this.postModel(requestDto as Post);
+      const _id = new ObjectId(id);
+      const author = await this.authorModel.findById(_id).exec();
+      newPost.author = author;
+      newPost.creationDate = new Date().toISOString().slice(0, 10);
+      const post = await newPost.save();
+      return PostResponseDTO.from(post);
+    } catch (error) {
+      throw new HttpException(
+        'Erro ao gravar a postagem',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
   }
 
-  async add(requestDto: AuthorAddRequestDTO): Promise<AuthorResponseDTO> {
-    await validateOrReject(requestDto);
-    const author = await this.authorsRepository.save(requestDto as Author);
-    return AuthorResponseDTO.from(author);
-  }
-
-  async delete(id: string): Promise<DeleteResult> {
-    const objectID = ObjectID.createFromHexString(id);
-    return await this.authorsRepository.delete(objectID);
+  async delete(id: string) {
+    try {
+      const _id = new ObjectId(id);
+      return await this.authorModel.findByIdAndDelete(_id).exec();
+    } catch (error) {
+      throw new HttpException('Erro ao apagar o autor', HttpStatus.BAD_REQUEST);
+    }
   }
 }

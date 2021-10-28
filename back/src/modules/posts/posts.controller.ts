@@ -1,5 +1,4 @@
 import { Controller, Delete, Get, Param, Query } from '@nestjs/common';
-import { DeleteResult } from 'typeorm';
 import { PostsService } from './posts.service';
 import PostResponseDTO from './dto/post-response.dto';
 
@@ -15,7 +14,7 @@ export class PostsController {
   }
 
   @Delete(':id')
-  delete(@Param('id') id: string): Promise<DeleteResult> {
+  delete(@Param('id') id: string) {
     return this.postsService.delete(id);
   }
 }
