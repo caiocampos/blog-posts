@@ -12,7 +12,7 @@ const EditPost = ({
 	className,
 	...rest
 }: {
-	onSubmit: (idAuthor: number, post: IAddPostRequestDTO) => Promise<void>;
+	onSubmit: (idAuthor: string, post: IAddPostRequestDTO) => Promise<void>;
 	className?: string;
 }) => {
 	const [isModalVisible, setIsModalVisible] = useState(false);

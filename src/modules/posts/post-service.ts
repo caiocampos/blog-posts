@@ -9,14 +9,14 @@ export default class PostService {
 		return data as Array<IPost>;
 	};
 
-	static create = async (idAuthor: number, post: IAddPostRequestDTO): Promise<IPost> => {
+	static create = async (idAuthor: string, post: IAddPostRequestDTO): Promise<IPost> => {
 		const { data } = await axiosInstance.post(`/authors/${idAuthor}/posts`, post, {
 			headers: { 'Content-Type': 'application/json' }
 		});
 		return data as IPost;
 	};
 
-	static delete = async (id: number): Promise<void> => {
+	static delete = async (id: string): Promise<void> => {
 		await axiosInstance.delete(`/posts/${id}`);
 	};
 }

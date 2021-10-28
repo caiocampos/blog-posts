@@ -13,13 +13,13 @@ const PostCard = ({
 	className,
 	...rest
 }: {
-	id: number;
+	id: string;
 	title: string;
 	body: string;
 	creationDate: string;
 	authorName: String;
 	authorNickname: String;
-	deletePost: (id: number) => Promise<void>;
+	deletePost: (id: string) => Promise<void>;
 	className?: string;
 }) => (
 	<Card

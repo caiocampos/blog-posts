@@ -29,7 +29,7 @@ export default class AuthorStore {
 		}
 	};
 
-	delete = async (id: number): Promise<void> => {
+	delete = async (id: string): Promise<void> => {
 		try {
 			await AuthorService.delete(id);
 		} catch (e) {

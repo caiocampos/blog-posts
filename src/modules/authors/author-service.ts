@@ -16,7 +16,7 @@ export default class AuthorService {
 		return data as IAuthor;
 	};
 
-	static delete = async (id: number): Promise<void> => {
+	static delete = async (id: string): Promise<void> => {
 		await axiosInstance.delete(`/authors/${id}`);
 	};
 }

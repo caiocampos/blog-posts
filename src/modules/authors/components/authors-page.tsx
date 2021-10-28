@@ -30,7 +30,7 @@ const _Authors = () => {
 	);
 
 	const deleteAuthor = useCallback(
-		async (id: number) => {
+		async (id: string) => {
 			await authors.delete(id);
 			actionRef?.current?.reload();
 		},

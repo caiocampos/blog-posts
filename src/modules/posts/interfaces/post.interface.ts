@@ -6,7 +6,7 @@ export interface IAddPostRequestDTO {
 }
 
 export interface IPost extends IAddPostRequestDTO {
-	id: number;
+	id: string;
 	title: string;
 	body: string;
 	creationDate: string;

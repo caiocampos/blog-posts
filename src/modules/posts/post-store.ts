@@ -20,7 +20,7 @@ export default class PostStore {
 		}
 	};
 
-	create = async (idAuthor: number, post: IAddPostRequestDTO): Promise<IPost | null> => {
+	create = async (idAuthor: string, post: IAddPostRequestDTO): Promise<IPost | null> => {
 		try {
 			return await PostService.create(idAuthor, post);
 		} catch (e) {
@@ -29,7 +29,7 @@ export default class PostStore {
 		}
 	};
 
-	delete = async (id: number): Promise<void> => {
+	delete = async (id: string): Promise<void> => {
 		try {
 			await PostService.delete(id);
 		} catch (e) {

@@ -7,7 +7,7 @@ export interface IAddAuthorRequestDTO {
 }
 
 export interface IAuthor extends IAddAuthorRequestDTO {
-	id: number;
+	id: string;
 	name: string;
 	nickname: string;
 	birthDate: string;

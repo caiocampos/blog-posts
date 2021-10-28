@@ -24,7 +24,7 @@ const baseAuthorColumns: Array<ProColumns> = [
 	}
 ];
 
-export const getAuthorColumns = (deleteAuthor: (id: number) => Promise<void>): Array<ProColumns> =>
+export const getAuthorColumns = (deleteAuthor: (id: string) => Promise<void>): Array<ProColumns> =>
 	baseAuthorColumns.concat({
 		title: 'Ações',
 		key: 'actions',

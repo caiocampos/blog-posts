@@ -43,7 +43,7 @@ const _Posts = () => {
 	}, [needReload, getPosts]);
 
 	const requestNewPost = useCallback(
-		async (idAuthor: number, post: IAddPostRequestDTO) => {
+		async (idAuthor: string, post: IAddPostRequestDTO) => {
 			await posts.create(idAuthor, post);
 			setNeedReload(true);
 		},
@@ -51,7 +51,7 @@ const _Posts = () => {
 	);
 
 	const deletePost = useCallback(
-		async (id: number) => {
+		async (id: string) => {
 			await posts.delete(id);
 			setNeedReload(true);
 		},

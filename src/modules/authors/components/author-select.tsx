@@ -5,10 +5,10 @@ import useStores from 'common/hooks/use-stores';
 
 interface Option {
 	label: string;
-	value: number;
+	value: string;
 }
 
-const _AuthorSelect = ({ onChange, ...rest }: { onChange?: (authorId: number) => void }) => {
+const _AuthorSelect = ({ onChange, ...rest }: { onChange?: (authorId: string) => void }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [options, setOptions] = useState<Option[]>([]);
 	const {
