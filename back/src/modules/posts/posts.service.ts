@@ -20,7 +20,7 @@ export class PostsService {
       if (authorName) {
         const authors = await this.authorModel
           .find()
-          .where('name')
+          .where('realname')
           .regex(new RegExp(authorName, 'i'))
           .select('id')
           .exec();

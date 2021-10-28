@@ -11,10 +11,10 @@ export default class AuthorResponseDTO {
 
   static from = ({
     _id,
-    name,
+    realname,
     nickname,
     birthDate,
     posts,
   }: AuthorDocument): AuthorResponseDTO =>
-    new AuthorResponseDTO(_id.toHexString(), name, nickname, birthDate, posts);
+    new AuthorResponseDTO(_id.toHexString(), realname, nickname, birthDate, posts);
 }

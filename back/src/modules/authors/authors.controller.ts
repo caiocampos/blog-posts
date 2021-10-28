@@ -9,6 +9,11 @@ import AuthorResponseDTO from './dto/author-response.dto';
 export class AuthorsController {
   constructor(private authorsService: AuthorsService) {}
 
+  @Get('count')
+  count(): Promise<number> {
+    return this.authorsService.count();
+  }
+
   @Get()
   findAll(): Promise<Array<AuthorResponseDTO>> {
     return this.authorsService.findAll();

@@ -20,6 +20,17 @@ export class AuthorsService {
     @InjectModel('Post') private postModel: Model<PostDocument>,
   ) {}
 
+  async count(): Promise<number> {
+    try {
+      return await this.authorModel.count().exec();
+    } catch (error) {
+      throw new HttpException(
+        'Erro ao contar os autores',
+        HttpStatus.BAD_REQUEST,
+      );
+    }
+  }
+
   async findAll(): Promise<Array<AuthorResponseDTO>> {
     try {
       const authors = await this.authorModel.find().exec();
@@ -41,7 +52,10 @@ export class AuthorsService {
   async add(requestDto: AuthorAddRequestDTO): Promise<AuthorResponseDTO> {
     await validateOrReject(requestDto);
     try {
-      const newAuthor = new this.authorModel(requestDto as Author);
+      const newAuthor = new this.authorModel();
+      newAuthor.realname = requestDto.name;
+      newAuthor.nickname = requestDto.nickname;
+      newAuthor.birthDate = requestDto.birthDate;
       const author = await newAuthor.save();
       return AuthorResponseDTO.from(author);
     } catch (error) {
