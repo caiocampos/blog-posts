@@ -25,14 +25,14 @@
     classnames "^2.2.6"
     rc-util "^5.9.4"
 
-"@ant-design/pro-field@1.22.10":
-  version "1.22.10"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-field/-/pro-field-1.22.10.tgz#b6951fc8d5ec30660c3f2b49dbe7c0ae1b469797"
-  integrity sha512-X/JhZ+cfTymMU8FxAbTTF6+0TBS/ua9V3nD/Ux1vntyN876YonCkaM6ydNO1J4V/2YInCiIGspAfXm5AUsE88w==
+"@ant-design/pro-field@1.24.0":
+  version "1.24.0"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-field/-/pro-field-1.24.0.tgz#8e81c408eb86ba1a0594af96d51152e296f394ba"
+  integrity sha512-ibnVzqsNQhG8+/JwMalvRRLSA59pOeXgGCAZY/zbzw9dE6gB9dQZg/plLy4FATsX3R/uL8JUqhydfO8hSsGpVA==
   dependencies:
     "@ant-design/icons" "^4.2.1"
     "@ant-design/pro-provider" "1.4.20"
-    "@ant-design/pro-utils" "1.24.9"
+    "@ant-design/pro-utils" "1.26.0"
     classnames "^2.2.6"
     lodash.tonumber "^4.0.3"
     moment "^2.27.0"
@@ -41,18 +41,17 @@
     react-color "2.19.3"
     swr "^1.1.0-beta.0"
 
-"@ant-design/pro-form@1.43.5":
-  version "1.43.5"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-form/-/pro-form-1.43.5.tgz#cb5d5a62d5942000ef7c1921824d1742240a00b3"
-  integrity sha512-frxnAzmoXsvCbklMTFCubNp93RR3hj4YZvDsiZdDbcwQO54vxI+Ks80oLWsa1BUbXXdlRzuXYa8DvD+K1zCMAw==
+"@ant-design/pro-form@1.45.0":
+  version "1.45.0"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-form/-/pro-form-1.45.0.tgz#45ed38c0dc40d380afae4ffc75959a05a5448afe"
+  integrity sha512-n7fYw590/3xsHAWipE8VGGbcCwhz3wbe8Po4AFUJ43DWoXZ9DVBLc5pz1oJUh3PuXlD94lBiNYa97R5lJtGUHA==
   dependencies:
     "@ant-design/icons" "^4.2.1"
-    "@ant-design/pro-field" "1.22.10"
+    "@ant-design/pro-field" "1.24.0"
     "@ant-design/pro-provider" "1.4.20"
-    "@ant-design/pro-utils" "1.24.9"
+    "@ant-design/pro-utils" "1.26.0"
     "@umijs/use-params" "^1.0.2"
     classnames "^2.2.6"
-    lodash.merge "^4.6.2"
     omit.js "^2.0.2"
     rc-resize-observer "^0.2.3"
     rc-util "^5.0.6"
@@ -65,16 +64,16 @@
   dependencies:
     rc-util "^5.0.1"
 
-"@ant-design/pro-table@^2.56.3":
-  version "2.56.3"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-table/-/pro-table-2.56.3.tgz#6113b089c65703d4c0e66cb507e67490cc027bd2"
-  integrity sha512-8YINrZu4gFn4vF/geJEEsY9AzO9DU6y7KDkRI109ZaTl5thmtI273jyBIVgOVURd7SHQF9GLqwQCBFSuedrjig==
+"@ant-design/pro-table@^2.56.6":
+  version "2.56.6"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-table/-/pro-table-2.56.6.tgz#8f5399c77ffad838f1b3b353743d5413aa84767c"
+  integrity sha512-al+aCott6rVIGA8AHDXCwbjHFt/5lxEa05S09w3QK1TpWjB8snfCFVVExtoCWwcQWWtICXYa2EGmQy+FSM8DsQ==
   dependencies:
     "@ant-design/icons" "^4.1.0"
-    "@ant-design/pro-field" "1.22.10"
-    "@ant-design/pro-form" "1.43.5"
+    "@ant-design/pro-field" "1.24.0"
+    "@ant-design/pro-form" "1.45.0"
     "@ant-design/pro-provider" "1.4.20"
-    "@ant-design/pro-utils" "1.24.9"
+    "@ant-design/pro-utils" "1.26.0"
     classnames "^2.2.6"
     moment "^2.24.0"
     omit.js "^2.0.2"
@@ -84,15 +83,14 @@
     use-json-comparison "^1.0.5"
     use-media-antd-query "^1.1.0"
 
-"@ant-design/pro-utils@1.24.9":
-  version "1.24.9"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-utils/-/pro-utils-1.24.9.tgz#aa37ee04c5b03a4ea3cdc208398e05228676cc4e"
-  integrity sha512-ux80Xj/X5FiB0NnP0atrNfSgDdu5YV/BytYJylsNip+JABrrgRexYlxD1Hj/+4N9tmhT6tJO3pVP7Yu4/kctAA==
+"@ant-design/pro-utils@1.26.0":
+  version "1.26.0"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-utils/-/pro-utils-1.26.0.tgz#edd76dab017a1a249cd26734e59a1f677c830584"
+  integrity sha512-zV81k32ntQlKj5e1zTl6D9ih2gwC3Co4jNMy3DxB7n3aO2N40pkr61Zwy9gCFRIIF80bp+Gxm93zbOSuLVIJaQ==
   dependencies:
     "@ant-design/icons" "^4.3.0"
     "@ant-design/pro-provider" "1.4.20"
     classnames "^2.2.6"
-    lodash.merge "^4.6.2"
     moment "^2.27.0"
     rc-util "^5.0.6"
     react-sortable-hoc "^2.0.0"
@@ -7465,11 +7463,6 @@ lodash.memoize@^4.1.2:
   version "4.1.2"
   resolved "https://registry.yarnpkg.com/lodash.memoize/-/lodash.memoize-4.1.2.tgz#bcc6c49a42a2840ed997f323eada5ecd182e0bfe"
   integrity sha1-vMbEmkKihA7Zl/Mj6tpezRguC/4=
-
-lodash.merge@^4.6.2:
-  version "4.6.2"
-  resolved "https://registry.yarnpkg.com/lodash.merge/-/lodash.merge-4.6.2.tgz#558aa53b43b661e1925a0afdfa36a9a1085fe57a"
-  integrity sha512-0KpjqXRVvrYyCsX1swR/XTK0va6VQkQM6MNo7PqW77ByjAhoARA8EfrP1N4+KlKj8YS0ZUCtRT/YUuhyYDujIQ==
 
 lodash.sortby@^4.7.0:
   version "4.7.0"
