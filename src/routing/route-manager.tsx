@@ -5,7 +5,7 @@ import { RouterPath } from './router-path';
 import { EmptyRoute } from './empty-route';
 
 export const RouteManager = (): JSX.Element => (
-	<Router>
+	<Router basename={process.env.PUBLIC_URL}>
 		<Switch>
 			<Redirect exact from={RouterPath.HOME} to={RouterPath.POSTS} />
 			<Route path={RouterPath.POSTS}>
