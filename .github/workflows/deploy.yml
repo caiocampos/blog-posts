@@ -24,7 +24,7 @@ jobs:
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
     - name: Install
-      run: npm ci
+      run: npm install
     - name: Build
       env:
         REACT_APP_API_URL: ${{ secrets.REACT_APP_API_URL }}
