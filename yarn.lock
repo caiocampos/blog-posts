@@ -25,31 +25,31 @@
     classnames "^2.2.6"
     rc-util "^5.9.4"
 
-"@ant-design/pro-field@1.24.0":
-  version "1.24.0"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-field/-/pro-field-1.24.0.tgz#8e81c408eb86ba1a0594af96d51152e296f394ba"
-  integrity sha512-ibnVzqsNQhG8+/JwMalvRRLSA59pOeXgGCAZY/zbzw9dE6gB9dQZg/plLy4FATsX3R/uL8JUqhydfO8hSsGpVA==
+"@ant-design/pro-field@1.24.1":
+  version "1.24.1"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-field/-/pro-field-1.24.1.tgz#f60058f7474c22c4618fb775b24313ff642acf4f"
+  integrity sha512-OBhZ1uJgPCbhc0HvMulTHL7VQKW7nj2O9uJP7N8cFuz4tQpXFCbkdxivDftxdge52/sQYFkobOMlbapWqaUaSQ==
   dependencies:
     "@ant-design/icons" "^4.2.1"
     "@ant-design/pro-provider" "1.4.20"
-    "@ant-design/pro-utils" "1.26.0"
+    "@ant-design/pro-utils" "1.26.1"
     classnames "^2.2.6"
     lodash.tonumber "^4.0.3"
     moment "^2.27.0"
     omit.js "^2.0.2"
     rc-util "^5.4.0"
     react-color "2.19.3"
-    swr "^1.1.0-beta.0"
+    swr "1.1.0-beta.6"
 
-"@ant-design/pro-form@1.45.0":
-  version "1.45.0"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-form/-/pro-form-1.45.0.tgz#45ed38c0dc40d380afae4ffc75959a05a5448afe"
-  integrity sha512-n7fYw590/3xsHAWipE8VGGbcCwhz3wbe8Po4AFUJ43DWoXZ9DVBLc5pz1oJUh3PuXlD94lBiNYa97R5lJtGUHA==
+"@ant-design/pro-form@1.46.0":
+  version "1.46.0"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-form/-/pro-form-1.46.0.tgz#7ea64fb1185fb537faa496a2a43b46c423aa32a1"
+  integrity sha512-/rrVS5f9mV7ZHojZOzuq8pRaqAkxQU3LPnhlk0oGEr2JJ3MV50s8e7zKoZNJFQm0C5K6ulM49E4MrKfOxsWxxg==
   dependencies:
     "@ant-design/icons" "^4.2.1"
-    "@ant-design/pro-field" "1.24.0"
+    "@ant-design/pro-field" "1.24.1"
     "@ant-design/pro-provider" "1.4.20"
-    "@ant-design/pro-utils" "1.26.0"
+    "@ant-design/pro-utils" "1.26.1"
     "@umijs/use-params" "^1.0.2"
     classnames "^2.2.6"
     omit.js "^2.0.2"
@@ -64,16 +64,16 @@
   dependencies:
     rc-util "^5.0.1"
 
-"@ant-design/pro-table@^2.56.6":
-  version "2.56.6"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-table/-/pro-table-2.56.6.tgz#8f5399c77ffad838f1b3b353743d5413aa84767c"
-  integrity sha512-al+aCott6rVIGA8AHDXCwbjHFt/5lxEa05S09w3QK1TpWjB8snfCFVVExtoCWwcQWWtICXYa2EGmQy+FSM8DsQ==
+"@ant-design/pro-table@^2.56.7":
+  version "2.56.7"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-table/-/pro-table-2.56.7.tgz#12dc5ed066a8b6e672c5ec1b3bb93f98f2899cbb"
+  integrity sha512-pu4mD93X/3ILxC9WQnb/rPff+doyCo1keNP4MnlixZhlVvmAvZYiNQ7+YuFVN+HTVy95asOql/bRcI8ozVN6bw==
   dependencies:
     "@ant-design/icons" "^4.1.0"
-    "@ant-design/pro-field" "1.24.0"
-    "@ant-design/pro-form" "1.45.0"
+    "@ant-design/pro-field" "1.24.1"
+    "@ant-design/pro-form" "1.46.0"
     "@ant-design/pro-provider" "1.4.20"
-    "@ant-design/pro-utils" "1.26.0"
+    "@ant-design/pro-utils" "1.26.1"
     classnames "^2.2.6"
     moment "^2.24.0"
     omit.js "^2.0.2"
@@ -83,10 +83,10 @@
     use-json-comparison "^1.0.5"
     use-media-antd-query "^1.1.0"
 
-"@ant-design/pro-utils@1.26.0":
-  version "1.26.0"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-utils/-/pro-utils-1.26.0.tgz#edd76dab017a1a249cd26734e59a1f677c830584"
-  integrity sha512-zV81k32ntQlKj5e1zTl6D9ih2gwC3Co4jNMy3DxB7n3aO2N40pkr61Zwy9gCFRIIF80bp+Gxm93zbOSuLVIJaQ==
+"@ant-design/pro-utils@1.26.1":
+  version "1.26.1"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-utils/-/pro-utils-1.26.1.tgz#23e27760377acbcf1bca99dc6d04d5ef256dc3cc"
+  integrity sha512-VcsZwmcnQfOmHRAPnOzRRc6Ph2AKDjyhWkLrCdmAQd7Ge6CQgUbSapqDERwKPBaIEOmm5NyojeL8EKXBEJMFQA==
   dependencies:
     "@ant-design/icons" "^4.3.0"
     "@ant-design/pro-provider" "1.4.20"
@@ -94,7 +94,7 @@
     moment "^2.27.0"
     rc-util "^5.0.6"
     react-sortable-hoc "^2.0.0"
-    swr "^1.1.0-beta.0"
+    swr "1.1.0-beta.6"
 
 "@ant-design/react-slick@~0.28.1":
   version "0.28.4"
@@ -11581,10 +11581,10 @@ svgo@^1.0.0, svgo@^1.2.2:
     unquote "~1.1.1"
     util.promisify "~1.0.0"
 
-swr@^1.1.0-beta.0:
-  version "1.1.0-beta.5"
-  resolved "https://registry.yarnpkg.com/swr/-/swr-1.1.0-beta.5.tgz#e6668e54fe756ee94495cbb51898fb457bfb93c4"
-  integrity sha512-7SwmekUUFb7q4n3ibwJF5nmuE5Gp/244ZFEVBAzfkXvUJ5EwknqlcfKDuEyvJm9piNIufGXovhcEuQIOJOLx4Q==
+swr@1.1.0-beta.6:
+  version "1.1.0-beta.6"
+  resolved "https://registry.yarnpkg.com/swr/-/swr-1.1.0-beta.6.tgz#7766c4cf32972b1ad7408ac691926a7595a18fbc"
+  integrity sha512-O2eYDHfnS/bnbq69d/TudXCv4ikAJPp8alL0X5cIEgGI9KQy6Wp5YlexT2qhYAViGB29MxkoyMNkhg2tgflnYA==
 
 symbol-tree@^3.2.4:
   version "3.2.4"
