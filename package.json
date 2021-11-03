@@ -15,7 +15,7 @@
 		"@types/react-router-dom": "^5.3.2",
 		"antd": "^4.16.13",
 		"axios": "^0.24.0",
-		"mobx": "^6.3.5",
+		"mobx": "^6.3.6",
 		"mobx-react-lite": "^3.2.2",
 		"node-sass": "^5.0.0",
 		"prettier": "^2.4.1",
