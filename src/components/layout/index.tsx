@@ -3,7 +3,7 @@ import { observer } from 'mobx-react-lite';
 import { Layout as AntLayout, PageHeader, Menu, Modal } from 'antd';
 import { ConfigProvider } from 'antd';
 import ptBR from 'antd/es/locale/pt_BR';
-import { useLocation, useHistory } from 'react-router-dom';
+import { useLocation, useNavigate } from 'react-router-dom';
 import { pages, IPages, IPage } from 'routing/router-path';
 import useStores from 'common/hooks/use-stores';
 import classes from './layout.module.scss';
@@ -23,7 +23,7 @@ const _Layout = ({
 	className?: string;
 }) => {
 	const location = useLocation();
-	const history = useHistory();
+	const navigate = useNavigate();
 	const {
 		error,
 		clearError,
@@ -39,7 +39,7 @@ const _Layout = ({
 					<div className={classes.Logo} />
 					<Menu theme="dark" selectedKeys={[page.id]} mode="inline">
 						{Object.values(pages).map(({ id, icon: Icon, path, name }: IPage) => (
-							<Menu.Item key={id} icon={<Icon />} onClick={() => history.push(path)}>
+							<Menu.Item key={id} icon={<Icon />} onClick={() => navigate(path)}>
 								{name}
 							</Menu.Item>
 						))}
