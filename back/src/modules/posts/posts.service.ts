@@ -27,7 +27,6 @@ export class PostsService {
         query = query.where('author').in(authors.map((author) => author._id));
       }
       const posts = await query.populate('author').sort('-creationDate').exec();
-      this.postModel.hydrate;
       return posts.map(PostResponseDTO.from);
     } catch (error) {
       throw new HttpException(
