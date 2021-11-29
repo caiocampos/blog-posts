@@ -624,10 +624,10 @@
     tslib "2.3.1"
     uuid "8.3.2"
 
-"@nestjs/config@^1.1.4":
-  version "1.1.4"
-  resolved "https://registry.yarnpkg.com/@nestjs/config/-/config-1.1.4.tgz#b545b7edc230999f0904ff234c68da6f442ff8ab"
-  integrity sha512-C0EkFvRxGxOWp6OPkow/fxdN4HJSBoDbtjzkxwnz8gG1KMY1aRpRJvycnbemRk4ZiS5ELIvyJq5cZ3490UmsGw==
+"@nestjs/config@^1.1.5":
+  version "1.1.5"
+  resolved "https://registry.yarnpkg.com/@nestjs/config/-/config-1.1.5.tgz#6242274706e5b0d4849eb3217b47fdabd63182dc"
+  integrity sha512-xSpp/6TIHFhicuuwRu2fFGmClzN+YXtpVSLGX3LT9iAwtNDcccX3qVDOX1BLdFdBbqZTqT3KezsT+iE/czd/xg==
   dependencies:
     dotenv "10.0.0"
     dotenv-expand "5.1.0"
