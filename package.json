@@ -7,7 +7,7 @@
 		"@ant-design/pro-table": "^2.59.0",
 		"antd": "^4.18.2",
 		"axios": "^0.24.0",
-		"mobx": "^6.3.10",
+		"mobx": "^6.3.12",
 		"mobx-react-lite": "^3.2.3",
 		"node-sass": "^7.0.1",
 		"react": "~17.0.2",
