@@ -26,7 +26,7 @@
     "@nestjs/common": "^8.4.1",
     "@nestjs/config": "^1.2.0",
     "@nestjs/core": "^8.4.1",
-    "@nestjs/mongoose": "^9.0.2",
+    "@nestjs/mongoose": "^9.0.3",
     "@nestjs/platform-express": "^8.4.1",
     "class-validator": "^0.13.2",
     "mongoose": "^6.2.6",
