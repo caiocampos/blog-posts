@@ -5,7 +5,7 @@
 	"homepage": "/blog-posts",
 	"dependencies": {
 		"@ant-design/pro-table": "^2.59.0",
-		"antd": "^4.19.4",
+		"antd": "^4.19.5",
 		"axios": "^0.26.1",
 		"mobx": "^6.5.0",
 		"mobx-react-lite": "^3.3.0",
