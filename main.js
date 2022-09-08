@@ -235,28 +235,28 @@ __decorate([
     (0, common_1.Get)('count'),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", typeof (_a = typeof Promise !== "undefined" && Promise) === "function" ? _a : Object)
+    __metadata("design:returntype", typeof (_b = typeof Promise !== "undefined" && Promise) === "function" ? _b : Object)
 ], AuthorsController.prototype, "count", null);
 __decorate([
     (0, common_1.Get)(),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", []),
-    __metadata("design:returntype", typeof (_b = typeof Promise !== "undefined" && Promise) === "function" ? _b : Object)
+    __metadata("design:returntype", typeof (_c = typeof Promise !== "undefined" && Promise) === "function" ? _c : Object)
 ], AuthorsController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Post)(),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_c = typeof author_add_request_dto_1.default !== "undefined" && author_add_request_dto_1.default) === "function" ? _c : Object]),
-    __metadata("design:returntype", typeof (_d = typeof Promise !== "undefined" && Promise) === "function" ? _d : Object)
+    __metadata("design:paramtypes", [typeof (_d = typeof author_add_request_dto_1.default !== "undefined" && author_add_request_dto_1.default) === "function" ? _d : Object]),
+    __metadata("design:returntype", typeof (_e = typeof Promise !== "undefined" && Promise) === "function" ? _e : Object)
 ], AuthorsController.prototype, "add", null);
 __decorate([
     (0, common_1.Post)(':id/posts'),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_e = typeof post_add_request_dto_1.default !== "undefined" && post_add_request_dto_1.default) === "function" ? _e : Object]),
-    __metadata("design:returntype", typeof (_f = typeof Promise !== "undefined" && Promise) === "function" ? _f : Object)
+    __metadata("design:paramtypes", [String, typeof (_f = typeof post_add_request_dto_1.default !== "undefined" && post_add_request_dto_1.default) === "function" ? _f : Object]),
+    __metadata("design:returntype", typeof (_g = typeof Promise !== "undefined" && Promise) === "function" ? _g : Object)
 ], AuthorsController.prototype, "addPost", null);
 __decorate([
     (0, common_1.Delete)(':id'),
@@ -267,7 +267,7 @@ __decorate([
 ], AuthorsController.prototype, "delete", null);
 AuthorsController = __decorate([
     (0, common_1.Controller)('authors'),
-    __metadata("design:paramtypes", [typeof (_g = typeof authors_service_1.AuthorsService !== "undefined" && authors_service_1.AuthorsService) === "function" ? _g : Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof authors_service_1.AuthorsService !== "undefined" && authors_service_1.AuthorsService) === "function" ? _a : Object])
 ], AuthorsController);
 exports.AuthorsController = AuthorsController;
 
@@ -338,7 +338,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var AuthorsService_1, _a, _b;
+var AuthorsService_1;
+var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AuthorsService = void 0;
 const common_1 = __webpack_require__(1);
@@ -573,7 +574,7 @@ __decorate([
     __param(0, (0, common_1.Query)('authorName')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", typeof (_a = typeof Promise !== "undefined" && Promise) === "function" ? _a : Object)
+    __metadata("design:returntype", typeof (_b = typeof Promise !== "undefined" && Promise) === "function" ? _b : Object)
 ], PostsController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Delete)(':id'),
@@ -584,7 +585,7 @@ __decorate([
 ], PostsController.prototype, "delete", null);
 PostsController = __decorate([
     (0, common_1.Controller)('posts'),
-    __metadata("design:paramtypes", [typeof (_b = typeof posts_service_1.PostsService !== "undefined" && posts_service_1.PostsService) === "function" ? _b : Object])
+    __metadata("design:paramtypes", [typeof (_a = typeof posts_service_1.PostsService !== "undefined" && posts_service_1.PostsService) === "function" ? _a : Object])
 ], PostsController);
 exports.PostsController = PostsController;
 
@@ -606,7 +607,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var PostsService_1, _a, _b;
+var PostsService_1;
+var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PostsService = void 0;
 const common_1 = __webpack_require__(1);
