@@ -15,7 +15,7 @@
 		"react-router-dom": "~6.4.0",
 		"react-scripts": "~5.0.1",
 		"typescript": "^4.8.2",
-		"web-vitals": "^3.0.1"
+		"web-vitals": "^3.0.2"
 	},
 	"devDependencies": {
 		"prettier": "^2.7.1",
