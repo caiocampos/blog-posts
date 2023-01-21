@@ -6,7 +6,7 @@
 	"dependencies": {
 		"@ant-design/pro-table": "^2.59.0",
 		"antd": "^4.24.7",
-		"axios": "^1.2.2",
+		"axios": "^1.2.3",
 		"mobx": "^6.7.0",
 		"mobx-react-lite": "^3.4.0",
 		"node-sass": "^8.0.0",
