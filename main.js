@@ -441,8 +441,8 @@ class PostResponseDTO {
         this.author = author;
     }
 }
-exports["default"] = PostResponseDTO;
 PostResponseDTO.from = ({ _id, title, body, creationDate, author, }) => new PostResponseDTO(_id.toHexString(), title, body, creationDate, author_response_dto_1.default.from(author));
+exports["default"] = PostResponseDTO;
 
 
 /***/ }),
@@ -460,8 +460,8 @@ class AuthorResponseDTO {
         this.posts = posts;
     }
 }
-exports["default"] = AuthorResponseDTO;
 AuthorResponseDTO.from = ({ _id, realname, nickname, birthDate, posts, }) => new AuthorResponseDTO(_id.toHexString(), realname, nickname, birthDate, posts);
+exports["default"] = AuthorResponseDTO;
 
 
 /***/ }),
