@@ -20,7 +20,7 @@
 	"devDependencies": {
 		"prettier": "^2.8.7",
 		"@types/jest": "^29.5.1",
-		"@types/node": "^18.15.12",
+		"@types/node": "^18.15.13",
 		"@types/react": "^18.0.9",
 		"@types/react-dom": "^18.0.3",
 		"@types/react-router-dom": "^5.3.3",
