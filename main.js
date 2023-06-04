@@ -31,9 +31,9 @@ const authors_module_1 = __webpack_require__(4);
 const posts_module_1 = __webpack_require__(17);
 const config_1 = __webpack_require__(20);
 const mongoose_1 = __webpack_require__(5);
-let AppModule = class AppModule {
+let AppModule = exports.AppModule = class AppModule {
 };
-AppModule = __decorate([
+exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             config_1.ConfigModule.forRoot(),
@@ -46,7 +46,6 @@ AppModule = __decorate([
         ],
     })
 ], AppModule);
-exports.AppModule = AppModule;
 
 
 /***/ }),
@@ -68,9 +67,9 @@ const post_entity_1 = __webpack_require__(6);
 const author_entity_1 = __webpack_require__(8);
 const authors_controller_1 = __webpack_require__(9);
 const authors_service_1 = __webpack_require__(13);
-let AuthorsModule = class AuthorsModule {
+let AuthorsModule = exports.AuthorsModule = class AuthorsModule {
 };
-AuthorsModule = __decorate([
+exports.AuthorsModule = AuthorsModule = __decorate([
     (0, common_1.Module)({
         imports: [
             mongoose_1.MongooseModule.forFeature([
@@ -83,7 +82,6 @@ AuthorsModule = __decorate([
         exports: [],
     })
 ], AuthorsModule);
-exports.AuthorsModule = AuthorsModule;
 
 
 /***/ }),
@@ -112,7 +110,7 @@ exports.PostSchema = exports.Post = void 0;
 const mongoose_1 = __webpack_require__(5);
 const mongoose_2 = __webpack_require__(7);
 const author_entity_1 = __webpack_require__(8);
-let Post = class Post {
+let Post = exports.Post = class Post {
 };
 __decorate([
     (0, mongoose_1.Prop)({ required: true, type: String }),
@@ -130,10 +128,9 @@ __decorate([
     (0, mongoose_1.Prop)({ required: true, type: mongoose_2.Types.ObjectId, ref: 'Author' }),
     __metadata("design:type", typeof (_a = typeof author_entity_1.AuthorDocument !== "undefined" && author_entity_1.AuthorDocument) === "function" ? _a : Object)
 ], Post.prototype, "author", void 0);
-Post = __decorate([
+exports.Post = Post = __decorate([
     (0, mongoose_1.Schema)({ collection: 'posts' })
 ], Post);
-exports.Post = Post;
 exports.PostSchema = mongoose_1.SchemaFactory.createForClass(Post);
 
 
@@ -162,7 +159,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AuthorSchema = exports.Author = void 0;
 const mongoose_1 = __webpack_require__(5);
 const mongoose_2 = __webpack_require__(7);
-let Author = class Author {
+let Author = exports.Author = class Author {
 };
 __decorate([
     (0, mongoose_1.Prop)({ required: true, type: String }),
@@ -180,10 +177,9 @@ __decorate([
     (0, mongoose_1.Prop)({ type: [{ type: mongoose_2.Types.ObjectId, ref: 'Post' }] }),
     __metadata("design:type", typeof (_a = typeof Array !== "undefined" && Array) === "function" ? _a : Object)
 ], Author.prototype, "posts", void 0);
-Author = __decorate([
+exports.Author = Author = __decorate([
     (0, mongoose_1.Schema)({ collection: 'authors' })
 ], Author);
-exports.Author = Author;
 exports.AuthorSchema = mongoose_1.SchemaFactory.createForClass(Author);
 
 
@@ -211,7 +207,7 @@ const common_1 = __webpack_require__(1);
 const post_add_request_dto_1 = __webpack_require__(10);
 const authors_service_1 = __webpack_require__(13);
 const author_add_request_dto_1 = __webpack_require__(16);
-let AuthorsController = class AuthorsController {
+let AuthorsController = exports.AuthorsController = class AuthorsController {
     constructor(authorsService) {
         this.authorsService = authorsService;
     }
@@ -265,11 +261,10 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], AuthorsController.prototype, "delete", null);
-AuthorsController = __decorate([
+exports.AuthorsController = AuthorsController = __decorate([
     (0, common_1.Controller)('authors'),
     __metadata("design:paramtypes", [typeof (_a = typeof authors_service_1.AuthorsService !== "undefined" && authors_service_1.AuthorsService) === "function" ? _a : Object])
 ], AuthorsController);
-exports.AuthorsController = AuthorsController;
 
 
 /***/ }),
@@ -291,6 +286,7 @@ const class_validator_1 = __webpack_require__(11);
 const validation_messages_constants_1 = __webpack_require__(12);
 class PostAddRequestDTO {
 }
+exports["default"] = PostAddRequestDTO;
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: validation_messages_constants_1.ValidationMessages.IS_NOT_EMPTY }),
     __metadata("design:type", String)
@@ -299,7 +295,6 @@ __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: validation_messages_constants_1.ValidationMessages.IS_NOT_EMPTY }),
     __metadata("design:type", String)
 ], PostAddRequestDTO.prototype, "body", void 0);
-exports["default"] = PostAddRequestDTO;
 
 
 /***/ }),
@@ -349,7 +344,7 @@ const mongoose_2 = __webpack_require__(7);
 const post_response_dto_1 = __webpack_require__(14);
 const author_response_dto_1 = __webpack_require__(15);
 const { ObjectId } = mongoose_2.Types;
-let AuthorsService = AuthorsService_1 = class AuthorsService {
+let AuthorsService = exports.AuthorsService = AuthorsService_1 = class AuthorsService {
     constructor(authorModel, postModel) {
         this.authorModel = authorModel;
         this.postModel = postModel;
@@ -416,13 +411,12 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
         }
     }
 };
-AuthorsService = AuthorsService_1 = __decorate([
+exports.AuthorsService = AuthorsService = AuthorsService_1 = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_1.InjectModel)('Author')),
     __param(1, (0, mongoose_1.InjectModel)('Post')),
     __metadata("design:paramtypes", [typeof (_a = typeof mongoose_2.Model !== "undefined" && mongoose_2.Model) === "function" ? _a : Object, typeof (_b = typeof mongoose_2.Model !== "undefined" && mongoose_2.Model) === "function" ? _b : Object])
 ], AuthorsService);
-exports.AuthorsService = AuthorsService;
 
 
 /***/ }),
@@ -483,6 +477,7 @@ const class_validator_1 = __webpack_require__(11);
 const validation_messages_constants_1 = __webpack_require__(12);
 class AuthorAddRequestDTO {
 }
+exports["default"] = AuthorAddRequestDTO;
 __decorate([
     (0, class_validator_1.IsNotEmpty)({ message: validation_messages_constants_1.ValidationMessages.IS_NOT_EMPTY }),
     __metadata("design:type", String)
@@ -496,7 +491,6 @@ __decorate([
     (0, class_validator_1.IsDateString)({}, { message: validation_messages_constants_1.ValidationMessages.IS_NOT_EMPTY }),
     __metadata("design:type", String)
 ], AuthorAddRequestDTO.prototype, "birthDate", void 0);
-exports["default"] = AuthorAddRequestDTO;
 
 
 /***/ }),
@@ -518,9 +512,9 @@ const author_entity_1 = __webpack_require__(8);
 const post_entity_1 = __webpack_require__(6);
 const posts_controller_1 = __webpack_require__(18);
 const posts_service_1 = __webpack_require__(19);
-let PostsModule = class PostsModule {
+let PostsModule = exports.PostsModule = class PostsModule {
 };
-PostsModule = __decorate([
+exports.PostsModule = PostsModule = __decorate([
     (0, common_1.Module)({
         imports: [
             mongoose_1.MongooseModule.forFeature([
@@ -533,7 +527,6 @@ PostsModule = __decorate([
         exports: [],
     })
 ], PostsModule);
-exports.PostsModule = PostsModule;
 
 
 /***/ }),
@@ -558,7 +551,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PostsController = void 0;
 const common_1 = __webpack_require__(1);
 const posts_service_1 = __webpack_require__(19);
-let PostsController = class PostsController {
+let PostsController = exports.PostsController = class PostsController {
     constructor(postsService) {
         this.postsService = postsService;
     }
@@ -583,11 +576,10 @@ __decorate([
     __metadata("design:paramtypes", [String]),
     __metadata("design:returntype", void 0)
 ], PostsController.prototype, "delete", null);
-PostsController = __decorate([
+exports.PostsController = PostsController = __decorate([
     (0, common_1.Controller)('posts'),
     __metadata("design:paramtypes", [typeof (_a = typeof posts_service_1.PostsService !== "undefined" && posts_service_1.PostsService) === "function" ? _a : Object])
 ], PostsController);
-exports.PostsController = PostsController;
 
 
 /***/ }),
@@ -615,7 +607,7 @@ const common_1 = __webpack_require__(1);
 const post_response_dto_1 = __webpack_require__(14);
 const mongoose_1 = __webpack_require__(5);
 const mongoose_2 = __webpack_require__(7);
-let PostsService = PostsService_1 = class PostsService {
+let PostsService = exports.PostsService = PostsService_1 = class PostsService {
     constructor(authorModel, postModel) {
         this.authorModel = authorModel;
         this.postModel = postModel;
@@ -650,13 +642,12 @@ let PostsService = PostsService_1 = class PostsService {
         }
     }
 };
-PostsService = PostsService_1 = __decorate([
+exports.PostsService = PostsService = PostsService_1 = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_1.InjectModel)('Author')),
     __param(1, (0, mongoose_1.InjectModel)('Post')),
     __metadata("design:paramtypes", [typeof (_a = typeof mongoose_2.Model !== "undefined" && mongoose_2.Model) === "function" ? _a : Object, typeof (_b = typeof mongoose_2.Model !== "undefined" && mongoose_2.Model) === "function" ? _b : Object])
 ], PostsService);
-exports.PostsService = PostsService;
 
 
 /***/ }),
