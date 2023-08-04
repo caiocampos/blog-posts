@@ -18,7 +18,7 @@
 		"web-vitals": "^3.4.0"
 	},
 	"devDependencies": {
-		"prettier": "^3.0.0",
+		"prettier": "^3.0.1",
 		"@types/jest": "^29.5.3",
 		"@types/node": "^20.4.4",
 		"@types/react": "^18.0.9",
