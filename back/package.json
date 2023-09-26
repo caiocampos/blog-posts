@@ -33,7 +33,7 @@
     "mongoose": "^7.5.2",
     "class-transformer": "^0.5.1",
     "reflect-metadata": "^0.1.13",
-    "rimraf": "^5.0.1",
+    "rimraf": "^5.0.4",
     "rxjs": "^7.8.1"
   },
   "devDependencies": {
