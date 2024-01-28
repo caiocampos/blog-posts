@@ -57,10 +57,10 @@
     rc-resize-observer "^1.0.0"
     rc-util "^5.4.0"
 
-"@ant-design/pro-field@2.14.4":
-  version "2.14.4"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-field/-/pro-field-2.14.4.tgz#7b083a61bc7959a5a3c8ef78c5a8cbd690aefe15"
-  integrity sha512-fhNZ30ICxF/E3S0YxfLsUze7B7sMi1Bv6foVQFAUV9juYx2vlJ9CLfE35EjO2covoCSIZ64g89t0zx4lHx12eQ==
+"@ant-design/pro-field@2.14.5":
+  version "2.14.5"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-field/-/pro-field-2.14.5.tgz#ea52322e335362545b258b3aa5ec15857231724d"
+  integrity sha512-v20ikpToPL8d26FV/VAYqkfBHGrFpxHyAyQxqBbCYzb8OuHV42xIU4cMwM59CCcCllZw4dRe0NyPmySgSyEuIQ==
   dependencies:
     "@ant-design/icons" "^5.0.0"
     "@ant-design/pro-provider" "2.13.5"
@@ -74,13 +74,13 @@
     rc-util "^5.4.0"
     swr "^2.0.0"
 
-"@ant-design/pro-form@2.24.0":
-  version "2.24.0"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-form/-/pro-form-2.24.0.tgz#5b967cf19542c5798f8df11dd89741483bf28be2"
-  integrity sha512-8TPO4nWngsQNIMudygMN2a1Li+4yUxFjq5YzKW8Aiui75ENyu/DrWaLtp7JcxQEKzdE+adHqTp47K5Z4KE5B8g==
+"@ant-design/pro-form@2.24.3":
+  version "2.24.3"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-form/-/pro-form-2.24.3.tgz#2545d9f4f3e01257547d65782deba2053d94c64a"
+  integrity sha512-br4YDvAr5RazCN08qUbJEwIxpfiyocALLvg03fG30Gm2igmiETJrahv4TwXYCYlaeeYZcX5ZXsgsJuaD/cFPfQ==
   dependencies:
     "@ant-design/icons" "^5.0.0"
-    "@ant-design/pro-field" "2.14.4"
+    "@ant-design/pro-field" "2.14.5"
     "@ant-design/pro-provider" "2.13.5"
     "@ant-design/pro-utils" "2.15.4"
     "@babel/runtime" "^7.18.0"
@@ -104,15 +104,15 @@
     rc-util "^5.0.1"
     swr "^2.0.0"
 
-"@ant-design/pro-table@^3.13.13":
-  version "3.13.13"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-table/-/pro-table-3.13.13.tgz#4f8264ae843c2384cda6451efaf58a4cfb4b6c64"
-  integrity sha512-IEUbsj+FGChE5XuOCZ+togEdBa0QW26OOUrVaNZL1vWZOZVQSlUqwduux1V/M2fcXvB4gCZyUYXFoh0NBh4emA==
+"@ant-design/pro-table@^3.14.1":
+  version "3.14.1"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-table/-/pro-table-3.14.1.tgz#b773d9e19f563497fd8034feaea84652fb2df711"
+  integrity sha512-uvFgftYOE926OuTKB4ikgP0+5uvECyZFq5xNON2KoO2Sz8HU0xD1dFOsoZp0ULnNXz8GSg00rX+Su6JV5ivl9A==
   dependencies:
     "@ant-design/icons" "^5.0.0"
     "@ant-design/pro-card" "2.5.29"
-    "@ant-design/pro-field" "2.14.4"
-    "@ant-design/pro-form" "2.24.0"
+    "@ant-design/pro-field" "2.14.5"
+    "@ant-design/pro-form" "2.24.3"
     "@ant-design/pro-provider" "2.13.5"
     "@ant-design/pro-utils" "2.15.4"
     "@babel/runtime" "^7.18.0"
