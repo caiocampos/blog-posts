@@ -4,7 +4,7 @@
 	"private": true,
 	"homepage": "/blog-posts",
 	"dependencies": {
-		"@ant-design/pro-table": "^3.13.13",
+		"@ant-design/pro-table": "^3.14.2",
 		"antd": "^5.14.1",
 		"axios": "^1.6.7",
 		"mobx": "^6.12.0",
