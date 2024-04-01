@@ -22,7 +22,7 @@
 		"@types/jest": "^29.5.12",
 		"@types/node": "^20.11.1",
 		"@types/react": "^18.2.71",
-		"@types/react-dom": "^18.2.22",
+		"@types/react-dom": "^18.2.23",
 		"@types/react-router-dom": "^5.3.3",
 		"@testing-library/jest-dom": "^6.4.0",
 		"@testing-library/react": "^14.1.2",
