@@ -30,7 +30,7 @@
     "@nestjs/mongoose": "^10.0.2",
     "@nestjs/platform-express": "^8.4.7",
     "class-validator": "^0.14.1",
-    "mongoose": "^8.2.3",
+    "mongoose": "^8.3.0",
     "class-transformer": "^0.5.1",
     "reflect-metadata": "^0.1.14",
     "rimraf": "^5.0.5",
