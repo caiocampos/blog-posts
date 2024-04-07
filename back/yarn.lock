@@ -989,10 +989,10 @@
     tslib "2.4.0"
     uuid "8.3.2"
 
-"@nestjs/mongoose@^10.0.2":
-  version "10.0.2"
-  resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-10.0.2.tgz#33018e22f0ba03a37ffb30d8b3c6b7cf904894d8"
-  integrity sha512-ITHh075DynjPIaKeJh6WkarS21WXYslu4nrLkNPbWaCP6JfxVAOftaA2X5tPSiiE/gNJWgs+QFWsfCFZUUenow==
+"@nestjs/mongoose@^10.0.5":
+  version "10.0.5"
+  resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-10.0.5.tgz#1acbd2eba6bd04749c536fae424f7970aab60184"
+  integrity sha512-P5vwsT1RiL1+nGXfVMLMnqowkKy/azecSkAlE/0GBjoRJd7diJIJTVgOKCDysIQFtG1qinT3yXhusS1IM2jWBw==
 
 "@nestjs/platform-express@^8.4.7":
   version "8.4.7"
