@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 
 export default class LayoutStore {
-	collapsed = false;
+	collapsed = true;
 
 	constructor() {
 		makeAutoObservable(this);
