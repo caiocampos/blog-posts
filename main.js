@@ -31,16 +31,14 @@ const authors_module_1 = __webpack_require__(4);
 const posts_module_1 = __webpack_require__(17);
 const config_1 = __webpack_require__(20);
 const mongoose_1 = __webpack_require__(5);
-let AppModule = exports.AppModule = class AppModule {
+let AppModule = class AppModule {
 };
+exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
         imports: [
             config_1.ConfigModule.forRoot(),
-            mongoose_1.MongooseModule.forRoot(process.env.MONGO_URI, {
-                useNewUrlParser: true,
-                useUnifiedTopology: true,
-            }),
+            mongoose_1.MongooseModule.forRoot(process.env.MONGO_URI),
             authors_module_1.AuthorsModule,
             posts_module_1.PostsModule,
         ],
@@ -67,8 +65,9 @@ const post_entity_1 = __webpack_require__(6);
 const author_entity_1 = __webpack_require__(8);
 const authors_controller_1 = __webpack_require__(9);
 const authors_service_1 = __webpack_require__(13);
-let AuthorsModule = exports.AuthorsModule = class AuthorsModule {
+let AuthorsModule = class AuthorsModule {
 };
+exports.AuthorsModule = AuthorsModule;
 exports.AuthorsModule = AuthorsModule = __decorate([
     (0, common_1.Module)({
         imports: [
@@ -110,8 +109,9 @@ exports.PostSchema = exports.Post = void 0;
 const mongoose_1 = __webpack_require__(5);
 const mongoose_2 = __webpack_require__(7);
 const author_entity_1 = __webpack_require__(8);
-let Post = exports.Post = class Post {
+let Post = class Post {
 };
+exports.Post = Post;
 __decorate([
     (0, mongoose_1.Prop)({ required: true, type: String }),
     __metadata("design:type", String)
@@ -159,8 +159,9 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AuthorSchema = exports.Author = void 0;
 const mongoose_1 = __webpack_require__(5);
 const mongoose_2 = __webpack_require__(7);
-let Author = exports.Author = class Author {
+let Author = class Author {
 };
+exports.Author = Author;
 __decorate([
     (0, mongoose_1.Prop)({ required: true, type: String }),
     __metadata("design:type", String)
@@ -207,7 +208,7 @@ const common_1 = __webpack_require__(1);
 const post_add_request_dto_1 = __webpack_require__(10);
 const authors_service_1 = __webpack_require__(13);
 const author_add_request_dto_1 = __webpack_require__(16);
-let AuthorsController = exports.AuthorsController = class AuthorsController {
+let AuthorsController = class AuthorsController {
     constructor(authorsService) {
         this.authorsService = authorsService;
     }
@@ -227,6 +228,7 @@ let AuthorsController = exports.AuthorsController = class AuthorsController {
         return this.authorsService.delete(id);
     }
 };
+exports.AuthorsController = AuthorsController;
 __decorate([
     (0, common_1.Get)('count'),
     __metadata("design:type", Function),
@@ -344,7 +346,7 @@ const mongoose_2 = __webpack_require__(7);
 const post_response_dto_1 = __webpack_require__(14);
 const author_response_dto_1 = __webpack_require__(15);
 const { ObjectId } = mongoose_2.Types;
-let AuthorsService = exports.AuthorsService = AuthorsService_1 = class AuthorsService {
+let AuthorsService = AuthorsService_1 = class AuthorsService {
     constructor(authorModel, postModel) {
         this.authorModel = authorModel;
         this.postModel = postModel;
@@ -352,7 +354,7 @@ let AuthorsService = exports.AuthorsService = AuthorsService_1 = class AuthorsSe
     }
     async count() {
         try {
-            return await this.authorModel.count().exec();
+            return await this.authorModel.countDocuments().exec();
         }
         catch (error) {
             throw new common_1.HttpException('Erro ao contar os autores', common_1.HttpStatus.BAD_REQUEST);
@@ -411,6 +413,7 @@ let AuthorsService = exports.AuthorsService = AuthorsService_1 = class AuthorsSe
         }
     }
 };
+exports.AuthorsService = AuthorsService;
 exports.AuthorsService = AuthorsService = AuthorsService_1 = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_1.InjectModel)('Author')),
@@ -512,8 +515,9 @@ const author_entity_1 = __webpack_require__(8);
 const post_entity_1 = __webpack_require__(6);
 const posts_controller_1 = __webpack_require__(18);
 const posts_service_1 = __webpack_require__(19);
-let PostsModule = exports.PostsModule = class PostsModule {
+let PostsModule = class PostsModule {
 };
+exports.PostsModule = PostsModule;
 exports.PostsModule = PostsModule = __decorate([
     (0, common_1.Module)({
         imports: [
@@ -551,7 +555,7 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PostsController = void 0;
 const common_1 = __webpack_require__(1);
 const posts_service_1 = __webpack_require__(19);
-let PostsController = exports.PostsController = class PostsController {
+let PostsController = class PostsController {
     constructor(postsService) {
         this.postsService = postsService;
     }
@@ -562,6 +566,7 @@ let PostsController = exports.PostsController = class PostsController {
         return this.postsService.delete(id);
     }
 };
+exports.PostsController = PostsController;
 __decorate([
     (0, common_1.Get)(),
     __param(0, (0, common_1.Query)('authorName')),
@@ -607,7 +612,7 @@ const common_1 = __webpack_require__(1);
 const post_response_dto_1 = __webpack_require__(14);
 const mongoose_1 = __webpack_require__(5);
 const mongoose_2 = __webpack_require__(7);
-let PostsService = exports.PostsService = PostsService_1 = class PostsService {
+let PostsService = PostsService_1 = class PostsService {
     constructor(authorModel, postModel) {
         this.authorModel = authorModel;
         this.postModel = postModel;
@@ -642,6 +647,7 @@ let PostsService = exports.PostsService = PostsService_1 = class PostsService {
         }
     }
 };
+exports.PostsService = PostsService;
 exports.PostsService = PostsService = PostsService_1 = __decorate([
     (0, common_1.Injectable)(),
     __param(0, (0, mongoose_1.InjectModel)('Author')),
@@ -685,7 +691,7 @@ module.exports = require("@nestjs/config");
 /******/ 	
 /************************************************************************/
 var __webpack_exports__ = {};
-// This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
+// This entry need to be wrapped in an IIFE because it uses a non-standard name for the exports (exports).
 (() => {
 var exports = __webpack_exports__;
 
