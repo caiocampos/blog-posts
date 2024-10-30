@@ -1,5 +1,5 @@
-import { IAddAuthorRequestDTO, IAuthor } from 'modules/authors/interfaces/author.interface';
-import { axiosInstance } from 'services';
+import { IAddAuthorRequestDTO, IAuthor } from '@/modules/authors/interfaces/author.interface';
+import { axiosInstance } from '@/services';
 
 export default class AuthorService {
 	static getAll = async (): Promise<Array<IAuthor>> => {

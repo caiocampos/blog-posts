@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import MainStore from 'common/stores/main-store';
+import MainStore from '@/common/stores/main-store';
 import { IAddPostRequestDTO, IPost } from './interfaces/post.interface';
 import PostService from './post-service';
 

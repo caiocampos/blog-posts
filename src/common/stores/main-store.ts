@@ -1,7 +1,7 @@
 import { makeAutoObservable } from 'mobx';
 import LayoutStore from './layout-store';
-import PostStore from 'modules/posts/post-store';
-import AuthorStore from 'modules/authors/author-store';
+import PostStore from '@/modules/posts/post-store';
+import AuthorStore from '@/modules/authors/author-store';
 
 export default class MainStore {
 	error: string | null = null;
@@ -23,7 +23,7 @@ export default class MainStore {
 	};
 
 	setErrorFromAxios = (error: unknown): void => {
-		console.warn(error);
+		console.warn("request error", error);
 		this.error = getErrorMessage(error);
 	};
 

@@ -1,16 +1,22 @@
 import { ReactNode } from 'react';
 import { observer } from 'mobx-react-lite';
-import { Layout as AntLayout, PageHeader, Menu, Modal } from 'antd';
-import { ConfigProvider } from 'antd';
+import { Layout as AntLayout, Menu, Modal, ConfigProvider } from 'antd';
 import ptBR from 'antd/es/locale/pt_BR';
+import { PageHeader } from '@ant-design/pro-layout';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { pages, IPages, IPage } from 'routing/router-path';
-import useStores from 'common/hooks/use-stores';
+import { pages, IPages, IPage } from '@/routing/router-path';
+import useStores from '@/common/hooks/use-stores';
 import classes from './layout.module.scss';
 
 const { Content, Sider } = AntLayout;
 
-const _Layout = ({
+const menuItems = Object.values(pages).map(({ icon: Icon, path, name }: IPage) => ({
+	label: name,
+	key: path,
+	icon: <Icon />
+}));
+
+const Layout = ({
 	children,
 	title,
 	subtitle,
@@ -37,17 +43,17 @@ const _Layout = ({
 			<AntLayout className={`${classes.Page} ${className}`} {...rest}>
 				<Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>
 					<div className={classes.Logo} />
-					<Menu theme="dark" selectedKeys={[page.id]} mode="inline">
-						{Object.values(pages).map(({ id, icon: Icon, path, name }: IPage) => (
-							<Menu.Item key={id} icon={<Icon />} onClick={() => navigate(path)}>
-								{name}
-							</Menu.Item>
-						))}
-					</Menu>
+					<Menu
+						theme="dark"
+						selectedKeys={[page.id]}
+						mode="inline"
+						items={menuItems}
+						onClick={({ key }) => navigate(key)}
+					/>
 				</Sider>
 				<AntLayout>
 					<PageHeader title={title} subTitle={subtitle}>
-						<Modal title="Basic Modal" visible={!!error} onOk={clearError} onCancel={clearError}>
+						<Modal title="Erro!" open={error !== null} onOk={clearError} onCancel={clearError}>
 							{error}
 						</Modal>
 						<Content className={classes.Content}>{children}</Content>
@@ -58,6 +64,6 @@ const _Layout = ({
 	);
 };
 
-const Layout = observer(_Layout);
+const LayoutObserver = observer(Layout);
 
-export default Layout;
+export default LayoutObserver;

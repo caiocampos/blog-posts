@@ -1,4 +1,4 @@
-import { IPost } from 'modules/posts/interfaces/post.interface';
+import { IPost } from '@/modules/posts/interfaces/post.interface';
 
 export interface IAddAuthorRequestDTO {
 	name: string;

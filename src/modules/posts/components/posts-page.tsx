@@ -1,9 +1,9 @@
 import { useCallback, useEffect, useState } from 'react';
 import { List, Button, Input } from 'antd';
-import { ReloadOutlined } from '@ant-design/icons';
+import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
 import { observer } from 'mobx-react-lite';
-import Layout from 'components/layout';
-import useStores from 'common/hooks/use-stores';
+import Layout from '@/components/layout';
+import useStores from '@/common/hooks/use-stores';
 import EditPost from './edit-post';
 import { IAddPostRequestDTO, IPost } from '../interfaces/post.interface';
 import PostCard from './post-card';
@@ -11,7 +11,7 @@ import classes from './posts-page.module.scss';
 
 const { Search } = Input;
 
-const _Posts = () => {
+const Posts = () => {
 	const { posts } = useStores();
 	const [isLoading, setIsLoading] = useState(false);
 	const [needReload, setNeedReload] = useState(true);
@@ -57,7 +57,6 @@ const _Posts = () => {
 		},
 		[posts]
 	);
-
 	return (
 		<Layout title="Postagens" className={classes.PostsPage}>
 			<List
@@ -95,8 +94,8 @@ const _Posts = () => {
 						title={title}
 						body={body}
 						creationDate={creationDate}
-						authorName={author.name}
-						authorNickname={author.nickname}
+						authorName={author?.name}
+						authorNickname={author?.nickname}
 						deletePost={deletePost}
 					/>
 				)}
@@ -105,6 +104,6 @@ const _Posts = () => {
 	);
 };
 
-const Posts = observer(_Posts);
+const PostsObserver = observer(Posts);
 
-export default Posts;
+export default PostsObserver;

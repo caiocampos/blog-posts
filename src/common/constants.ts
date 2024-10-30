@@ -1,4 +1,4 @@
-import { SearchConfig } from '@ant-design/pro-table/lib/components/Form/FormRender';
+import { SearchConfig } from '@ant-design/pro-table/es/components/Form/FormRender';
 
 type DateFormatter = false | 'string' | 'number' | undefined;
 type Search = false | SearchConfig | undefined;

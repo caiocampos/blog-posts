@@ -1,4 +1,4 @@
-import { IAuthor } from 'modules/authors/interfaces/author.interface';
+import { IAuthor } from '@/modules/authors/interfaces/author.interface';
 
 export interface IAddPostRequestDTO {
 	title: string;
@@ -7,8 +7,6 @@ export interface IAddPostRequestDTO {
 
 export interface IPost extends IAddPostRequestDTO {
 	id: string;
-	title: string;
-	body: string;
 	creationDate: string;
 	author: IAuthor;
 }

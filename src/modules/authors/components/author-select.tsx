@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
 import { Select } from 'antd';
 import { observer } from 'mobx-react-lite';
-import useStores from 'common/hooks/use-stores';
+import useStores from '@/common/hooks/use-stores';
 
 interface Option {
 	label: string;
 	value: string;
 }
 
-const _AuthorSelect = ({ onChange, ...rest }: { onChange?: (authorId: string) => void }) => {
+const AuthorSelect = ({ onChange, ...rest }: { onChange?: (authorId: string) => void }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [options, setOptions] = useState<Option[]>([]);
 	const {
@@ -36,6 +36,6 @@ const _AuthorSelect = ({ onChange, ...rest }: { onChange?: (authorId: string) =>
 	return <Select loading={isLoading} {...rest} options={options} onChange={onChange} />;
 };
 
-const AuthorSelect = observer(_AuthorSelect);
+const AuthorSelectObserver = observer(AuthorSelect);
 
-export default AuthorSelect;
+export default AuthorSelectObserver;

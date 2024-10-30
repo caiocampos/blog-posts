@@ -1,5 +1,5 @@
 import { makeAutoObservable } from 'mobx';
-import MainStore from 'common/stores/main-store';
+import MainStore from '@/common/stores/main-store';
 import AuthorService from './author-service';
 import { IAddAuthorRequestDTO, IAuthor } from './interfaces/author.interface';
 

@@ -1,6 +1,6 @@
 import { Tooltip, Button, Popconfirm } from 'antd';
 import { ProColumns } from '@ant-design/pro-table';
-import { DeleteOutlined } from '@ant-design/icons';
+import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 
 const baseAuthorColumns: Array<ProColumns> = [
 	{

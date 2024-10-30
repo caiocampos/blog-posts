@@ -1,5 +1,6 @@
 import { ExoticComponent } from 'react';
-import { FileOutlined, UserOutlined } from '@ant-design/icons';
+import FileOutlined from '@ant-design/icons/FileOutlined';
+import UserOutlined from '@ant-design/icons/UserOutlined';
 
 export enum RouterPath {
 	HOME = '/',

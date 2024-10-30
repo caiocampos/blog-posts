@@ -1,9 +1,16 @@
 import { useState } from 'react';
 import { Form, Input, Button, Modal } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import { IAddAuthorRequestDTO } from '../interfaces/author.interface';
-import CustomDatePicker from 'components/custom-date-picker';
-import { formLayout, formTailLayout, requiredRule } from 'common/constants';
+import CustomDatePicker from '@/components/custom-date-picker';
+import { formLayout, formTailLayout, requiredRule } from '@/common/constants';
+import type { Dayjs } from 'dayjs';
+
+export interface IAuthor {
+	name: string;
+	nickname: string;
+	birthDate: Dayjs;
+}
 
 const EditAuthor = ({
 	onSubmit,
@@ -17,10 +24,9 @@ const EditAuthor = ({
 	const [isInserting, setIsInserting] = useState(false);
 	const [form] = Form.useForm();
 
-	const onFinish = async (valuefieldsValues: any) => {
+	const onFinish = async (valuefieldsValues: IAuthor) => {
 		setIsInserting(true);
-		let values = valuefieldsValues;
-		values = { ...values, birthDate: values.birthDate.format('YYYY-MM-DD') };
+		const values = { ...valuefieldsValues, birthDate: valuefieldsValues.birthDate.format('YYYY-MM-DD') };
 		await onSubmit(values);
 		setIsInserting(false);
 		setIsModalVisible(false);
@@ -41,7 +47,7 @@ const EditAuthor = ({
 			<Button type="primary" onClick={openModal} icon={<PlusOutlined />} className={className} {...rest}>
 				Novo
 			</Button>
-			<Modal title="Novo Author" visible={isModalVisible} footer={null} onCancel={() => setIsModalVisible(false)}>
+			<Modal title="Novo Author" open={isModalVisible} footer={null} onCancel={() => setIsModalVisible(false)}>
 				<Form {...formLayout} form={form} name="control-hooks" onFinish={onFinish}>
 					<Form.Item name="name" label="Nome" rules={requiredRule}>
 						<Input />

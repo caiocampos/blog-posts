@@ -1,11 +1,17 @@
 import { useState } from 'react';
 import { Form, Input, Button, Modal } from 'antd';
-import { PlusOutlined } from '@ant-design/icons';
+import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import { IAddPostRequestDTO } from '../interfaces/post.interface';
-import AuthorSelect from 'modules/authors/components/author-select';
-import { formLayout, formTailLayout, requiredRule } from 'common/constants';
+import AuthorSelect from '@/modules/authors/components/author-select';
+import { formLayout, formTailLayout, requiredRule } from '@/common/constants';
 
 const { TextArea } = Input;
+
+export interface IPost {
+	author: string
+	title: string;
+	body: string;
+}
 
 const EditPost = ({
 	onSubmit,
@@ -19,7 +25,7 @@ const EditPost = ({
 	const [isInserting, setIsInserting] = useState(false);
 	const [form] = Form.useForm();
 
-	const onFinish = async (valuefieldsValues: any) => {
+	const onFinish = async (valuefieldsValues: IPost) => {
 		setIsInserting(true);
 		const values = { title: valuefieldsValues.title, body: valuefieldsValues.body };
 		await onSubmit(valuefieldsValues.author, values);
@@ -44,7 +50,7 @@ const EditPost = ({
 			</Button>
 			<Modal
 				title="Nova Postagem"
-				visible={isModalVisible}
+				open={isModalVisible}
 				footer={null}
 				onCancel={() => setIsModalVisible(false)}
 			>

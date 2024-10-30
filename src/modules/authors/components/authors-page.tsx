@@ -2,14 +2,14 @@ import { useCallback, useMemo, useRef } from 'react';
 import ProTable from '@ant-design/pro-table';
 import type { ActionType } from '@ant-design/pro-table';
 import { observer } from 'mobx-react-lite';
-import Layout from 'components/layout';
-import useStores from 'common/hooks/use-stores';
+import Layout from '@/components/layout';
+import useStores from '@/common/hooks/use-stores';
 import { IAddAuthorRequestDTO } from '../interfaces/author.interface';
 import EditAuthor from './edit-author';
 import { getAuthorColumns } from './author-columns';
-import { defaultProTableProps } from 'common/constants';
+import { defaultProTableProps } from '@/common/constants';
 
-const _Authors = () => {
+const Authors = () => {
 	const { authors } = useStores();
 	const actionRef = useRef<ActionType>();
 
@@ -54,6 +54,6 @@ const _Authors = () => {
 	);
 };
 
-const Authors = observer(_Authors);
+const AuthorsObserver = observer(Authors);
 
-export default Authors;
+export default AuthorsObserver;

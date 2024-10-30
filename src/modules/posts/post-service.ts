@@ -1,4 +1,4 @@
-import { axiosInstance } from 'services';
+import { axiosInstance } from '@/services';
 import { IAddPostRequestDTO, IPost } from './interfaces/post.interface';
 
 export default class PostService {

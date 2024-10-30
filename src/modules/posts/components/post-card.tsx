@@ -1,5 +1,5 @@
 import { Card, Popconfirm, Tooltip, Button } from 'antd';
-import { DeleteOutlined } from '@ant-design/icons';
+import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import classes from './post-card.module.scss';
 
 const PostCard = ({
@@ -17,8 +17,8 @@ const PostCard = ({
 	title: string;
 	body: string;
 	creationDate: string;
-	authorName: String;
-	authorNickname: String;
+	authorName: string;
+	authorNickname: string;
 	deletePost: (id: string) => Promise<void>;
 	className?: string;
 }) => (

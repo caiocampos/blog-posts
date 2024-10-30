@@ -22,7 +22,7 @@ export class AuthorsService {
 
   async count(): Promise<number> {
     try {
-      return await this.authorModel.count().exec();
+      return await this.authorModel.countDocuments().exec();
     } catch (error) {
       throw new HttpException(
         'Erro ao contar os autores',
