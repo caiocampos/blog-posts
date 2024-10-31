@@ -8,7 +8,7 @@ export class PostsController {
 
   @Get()
   findAll(
-    @Query('authorName') authorName: string,
+    @Query('authorName') authorName?: string,
   ): Promise<Array<PostResponseDTO>> {
     return this.postsService.findAll(authorName);
   }

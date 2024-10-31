@@ -14,7 +14,7 @@ export class PostsService {
     @InjectModel('Post') private postModel: Model<PostDocument>,
   ) {}
 
-  async findAll(authorName: string): Promise<Array<PostResponseDTO>> {
+  async findAll(authorName?: string): Promise<Array<PostResponseDTO>> {
     try {
       let query = this.postModel.find();
       if (authorName) {

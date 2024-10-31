@@ -5,7 +5,7 @@ import { Model, Types } from 'mongoose';
 import PostAddRequestDTO from '../posts/dto/post-add-request.dto';
 import PostResponseDTO from '../posts/dto/post-response.dto';
 import { Post, PostDocument } from '../posts/post.entity';
-import { Author, AuthorDocument } from './author.entity';
+import { AuthorDocument } from './author.entity';
 import AuthorAddRequestDTO from './dto/author-add-request.dto';
 import AuthorResponseDTO from './dto/author-response.dto';
 
@@ -87,6 +87,7 @@ export class AuthorsService {
   async delete(id: string) {
     try {
       const _id = new ObjectId(id);
+      await this.postModel.deleteMany({ author: { $eq: _id } }).exec();
       return await this.authorModel.findByIdAndDelete(_id).exec();
     } catch (error) {
       throw new HttpException('Erro ao apagar o autor', HttpStatus.BAD_REQUEST);
