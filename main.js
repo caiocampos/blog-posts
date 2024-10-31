@@ -406,6 +406,7 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
     async delete(id) {
         try {
             const _id = new ObjectId(id);
+            await this.postModel.deleteMany({ author: { $eq: _id } }).exec();
             return await this.authorModel.findByIdAndDelete(_id).exec();
         }
         catch (error) {
