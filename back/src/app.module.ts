@@ -1,15 +1,8 @@
 import { Module } from '@nestjs/common';
-import { AuthorsModule } from './modules/authors/authors.module';
-import { PostsModule } from './modules/posts/posts.module';
 import { ConfigModule } from '@nestjs/config';
-import { MongooseModule } from '@nestjs/mongoose';
+import { moduleList } from './modules-expose';
 
 @Module({
-  imports: [
-    ConfigModule.forRoot(),
-    MongooseModule.forRoot(process.env.MONGO_URI),
-    AuthorsModule,
-    PostsModule,
-  ],
+  imports: [ConfigModule.forRoot(), ...moduleList],
 })
 export class AppModule {}

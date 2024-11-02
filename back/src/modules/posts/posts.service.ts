@@ -1,8 +1,8 @@
 import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
-import { PostDocument } from './post.entity';
-import PostResponseDTO from './dto/post-response.dto';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
+import { PostDocument } from './post.entity';
+import PostResponseDTO from './dto/post-response.dto';
 import { AuthorDocument } from '../authors/author.entity';
 
 @Injectable()
