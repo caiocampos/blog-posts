@@ -4,4 +4,4 @@
 [![Deploy Front-end](https://github.com/caiocampos/blog-posts/actions/workflows/deploy.yml/badge.svg)](https://github.com/caiocampos/asteroid-score/actions/workflows/deploy.yml)
 [![License](https://img.shields.io/github/license/caiocampos/blog-posts.svg)](LICENSE)
 
-Página de postagens usando React, NestJS, Mongoose e MongoDB 
+Página de postagens usando React, NestJS e MongoDB (Mongoose)
