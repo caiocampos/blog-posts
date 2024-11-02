@@ -56,7 +56,7 @@ exports.moduleList = void 0;
 const mongoose_1 = __webpack_require__(6);
 const authors_module_1 = __webpack_require__(7);
 const posts_module_1 = __webpack_require__(20);
-const mongoose_connection_1 = __webpack_require__(19);
+const mongoose_connection_1 = __webpack_require__(18);
 exports.moduleList = [
     mongoose_1.MongooseModule.forRoot((_a = process.env.MONGO_URI_BLOG) !== null && _a !== void 0 ? _a : process.env.MONGO_URI, {
         connectionName: mongoose_connection_1.connectionName,
@@ -91,7 +91,7 @@ const post_entity_1 = __webpack_require__(8);
 const author_entity_1 = __webpack_require__(10);
 const authors_controller_1 = __webpack_require__(11);
 const authors_service_1 = __webpack_require__(15);
-const mongoose_connection_1 = __webpack_require__(19);
+const mongoose_connection_1 = __webpack_require__(18);
 let AuthorsModule = class AuthorsModule {
 };
 exports.AuthorsModule = AuthorsModule;
@@ -228,7 +228,7 @@ exports.AuthorsController = void 0;
 const common_1 = __webpack_require__(1);
 const post_add_request_dto_1 = __webpack_require__(12);
 const authors_service_1 = __webpack_require__(15);
-const author_add_request_dto_1 = __webpack_require__(18);
+const author_add_request_dto_1 = __webpack_require__(19);
 let AuthorsController = class AuthorsController {
     constructor(authorsService) {
         this.authorsService = authorsService;
@@ -365,7 +365,10 @@ const mongoose_1 = __webpack_require__(6);
 const class_validator_1 = __webpack_require__(13);
 const mongoose_2 = __webpack_require__(9);
 const post_response_dto_1 = __webpack_require__(16);
+const post_entity_1 = __webpack_require__(8);
+const author_entity_1 = __webpack_require__(10);
 const author_response_dto_1 = __webpack_require__(17);
+const mongoose_connection_1 = __webpack_require__(18);
 const { ObjectId } = mongoose_2.Types;
 let AuthorsService = AuthorsService_1 = class AuthorsService {
     constructor(authorModel, postModel) {
@@ -438,8 +441,8 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
 exports.AuthorsService = AuthorsService;
 exports.AuthorsService = AuthorsService = AuthorsService_1 = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_1.InjectModel)('Author')),
-    __param(1, (0, mongoose_1.InjectModel)('Post')),
+    __param(0, (0, mongoose_1.InjectModel)(author_entity_1.Author.name, mongoose_connection_1.connectionName)),
+    __param(1, (0, mongoose_1.InjectModel)(post_entity_1.Post.name, mongoose_connection_1.connectionName)),
     __metadata("design:paramtypes", [typeof (_a = typeof mongoose_2.Model !== "undefined" && mongoose_2.Model) === "function" ? _a : Object, typeof (_b = typeof mongoose_2.Model !== "undefined" && mongoose_2.Model) === "function" ? _b : Object])
 ], AuthorsService);
 
@@ -485,6 +488,16 @@ exports["default"] = AuthorResponseDTO;
 
 /***/ }),
 /* 18 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.connectionName = void 0;
+exports.connectionName = 'blog-posts';
+
+
+/***/ }),
+/* 19 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -519,16 +532,6 @@ __decorate([
 
 
 /***/ }),
-/* 19 */
-/***/ ((__unused_webpack_module, exports) => {
-
-
-Object.defineProperty(exports, "__esModule", ({ value: true }));
-exports.connectionName = void 0;
-exports.connectionName = 'blog-posts';
-
-
-/***/ }),
 /* 20 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
@@ -547,7 +550,7 @@ const author_entity_1 = __webpack_require__(10);
 const post_entity_1 = __webpack_require__(8);
 const posts_controller_1 = __webpack_require__(21);
 const posts_service_1 = __webpack_require__(22);
-const mongoose_connection_1 = __webpack_require__(19);
+const mongoose_connection_1 = __webpack_require__(18);
 let PostsModule = class PostsModule {
 };
 exports.PostsModule = PostsModule;
@@ -647,7 +650,7 @@ const mongoose_2 = __webpack_require__(9);
 const post_entity_1 = __webpack_require__(8);
 const post_response_dto_1 = __webpack_require__(16);
 const author_entity_1 = __webpack_require__(10);
-const mongoose_connection_1 = __webpack_require__(19);
+const mongoose_connection_1 = __webpack_require__(18);
 let PostsService = PostsService_1 = class PostsService {
     constructor(authorModel, postModel) {
         this.authorModel = authorModel;
