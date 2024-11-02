@@ -5,9 +5,10 @@ import { Model, Types } from 'mongoose';
 import PostAddRequestDTO from '../posts/dto/post-add-request.dto';
 import PostResponseDTO from '../posts/dto/post-response.dto';
 import { Post, PostDocument } from '../posts/post.entity';
-import { AuthorDocument } from './author.entity';
+import { Author, AuthorDocument } from './author.entity';
 import AuthorAddRequestDTO from './dto/author-add-request.dto';
 import AuthorResponseDTO from './dto/author-response.dto';
+import { connectionName } from '../../mongoose-connection';
 
 const { ObjectId } = Types;
 
@@ -16,8 +17,8 @@ export class AuthorsService {
   private readonly logger = new Logger(AuthorsService.name);
 
   constructor(
-    @InjectModel('Author') private authorModel: Model<AuthorDocument>,
-    @InjectModel('Post') private postModel: Model<PostDocument>,
+    @InjectModel(Author.name, connectionName) private authorModel: Model<AuthorDocument>,
+    @InjectModel(Post.name, connectionName) private postModel: Model<PostDocument>,
   ) {}
 
   async count(): Promise<number> {
