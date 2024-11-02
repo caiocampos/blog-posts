@@ -27,27 +27,53 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AppModule = void 0;
 const common_1 = __webpack_require__(1);
-const authors_module_1 = __webpack_require__(4);
-const posts_module_1 = __webpack_require__(17);
-const config_1 = __webpack_require__(20);
-const mongoose_1 = __webpack_require__(5);
+const config_1 = __webpack_require__(4);
+const modules_expose_1 = __webpack_require__(5);
 let AppModule = class AppModule {
 };
 exports.AppModule = AppModule;
 exports.AppModule = AppModule = __decorate([
     (0, common_1.Module)({
-        imports: [
-            config_1.ConfigModule.forRoot(),
-            mongoose_1.MongooseModule.forRoot(process.env.MONGO_URI),
-            authors_module_1.AuthorsModule,
-            posts_module_1.PostsModule,
-        ],
+        imports: [config_1.ConfigModule.forRoot(), ...modules_expose_1.moduleList],
     })
 ], AppModule);
 
 
 /***/ }),
 /* 4 */
+/***/ ((module) => {
+
+module.exports = require("@nestjs/config");
+
+/***/ }),
+/* 5 */
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+
+
+var _a;
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.moduleList = void 0;
+const mongoose_1 = __webpack_require__(6);
+const authors_module_1 = __webpack_require__(7);
+const posts_module_1 = __webpack_require__(20);
+const mongoose_connection_1 = __webpack_require__(19);
+exports.moduleList = [
+    mongoose_1.MongooseModule.forRoot((_a = process.env.MONGO_URI_BLOG) !== null && _a !== void 0 ? _a : process.env.MONGO_URI, {
+        connectionName: mongoose_connection_1.connectionName,
+    }),
+    authors_module_1.AuthorsModule,
+    posts_module_1.PostsModule,
+];
+
+
+/***/ }),
+/* 6 */
+/***/ ((module) => {
+
+module.exports = require("@nestjs/mongoose");
+
+/***/ }),
+/* 7 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -60,11 +86,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AuthorsModule = void 0;
 const common_1 = __webpack_require__(1);
-const mongoose_1 = __webpack_require__(5);
-const post_entity_1 = __webpack_require__(6);
-const author_entity_1 = __webpack_require__(8);
-const authors_controller_1 = __webpack_require__(9);
-const authors_service_1 = __webpack_require__(13);
+const mongoose_1 = __webpack_require__(6);
+const post_entity_1 = __webpack_require__(8);
+const author_entity_1 = __webpack_require__(10);
+const authors_controller_1 = __webpack_require__(11);
+const authors_service_1 = __webpack_require__(15);
+const mongoose_connection_1 = __webpack_require__(19);
 let AuthorsModule = class AuthorsModule {
 };
 exports.AuthorsModule = AuthorsModule;
@@ -74,7 +101,7 @@ exports.AuthorsModule = AuthorsModule = __decorate([
             mongoose_1.MongooseModule.forFeature([
                 { name: 'Author', schema: author_entity_1.AuthorSchema },
                 { name: 'Post', schema: post_entity_1.PostSchema },
-            ]),
+            ], mongoose_connection_1.connectionName),
         ],
         providers: [authors_service_1.AuthorsService],
         controllers: [authors_controller_1.AuthorsController],
@@ -84,13 +111,7 @@ exports.AuthorsModule = AuthorsModule = __decorate([
 
 
 /***/ }),
-/* 5 */
-/***/ ((module) => {
-
-module.exports = require("@nestjs/mongoose");
-
-/***/ }),
-/* 6 */
+/* 8 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -106,9 +127,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PostSchema = exports.Post = void 0;
-const mongoose_1 = __webpack_require__(5);
-const mongoose_2 = __webpack_require__(7);
-const author_entity_1 = __webpack_require__(8);
+const mongoose_1 = __webpack_require__(6);
+const mongoose_2 = __webpack_require__(9);
+const author_entity_1 = __webpack_require__(10);
 let Post = class Post {
 };
 exports.Post = Post;
@@ -135,13 +156,13 @@ exports.PostSchema = mongoose_1.SchemaFactory.createForClass(Post);
 
 
 /***/ }),
-/* 7 */
+/* 9 */
 /***/ ((module) => {
 
 module.exports = require("mongoose");
 
 /***/ }),
-/* 8 */
+/* 10 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -157,8 +178,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var _a;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AuthorSchema = exports.Author = void 0;
-const mongoose_1 = __webpack_require__(5);
-const mongoose_2 = __webpack_require__(7);
+const mongoose_1 = __webpack_require__(6);
+const mongoose_2 = __webpack_require__(9);
 let Author = class Author {
 };
 exports.Author = Author;
@@ -185,7 +206,7 @@ exports.AuthorSchema = mongoose_1.SchemaFactory.createForClass(Author);
 
 
 /***/ }),
-/* 9 */
+/* 11 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -205,9 +226,9 @@ var _a, _b, _c, _d, _e, _f, _g;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AuthorsController = void 0;
 const common_1 = __webpack_require__(1);
-const post_add_request_dto_1 = __webpack_require__(10);
-const authors_service_1 = __webpack_require__(13);
-const author_add_request_dto_1 = __webpack_require__(16);
+const post_add_request_dto_1 = __webpack_require__(12);
+const authors_service_1 = __webpack_require__(15);
+const author_add_request_dto_1 = __webpack_require__(18);
 let AuthorsController = class AuthorsController {
     constructor(authorsService) {
         this.authorsService = authorsService;
@@ -270,7 +291,7 @@ exports.AuthorsController = AuthorsController = __decorate([
 
 
 /***/ }),
-/* 10 */
+/* 12 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -284,8 +305,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const class_validator_1 = __webpack_require__(11);
-const validation_messages_constants_1 = __webpack_require__(12);
+const class_validator_1 = __webpack_require__(13);
+const validation_messages_constants_1 = __webpack_require__(14);
 class PostAddRequestDTO {
 }
 exports["default"] = PostAddRequestDTO;
@@ -300,13 +321,13 @@ __decorate([
 
 
 /***/ }),
-/* 11 */
+/* 13 */
 /***/ ((module) => {
 
 module.exports = require("class-validator");
 
 /***/ }),
-/* 12 */
+/* 14 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -319,7 +340,7 @@ exports.ValidationMessages = Object.freeze({
 
 
 /***/ }),
-/* 13 */
+/* 15 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -340,11 +361,11 @@ var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AuthorsService = void 0;
 const common_1 = __webpack_require__(1);
-const mongoose_1 = __webpack_require__(5);
-const class_validator_1 = __webpack_require__(11);
-const mongoose_2 = __webpack_require__(7);
-const post_response_dto_1 = __webpack_require__(14);
-const author_response_dto_1 = __webpack_require__(15);
+const mongoose_1 = __webpack_require__(6);
+const class_validator_1 = __webpack_require__(13);
+const mongoose_2 = __webpack_require__(9);
+const post_response_dto_1 = __webpack_require__(16);
+const author_response_dto_1 = __webpack_require__(17);
 const { ObjectId } = mongoose_2.Types;
 let AuthorsService = AuthorsService_1 = class AuthorsService {
     constructor(authorModel, postModel) {
@@ -424,12 +445,12 @@ exports.AuthorsService = AuthorsService = AuthorsService_1 = __decorate([
 
 
 /***/ }),
-/* 14 */
+/* 16 */
 /***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const author_response_dto_1 = __webpack_require__(15);
+const author_response_dto_1 = __webpack_require__(17);
 class PostResponseDTO {
     constructor(id, title, body, creationDate, author) {
         this.id = id;
@@ -444,7 +465,7 @@ exports["default"] = PostResponseDTO;
 
 
 /***/ }),
-/* 15 */
+/* 17 */
 /***/ ((__unused_webpack_module, exports) => {
 
 
@@ -463,7 +484,7 @@ exports["default"] = AuthorResponseDTO;
 
 
 /***/ }),
-/* 16 */
+/* 18 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -477,8 +498,8 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const class_validator_1 = __webpack_require__(11);
-const validation_messages_constants_1 = __webpack_require__(12);
+const class_validator_1 = __webpack_require__(13);
+const validation_messages_constants_1 = __webpack_require__(14);
 class AuthorAddRequestDTO {
 }
 exports["default"] = AuthorAddRequestDTO;
@@ -498,7 +519,17 @@ __decorate([
 
 
 /***/ }),
-/* 17 */
+/* 19 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.connectionName = void 0;
+exports.connectionName = 'blog-posts';
+
+
+/***/ }),
+/* 20 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -511,11 +542,12 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PostsModule = void 0;
 const common_1 = __webpack_require__(1);
-const mongoose_1 = __webpack_require__(5);
-const author_entity_1 = __webpack_require__(8);
-const post_entity_1 = __webpack_require__(6);
-const posts_controller_1 = __webpack_require__(18);
-const posts_service_1 = __webpack_require__(19);
+const mongoose_1 = __webpack_require__(6);
+const author_entity_1 = __webpack_require__(10);
+const post_entity_1 = __webpack_require__(8);
+const posts_controller_1 = __webpack_require__(21);
+const posts_service_1 = __webpack_require__(22);
+const mongoose_connection_1 = __webpack_require__(19);
 let PostsModule = class PostsModule {
 };
 exports.PostsModule = PostsModule;
@@ -525,7 +557,7 @@ exports.PostsModule = PostsModule = __decorate([
             mongoose_1.MongooseModule.forFeature([
                 { name: 'Author', schema: author_entity_1.AuthorSchema },
                 { name: 'Post', schema: post_entity_1.PostSchema },
-            ]),
+            ], mongoose_connection_1.connectionName),
         ],
         providers: [posts_service_1.PostsService],
         controllers: [posts_controller_1.PostsController],
@@ -535,7 +567,7 @@ exports.PostsModule = PostsModule = __decorate([
 
 
 /***/ }),
-/* 18 */
+/* 21 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -555,7 +587,7 @@ var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PostsController = void 0;
 const common_1 = __webpack_require__(1);
-const posts_service_1 = __webpack_require__(19);
+const posts_service_1 = __webpack_require__(22);
 let PostsController = class PostsController {
     constructor(postsService) {
         this.postsService = postsService;
@@ -589,7 +621,7 @@ exports.PostsController = PostsController = __decorate([
 
 
 /***/ }),
-/* 19 */
+/* 22 */
 /***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
@@ -610,9 +642,9 @@ var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PostsService = void 0;
 const common_1 = __webpack_require__(1);
-const post_response_dto_1 = __webpack_require__(14);
-const mongoose_1 = __webpack_require__(5);
-const mongoose_2 = __webpack_require__(7);
+const mongoose_1 = __webpack_require__(6);
+const mongoose_2 = __webpack_require__(9);
+const post_response_dto_1 = __webpack_require__(16);
 let PostsService = PostsService_1 = class PostsService {
     constructor(authorModel, postModel) {
         this.authorModel = authorModel;
@@ -656,12 +688,6 @@ exports.PostsService = PostsService = PostsService_1 = __decorate([
     __metadata("design:paramtypes", [typeof (_a = typeof mongoose_2.Model !== "undefined" && mongoose_2.Model) === "function" ? _a : Object, typeof (_b = typeof mongoose_2.Model !== "undefined" && mongoose_2.Model) === "function" ? _b : Object])
 ], PostsService);
 
-
-/***/ }),
-/* 20 */
-/***/ ((module) => {
-
-module.exports = require("@nestjs/config");
 
 /***/ })
 /******/ 	]);
