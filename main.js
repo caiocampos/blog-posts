@@ -99,8 +99,8 @@ exports.AuthorsModule = AuthorsModule = __decorate([
     (0, common_1.Module)({
         imports: [
             mongoose_1.MongooseModule.forFeature([
-                { name: 'Author', schema: author_entity_1.AuthorSchema },
-                { name: 'Post', schema: post_entity_1.PostSchema },
+                { name: author_entity_1.Author.name, schema: author_entity_1.AuthorSchema },
+                { name: post_entity_1.Post.name, schema: post_entity_1.PostSchema },
             ], mongoose_connection_1.connectionName),
         ],
         providers: [authors_service_1.AuthorsService],
