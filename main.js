@@ -644,7 +644,10 @@ exports.PostsService = void 0;
 const common_1 = __webpack_require__(1);
 const mongoose_1 = __webpack_require__(6);
 const mongoose_2 = __webpack_require__(9);
+const post_entity_1 = __webpack_require__(8);
 const post_response_dto_1 = __webpack_require__(16);
+const author_entity_1 = __webpack_require__(10);
+const mongoose_connection_1 = __webpack_require__(19);
 let PostsService = PostsService_1 = class PostsService {
     constructor(authorModel, postModel) {
         this.authorModel = authorModel;
@@ -683,8 +686,8 @@ let PostsService = PostsService_1 = class PostsService {
 exports.PostsService = PostsService;
 exports.PostsService = PostsService = PostsService_1 = __decorate([
     (0, common_1.Injectable)(),
-    __param(0, (0, mongoose_1.InjectModel)('Author')),
-    __param(1, (0, mongoose_1.InjectModel)('Post')),
+    __param(0, (0, mongoose_1.InjectModel)(author_entity_1.Author.name, mongoose_connection_1.connectionName)),
+    __param(1, (0, mongoose_1.InjectModel)(post_entity_1.Post.name, mongoose_connection_1.connectionName)),
     __metadata("design:paramtypes", [typeof (_a = typeof mongoose_2.Model !== "undefined" && mongoose_2.Model) === "function" ? _a : Object, typeof (_b = typeof mongoose_2.Model !== "undefined" && mongoose_2.Model) === "function" ? _b : Object])
 ], PostsService);
 
