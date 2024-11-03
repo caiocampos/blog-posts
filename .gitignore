@@ -22,5 +22,6 @@ yarn-error.log*
 =======
 # Local
 .env
+.env*
 dist
 build

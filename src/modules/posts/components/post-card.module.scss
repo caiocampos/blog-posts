@@ -28,11 +28,14 @@
 
 			.ant-card-head-title {
 				text-align: center;
+				white-space: pre-wrap;
+				overflow: auto;
+				text-overflow: initial;
 			}
 		}
 
 		.ant-card-body {
-			white-space: pre;
+			white-space: pre-wrap;
 		}
 	}
 }
