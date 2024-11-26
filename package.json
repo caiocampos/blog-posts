@@ -15,7 +15,7 @@
 		"@ant-design/pro-layout": "^7.21",
 		"@ant-design/pro-table": "^3.18",
 		"antd": "^5.22",
-		"axios": "^1.7.7",
+		"axios": "^1.7.8",
 		"mobx": "^6.13",
 		"mobx-react-lite": "^4.0",
 		"react": "^18.3",
