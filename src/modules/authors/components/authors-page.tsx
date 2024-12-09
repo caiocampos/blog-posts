@@ -11,7 +11,7 @@ import { defaultProTableProps } from '@/common/constants';
 
 const Authors = () => {
 	const { authors } = useStores();
-	const actionRef = useRef<ActionType>();
+	const actionRef = useRef<ActionType>(undefined);
 
 	const requestAuthors = useCallback(async () => {
 		const authorsResult = await authors.getAll();

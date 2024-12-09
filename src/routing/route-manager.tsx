@@ -1,3 +1,4 @@
+import { JSX } from 'react';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Posts from '@/modules/posts/components/posts-page';
 import Authors from '@/modules/authors/components/authors-page';
@@ -23,7 +24,7 @@ const router = createBrowserRouter(
 			element: <EmptyRoute />
 		}
 	],
-	{ basename: import.meta.env.BASE_URL ?? "" }
+	{ basename: import.meta.env.BASE_URL ?? '' }
 );
 
 export const RouteManager = (): JSX.Element => <RouterProvider router={router} />;
