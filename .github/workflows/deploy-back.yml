@@ -26,10 +26,10 @@ jobs:
         cache: 'npm'
     - name: Install
       working-directory: ./back
-      run: npm install
+      run: yarn install
     - name: Build
       working-directory: ./back
-      run: npm run build:full --if-present
+      run: yarn run build:full
     - name: Deploy
       uses: JamesIves/github-pages-deploy-action@v4
       with:
