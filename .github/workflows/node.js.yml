@@ -27,10 +27,10 @@ jobs:
     - name: Install
       run: yarn install
     - name: Build
-      run: yarn build --if-present
+      run: yarn build
     - name: Install back
       working-directory: ./back
       run: yarn install
     - name: Build back
       working-directory: ./back
-      run: yarn build --if-present
+      run: yarn build
