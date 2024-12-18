@@ -264,6 +264,7 @@ __decorate([
 ], AuthorsController.prototype, "findAll", null);
 __decorate([
     (0, common_1.Post)(),
+    (0, common_1.HttpCode)(201),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [typeof (_d = typeof author_add_request_dto_1.default !== "undefined" && author_add_request_dto_1.default) === "function" ? _d : Object]),
@@ -271,6 +272,7 @@ __decorate([
 ], AuthorsController.prototype, "add", null);
 __decorate([
     (0, common_1.Post)(':id/posts'),
+    (0, common_1.HttpCode)(201),
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
