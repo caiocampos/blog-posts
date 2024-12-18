@@ -1,4 +1,12 @@
-import { Body, Controller, Delete, Get, Param, Post } from '@nestjs/common';
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  Param,
+  Post,
+} from '@nestjs/common';
 import PostAddRequestDTO from '../posts/dto/post-add-request.dto';
 import PostResponseDTO from '../posts/dto/post-response.dto';
 import { AuthorsService } from './authors.service';
@@ -20,11 +28,13 @@ export class AuthorsController {
   }
 
   @Post()
+  @HttpCode(201)
   add(@Body() requestDto: AuthorAddRequestDTO): Promise<AuthorResponseDTO> {
     return this.authorsService.add(requestDto);
   }
 
   @Post(':id/posts')
+  @HttpCode(201)
   addPost(
     @Param('id') id: string,
     @Body() requestDto: PostAddRequestDTO,
