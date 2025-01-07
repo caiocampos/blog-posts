@@ -12,7 +12,7 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"@ant-design/pro-layout": "^7.21",
+		"@ant-design/pro-layout": "^7.22",
 		"@ant-design/pro-table": "^3.18",
 		"antd": "^5.22",
 		"axios": "^1.7.9",

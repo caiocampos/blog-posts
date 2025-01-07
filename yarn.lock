@@ -107,15 +107,15 @@
     rc-resize-observer "^1.1.0"
     rc-util "^5.0.6"
 
-"@ant-design/pro-layout@^7.21":
-  version "7.21.2"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-layout/-/pro-layout-7.21.2.tgz#8acc2187c514cd2e8500efcb4e4c35c26b164735"
-  integrity sha512-dtqap5YNDrxUWxhi43QJQSv1JLHYPCV4/h4cFM10HNiX/86Cxw37DiCOMdIM/ZwWk619BiwN7CJNgL5Q8obrAQ==
+"@ant-design/pro-layout@^7.22":
+  version "7.22.0"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-layout/-/pro-layout-7.22.0.tgz#db4185b2067468ab97feee6715e199aae23fd028"
+  integrity sha512-PS+vZT1RkBbmS4qNT1opX0E1SRMj4T8IteHMrqHCfkJLAt9xDdIy5ETimFBnDRUfFxwfo6YOUgof2qEvZGx7fw==
   dependencies:
     "@ant-design/cssinjs" "^1.21.1"
     "@ant-design/icons" "^5.0.0"
-    "@ant-design/pro-provider" "2.15.2"
-    "@ant-design/pro-utils" "2.16.2"
+    "@ant-design/pro-provider" "2.15.3"
+    "@ant-design/pro-utils" "2.16.3"
     "@babel/runtime" "^7.18.0"
     "@umijs/route-utils" "^4.0.0"
     "@umijs/use-params" "^1.0.9"
@@ -123,7 +123,7 @@
     lodash "^4.17.21"
     lodash-es "^4.17.21"
     omit.js "^2.0.2"
-    path-to-regexp "8.0.0"
+    path-to-regexp "8.2.0"
     rc-resize-observer "^1.1.0"
     rc-util "^5.0.6"
     swr "^2.0.0"
@@ -133,6 +133,18 @@
   version "2.15.2"
   resolved "https://registry.yarnpkg.com/@ant-design/pro-provider/-/pro-provider-2.15.2.tgz#965aa54222eea476ee06e9b1eb0c1c081c252cde"
   integrity sha512-7WSJcjYIuLwco1YiiSgEEJnrqvg7x/YZap8pxOChRnyNh9S3HuV1D5HTc18kfHTpWqZWTAUcS66b0kMP96uKrw==
+  dependencies:
+    "@ant-design/cssinjs" "^1.21.1"
+    "@babel/runtime" "^7.18.0"
+    "@ctrl/tinycolor" "^3.4.0"
+    dayjs "^1.11.10"
+    rc-util "^5.0.1"
+    swr "^2.0.0"
+
+"@ant-design/pro-provider@2.15.3":
+  version "2.15.3"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-provider/-/pro-provider-2.15.3.tgz#f0cc4272a2170ce6b9dcb69bf209fb5c4ee5446b"
+  integrity sha512-jUBCuRrhAXNMumSZ++704/zEg/7U1k2N3jMVBgtirvVaCAk5O9iZQKK4W3O3LRFc+D8yO16sXjsxhawvdGL4cA==
   dependencies:
     "@ant-design/cssinjs" "^1.21.1"
     "@babel/runtime" "^7.18.0"
@@ -173,6 +185,22 @@
   dependencies:
     "@ant-design/icons" "^5.0.0"
     "@ant-design/pro-provider" "2.15.2"
+    "@babel/runtime" "^7.18.0"
+    classnames "^2.3.2"
+    dayjs "^1.11.10"
+    lodash "^4.17.21"
+    lodash-es "^4.17.21"
+    rc-util "^5.0.6"
+    safe-stable-stringify "^2.4.3"
+    swr "^2.0.0"
+
+"@ant-design/pro-utils@2.16.3":
+  version "2.16.3"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-utils/-/pro-utils-2.16.3.tgz#ff434ab428615520bc99d2a2d282f47e1bc97362"
+  integrity sha512-uNjKh51v/SUlCJbWfhg2lRQB/TB0MyNMCQkFZ8mZBQ2rk3Ew47Sly6VssVVWMjIWBLE+g9fOgPg0C1IVeilIXA==
+  dependencies:
+    "@ant-design/icons" "^5.0.0"
+    "@ant-design/pro-provider" "2.15.3"
     "@babel/runtime" "^7.18.0"
     classnames "^2.3.2"
     dayjs "^1.11.10"
@@ -1720,10 +1748,10 @@ path-key@^3.1.0:
   resolved "https://registry.yarnpkg.com/path-key/-/path-key-3.1.1.tgz#581f6ade658cbba65a0d3380de7753295054f375"
   integrity sha512-ojmeN0qd+y0jszEtoY48r0Peq5dwMEkIlCOu6Q5f41lfkswXuKtYrhgoTpLnyIcHm24Uhqx+5Tqm2InSwLhE6Q==
 
-path-to-regexp@8.0.0:
-  version "8.0.0"
-  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-8.0.0.tgz#92076ec6b2eaf08be7c3233484142c05e8866cf5"
-  integrity sha512-GAWaqWlTjYK/7SVpIUA6CTxmcg65SP30sbjdCvyYReosRkk7Z/LyHWwkK3Vu0FcIi0FNTADUs4eh1AsU5s10cg==
+path-to-regexp@8.2.0:
+  version "8.2.0"
+  resolved "https://registry.yarnpkg.com/path-to-regexp/-/path-to-regexp-8.2.0.tgz#73990cc29e57a3ff2a0d914095156df5db79e8b4"
+  integrity sha512-TdrF7fW9Rphjq4RjrW0Kp2AW0Ahwu9sRGTkS6bvDi0SCwZlEZYmcfDbEsTz8RVk0EHIS/Vd1bv3JhG+1xZuAyQ==
 
 picocolors@^1.1.1:
   version "1.1.1"
