@@ -129,18 +129,6 @@
     swr "^2.0.0"
     warning "^4.0.3"
 
-"@ant-design/pro-provider@2.15.2":
-  version "2.15.2"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-provider/-/pro-provider-2.15.2.tgz#965aa54222eea476ee06e9b1eb0c1c081c252cde"
-  integrity sha512-7WSJcjYIuLwco1YiiSgEEJnrqvg7x/YZap8pxOChRnyNh9S3HuV1D5HTc18kfHTpWqZWTAUcS66b0kMP96uKrw==
-  dependencies:
-    "@ant-design/cssinjs" "^1.21.1"
-    "@babel/runtime" "^7.18.0"
-    "@ctrl/tinycolor" "^3.4.0"
-    dayjs "^1.11.10"
-    rc-util "^5.0.1"
-    swr "^2.0.0"
-
 "@ant-design/pro-provider@2.15.3":
   version "2.15.3"
   resolved "https://registry.yarnpkg.com/@ant-design/pro-provider/-/pro-provider-2.15.3.tgz#f0cc4272a2170ce6b9dcb69bf209fb5c4ee5446b"
@@ -177,22 +165,6 @@
     omit.js "^2.0.2"
     rc-resize-observer "^1.0.0"
     rc-util "^5.0.1"
-
-"@ant-design/pro-utils@2.16.2":
-  version "2.16.2"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-utils/-/pro-utils-2.16.2.tgz#d23ae1e192515cbc26a6b7b7a83da247f5d1ecd3"
-  integrity sha512-ama73ZSzz9O6Qz6DvHd6cnyUA3vI7N+AAl5BV5plijujtnXpNC8KJMXl9jOI1K7QuUVJgJIKbZ2DVm8LnBcTAQ==
-  dependencies:
-    "@ant-design/icons" "^5.0.0"
-    "@ant-design/pro-provider" "2.15.2"
-    "@babel/runtime" "^7.18.0"
-    classnames "^2.3.2"
-    dayjs "^1.11.10"
-    lodash "^4.17.21"
-    lodash-es "^4.17.21"
-    rc-util "^5.0.6"
-    safe-stable-stringify "^2.4.3"
-    swr "^2.0.0"
 
 "@ant-design/pro-utils@2.16.3":
   version "2.16.3"
@@ -2394,9 +2366,9 @@ typescript-eslint@^8.19:
     "@typescript-eslint/utils" "8.19.1"
 
 typescript@^5.7:
-  version "5.7.2"
-  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.7.2.tgz#3169cf8c4c8a828cde53ba9ecb3d2b1d5dd67be6"
-  integrity sha512-i5t66RHxDvVN40HfDd1PsEThGNnlMCMT3jMUuoh9/0TaqWevNontacunWyN02LA9/fIbEWlcHZcgTKb9QoaLfg==
+  version "5.7.3"
+  resolved "https://registry.yarnpkg.com/typescript/-/typescript-5.7.3.tgz#919b44a7dbb8583a9b856d162be24a54bf80073e"
+  integrity sha512-84MVSjMEHP+FQRPy3pX9sTVV/INIex71s9TL2Gm5FG/WG1SqXeKyZ0k7/blY/4FdOzI12CBy1vGc4og/eus0fw==
 
 undici-types@~6.20.0:
   version "6.20.0"
