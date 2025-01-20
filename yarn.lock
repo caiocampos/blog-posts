@@ -2389,9 +2389,9 @@ use-sync-external-store@^1.2.0, use-sync-external-store@^1.4.0:
   integrity sha512-9WXSPC5fMv61vaupRkCKCxsPxBocVnwakBEkMIHHpkTTg6icbJtg6jzgtLDm4bl3cSHAca52rYWih0k4K3PfHw==
 
 vite@^6.0:
-  version "6.0.7"
-  resolved "https://registry.yarnpkg.com/vite/-/vite-6.0.7.tgz#f0f8c120733b04af52b4a1e3e7cb54eb851a799b"
-  integrity sha512-RDt8r/7qx9940f8FcOIAH9PTViRrghKaK2K1jY3RaAURrEUbm9Du1mJ72G+jlhtG3WwodnfzY8ORQZbBavZEAQ==
+  version "6.0.8"
+  resolved "https://registry.yarnpkg.com/vite/-/vite-6.0.8.tgz#b906338d09e2c329b095669766e0905a13eaad0b"
+  integrity sha512-rJmB+6m3Qmo5nssFmm6hbSvaCS+5tH/iuTJYeHEOHMwqu/DPrjjBs1rlecCo4D0qy5xq506hMpkKx6pKaudUxA==
   dependencies:
     esbuild "^0.24.2"
     postcss "^8.4.49"
