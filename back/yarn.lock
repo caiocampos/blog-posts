@@ -939,10 +939,10 @@
     path-to-regexp "3.3.0"
     tslib "2.8.1"
 
-"@nestjs/mongoose@^10.1":
-  version "10.1.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-10.1.0.tgz#4785219cae6792341da4a1a26727ca39208ef08d"
-  integrity sha512-1ExAnZUfh2QffEaGjqYGgVPy/sYBQCVLCLqVgkcClKx/BCd0QNgND8MB70lwyobp3nm/+nbGQqBpu9F3/hgOCw==
+"@nestjs/mongoose@^11.0":
+  version "11.0.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-11.0.0.tgz#64f844d7774363b3dd1e7c93a5d5bca97f4a37bf"
+  integrity sha512-dp0J6ZCp8tvkI9MDDLtxyMCh0HGGr6Bg+nNAsT0TpeiHVJIDAPQ5dIteA+EIoS2pm7tyNPBRyZKKv04r/BCzPA==
 
 "@nestjs/platform-express@^10.4":
   version "10.4.15"
