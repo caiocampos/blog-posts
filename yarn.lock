@@ -105,9 +105,9 @@
     rc-util "^5.0.6"
 
 "@ant-design/pro-layout@^7.22":
-  version "7.22.1"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-layout/-/pro-layout-7.22.1.tgz#4dfcd1fdf57f67bb7ae223787b8c9c9eea6b800d"
-  integrity sha512-aOwdd/u/yz/0ZHPDpnoVUIDGneZUDw62lCo3C4s6o0SGQrCOkYvY0efG4yLC4RA8eSFvXwnMt5pB7ii7f46KLQ==
+  version "7.22.2"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-layout/-/pro-layout-7.22.2.tgz#028ddc2e3796bec00aaa7dd7db649e73c187005f"
+  integrity sha512-RlXqN+EVnF1Sup84O0IjS/vMMgwFnbBZwvR+GVnmZg/+cIa4/BDTXyhbb1KRwUqzn1ctDzj7JfbWOWqmGMw6yA==
   dependencies:
     "@ant-design/cssinjs" "^1.21.1"
     "@ant-design/icons" "^5.0.0"
