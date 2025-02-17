@@ -105,14 +105,14 @@
     rc-util "^5.0.6"
 
 "@ant-design/pro-layout@^7.22":
-  version "7.22.2"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-layout/-/pro-layout-7.22.2.tgz#028ddc2e3796bec00aaa7dd7db649e73c187005f"
-  integrity sha512-RlXqN+EVnF1Sup84O0IjS/vMMgwFnbBZwvR+GVnmZg/+cIa4/BDTXyhbb1KRwUqzn1ctDzj7JfbWOWqmGMw6yA==
+  version "7.22.3"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-layout/-/pro-layout-7.22.3.tgz#0b4b93f16674f59ac0214a65362857968a3e2f92"
+  integrity sha512-di/EOMDuoMDRjBweqesYyCxEYr2LCmO82y6A4bSwmmJ6ehxN7HGC73Wx4RuBkzDR7kHLTOXt7WxI6875ENT8mg==
   dependencies:
     "@ant-design/cssinjs" "^1.21.1"
     "@ant-design/icons" "^5.0.0"
     "@ant-design/pro-provider" "2.15.3"
-    "@ant-design/pro-utils" "2.16.3"
+    "@ant-design/pro-utils" "2.16.4"
     "@babel/runtime" "^7.18.0"
     "@umijs/route-utils" "^4.0.0"
     "@umijs/use-params" "^1.0.9"
