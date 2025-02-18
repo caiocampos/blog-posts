@@ -161,22 +161,6 @@
     rc-resize-observer "^1.0.0"
     rc-util "^5.0.1"
 
-"@ant-design/pro-utils@2.16.3":
-  version "2.16.3"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-utils/-/pro-utils-2.16.3.tgz#ff434ab428615520bc99d2a2d282f47e1bc97362"
-  integrity sha512-uNjKh51v/SUlCJbWfhg2lRQB/TB0MyNMCQkFZ8mZBQ2rk3Ew47Sly6VssVVWMjIWBLE+g9fOgPg0C1IVeilIXA==
-  dependencies:
-    "@ant-design/icons" "^5.0.0"
-    "@ant-design/pro-provider" "2.15.3"
-    "@babel/runtime" "^7.18.0"
-    classnames "^2.3.2"
-    dayjs "^1.11.10"
-    lodash "^4.17.21"
-    lodash-es "^4.17.21"
-    rc-util "^5.0.6"
-    safe-stable-stringify "^2.4.3"
-    swr "^2.0.0"
-
 "@ant-design/pro-utils@2.16.4":
   version "2.16.4"
   resolved "https://registry.yarnpkg.com/@ant-design/pro-utils/-/pro-utils-2.16.4.tgz#d6d93e85d52f481965a8d704f7785c6c529aba7c"
@@ -890,9 +874,9 @@
   integrity sha512-0Knk+HJiMP/qOZgMyNFamlIjw9OFCsyC2ZbigmEEyXXixgre6IQpm/4V+r3qH4GC1JPvRJKInw+on2rV6YZLeA==
 
 "@types/react@^19.0":
-  version "19.0.9"
-  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.0.9.tgz#675255eb7d978bdaf71f9d08f6b740d41b0b7f32"
-  integrity sha512-FedNTYgmMwSZmD1Sru/W1gJKuiYCN/3SuBkmZkcxX+FpO5zL76B22A9YNfAKg4HQO3Neh/30AiynP6BELdU0qQ==
+  version "19.0.10"
+  resolved "https://registry.yarnpkg.com/@types/react/-/react-19.0.10.tgz#d0c66dafd862474190fe95ce11a68de69ed2b0eb"
+  integrity sha512-JuRQ9KXLEjaUNjTWpzuR231Z2WpIwczOkBEIvbHNCzQefFIT0L8IqE6NV6ULLyC1SI/i234JnDoMkfg+RjQj2g==
   dependencies:
     csstype "^3.0.2"
 
