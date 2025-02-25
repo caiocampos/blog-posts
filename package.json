@@ -23,7 +23,7 @@
 		"react-router-dom": "^7.2"
 	},
 	"devDependencies": {
-		"@eslint/js": "^9.20",
+		"@eslint/js": "^9.21",
 		"@types/node": "^22.13",
 		"@types/react": "^19.0",
 		"@types/react-dom": "^19.0",
