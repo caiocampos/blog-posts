@@ -11,7 +11,7 @@
     "@nestjs/mongoose": "^11.0",
     "@nestjs/platform-express": "^10.4",
     "class-validator": "^0.14.1",
-    "mongoose": "^8.10.2",
+    "mongoose": "^8.11.0",
     "class-transformer": "^0.5.1",
     "reflect-metadata": "^0.2.2",
     "rimraf": "^6.0.1",
