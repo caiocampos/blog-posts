@@ -1,5 +1,5 @@
 .Page {
-	min-height: 100vh;
+	min-height: 100dvh;
 
 	.Logo {
 		width: 100%;
@@ -21,6 +21,16 @@
 
 			button {
 				margin: 0 0.3rem;
+			}
+		}
+	}
+}
+
+:global {
+	.ant-modal-root {
+		.ant-form-item {
+			button {
+				margin: 0 0.1rem;
 			}
 		}
 	}

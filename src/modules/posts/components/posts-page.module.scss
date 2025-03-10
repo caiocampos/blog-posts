@@ -18,16 +18,24 @@
 	}
 
 	:global {
-		.ant-layout-content {
-			.ant-list {
-				background-color: white;
+		.ant-layout {
+			min-width: 100%;
 
-				.ant-list-header {
-					margin: 0.3rem;
+			.ant-layout-content {
+				.ant-pro-card {
+					min-width: 320px;
 				}
 
-				.ant-list-items {
-					padding: 0.3rem;
+				.ant-list {
+					background-color: white;
+
+					.ant-list-header {
+						margin: 0.3rem;
+					}
+
+					.ant-list-items {
+						padding: 0.3rem;
+					}
 				}
 			}
 		}

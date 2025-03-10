@@ -8,6 +8,7 @@ import { IAddAuthorRequestDTO } from '../interfaces/author.interface';
 import EditAuthor from './edit-author';
 import { getAuthorColumns } from './author-columns';
 import { defaultProTableProps } from '@/common/constants';
+import classes from './authors-page.module.scss';
 
 const Authors = () => {
 	const { authors } = useStores();
@@ -40,7 +41,7 @@ const Authors = () => {
 	const columns = useMemo(() => getAuthorColumns(deleteAuthor), [deleteAuthor]);
 
 	return (
-		<Layout title="Autores">
+		<Layout title="Autores" className={classes.AuthorsPage}>
 			<ProTable
 				{...defaultProTableProps}
 				actionRef={actionRef}

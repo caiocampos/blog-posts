@@ -1,0 +1,13 @@
+.AuthorsPage {
+	:global {
+		.ant-layout {
+			min-width: 100%;
+
+			.ant-layout-content {
+				.ant-pro-card {
+					min-width: 320px;
+				}
+			}
+		}
+	}
+}
