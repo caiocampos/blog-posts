@@ -1038,9 +1038,9 @@
     tslib "2.8.1"
 
 "@nestjs/mongoose@^11.0":
-  version "11.0.2"
-  resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-11.0.2.tgz#d54de43c663c43d88a352b466327b9077b1b1bab"
-  integrity sha512-AnDQhxkjigBHOPhiszgaWbGXNl04BNNGHuODnXoRwTpu4mZ8A3MnrBhKkoShmXzlgty617fAOYnPGPETw/JteQ==
+  version "11.0.3"
+  resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-11.0.3.tgz#8278f0c5b76a7a0b7ac780f0c85341e5ce69eb9c"
+  integrity sha512-tg7bbKD4MnNMPaiDLXK/JUyTNQxIn3rNnI+oYU1HorLpNiR2E8vPraWVvfptpIj+zferpT6LkrHMvtqvuIKNPw==
 
 "@nestjs/platform-express@^10.4":
   version "10.4.15"
