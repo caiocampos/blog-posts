@@ -13,7 +13,7 @@
 	},
 	"dependencies": {
 		"@ant-design/pro-layout": "^7.22",
-		"@ant-design/pro-table": "^3.18",
+		"@ant-design/pro-table": "^3.19",
 		"antd": "^5.24",
 		"axios": "^1.8.4",
 		"mobx": "^6.13",
