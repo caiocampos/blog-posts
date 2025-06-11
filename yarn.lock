@@ -105,14 +105,14 @@
     rc-util "^5.0.6"
 
 "@ant-design/pro-layout@^7.22":
-  version "7.22.4"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-layout/-/pro-layout-7.22.4.tgz#62eef0164314d579c710ddb0d752420efe583414"
-  integrity sha512-X2WO4L2itXemX4zhS+0NG+8kXQD5SX9sG+zjx/15BmIO3FvsUGqOHgoCg0vhd424EiyPj7WtdMZJ39G1xdgDwA==
+  version "7.22.6"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-layout/-/pro-layout-7.22.6.tgz#6c0bd6c9c7b29275fad54ed4757a9751d6ddeb44"
+  integrity sha512-4DGK9nZ7B0FGVpJkMCUDrksBhTHc/pg72BMOBguqMOZCdsuEuJAyIl12eYK8gasGcbYtHzjvdYCamR+TJR8Low==
   dependencies:
     "@ant-design/cssinjs" "^1.21.1"
     "@ant-design/icons" "^5.0.0"
-    "@ant-design/pro-provider" "2.15.4"
-    "@ant-design/pro-utils" "2.17.0"
+    "@ant-design/pro-provider" "2.16.1"
+    "@ant-design/pro-utils" "2.17.2"
     "@babel/runtime" "^7.18.0"
     "@umijs/route-utils" "^4.0.0"
     "@umijs/use-params" "^1.0.9"
@@ -125,10 +125,10 @@
     swr "^2.0.0"
     warning "^4.0.3"
 
-"@ant-design/pro-provider@2.15.4":
-  version "2.15.4"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-provider/-/pro-provider-2.15.4.tgz#ad8cb72e6dc9e64a63b02d4a18386a72e247a151"
-  integrity sha512-DBX0JNUNOYXAucVqd/zTdqtXckCDqr2Lo85KIku2YzWdhptDPDZRTNqL04JShjGejDl8fzwQ8yREHgVUfzn6Gg==
+"@ant-design/pro-provider@2.16.0":
+  version "2.16.0"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-provider/-/pro-provider-2.16.0.tgz#331f2536b208d0cd40a50ae79066f775b5c17c7c"
+  integrity sha512-IZeLrbHfpKA8sgQcR1UspZeSD7ne1ZReyBMPP28Zha4Tc6ojIu6pCMJv2JLuAuh5gvSVqWON7/YWwa9XYbUS1w==
   dependencies:
     "@ant-design/cssinjs" "^1.21.1"
     "@babel/runtime" "^7.18.0"
@@ -137,10 +137,10 @@
     rc-util "^5.0.1"
     swr "^2.0.0"
 
-"@ant-design/pro-provider@2.16.0":
-  version "2.16.0"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-provider/-/pro-provider-2.16.0.tgz#331f2536b208d0cd40a50ae79066f775b5c17c7c"
-  integrity sha512-IZeLrbHfpKA8sgQcR1UspZeSD7ne1ZReyBMPP28Zha4Tc6ojIu6pCMJv2JLuAuh5gvSVqWON7/YWwa9XYbUS1w==
+"@ant-design/pro-provider@2.16.1":
+  version "2.16.1"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-provider/-/pro-provider-2.16.1.tgz#1132faa138332da6e56ff7e83d9075ddaf40a3ae"
+  integrity sha512-9kSiptgoEybRleajA9KiMqnGqLTbIGdm7TDclBS4QGGrjkHfcXDw+GruiDwghOHvTwTkZT98Xttvw4w1XfrS+g==
   dependencies:
     "@ant-design/cssinjs" "^1.21.1"
     "@babel/runtime" "^7.18.0"
@@ -173,13 +173,13 @@
     rc-resize-observer "^1.0.0"
     rc-util "^5.0.1"
 
-"@ant-design/pro-utils@2.17.0":
-  version "2.17.0"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-utils/-/pro-utils-2.17.0.tgz#154d248fd65c5ef351ed5d262af54d471e54a408"
-  integrity sha512-hHKUISjMEoS+E5ltJWyvNTrlEA3IimZNxtDrEhorRIbgVYAlmEN5Mj/ESSofzDM3+UlxiI5+A/Y6IHkByTfDEA==
+"@ant-design/pro-utils@2.17.1":
+  version "2.17.1"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-utils/-/pro-utils-2.17.1.tgz#87cfc607a998ad21240b2f78f4c5f3ad1e2f5d97"
+  integrity sha512-H4V69XVeGoUbUu3RXVCZSWqiax5KtbrdGWJMDX4oE4Oq5Kzp59qzCxGQzTLZYXy4TdB+/s5xkCRfdGUfdgYLvA==
   dependencies:
     "@ant-design/icons" "^5.0.0"
-    "@ant-design/pro-provider" "2.15.4"
+    "@ant-design/pro-provider" "2.16.0"
     "@babel/runtime" "^7.18.0"
     classnames "^2.3.2"
     dayjs "^1.11.10"
@@ -189,13 +189,13 @@
     safe-stable-stringify "^2.4.3"
     swr "^2.0.0"
 
-"@ant-design/pro-utils@2.17.1":
-  version "2.17.1"
-  resolved "https://registry.yarnpkg.com/@ant-design/pro-utils/-/pro-utils-2.17.1.tgz#87cfc607a998ad21240b2f78f4c5f3ad1e2f5d97"
-  integrity sha512-H4V69XVeGoUbUu3RXVCZSWqiax5KtbrdGWJMDX4oE4Oq5Kzp59qzCxGQzTLZYXy4TdB+/s5xkCRfdGUfdgYLvA==
+"@ant-design/pro-utils@2.17.2":
+  version "2.17.2"
+  resolved "https://registry.yarnpkg.com/@ant-design/pro-utils/-/pro-utils-2.17.2.tgz#f0a1ecabf4354737dafe4630cea22f514d8e32d0"
+  integrity sha512-DE7H14nfmdTyPwmJA1mgxHzcedOHSBYpTcqCvEAooK8fi8yXpcwpUs7XuUTeFHPj1gHYl/17X8Mzc3ngB8s63Q==
   dependencies:
     "@ant-design/icons" "^5.0.0"
-    "@ant-design/pro-provider" "2.16.0"
+    "@ant-design/pro-provider" "2.16.1"
     "@babel/runtime" "^7.18.0"
     classnames "^2.3.2"
     dayjs "^1.11.10"
