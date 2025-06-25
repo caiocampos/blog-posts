@@ -27,13 +27,6 @@ export default defineConfig({
 			public: resolve(__dirname, './public')
 		}
 	},
-	css: {
-		preprocessorOptions: {
-			scss: {
-				api: 'modern-compiler'
-			}
-		}
-	},
 	build: {
 		chunkSizeWarningLimit: 1000,
 		rollupOptions: {
