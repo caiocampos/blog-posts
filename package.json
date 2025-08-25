@@ -28,7 +28,7 @@
 		"@types/react": "^19.1",
 		"@types/react-dom": "^19.1",
 		"@vitejs/plugin-react-swc": "^4.0",
-		"eslint": "^9.33",
+		"eslint": "^9.34",
 		"eslint-plugin-react-hooks": "^5.2",
 		"eslint-plugin-react-refresh": "^0.4",
 		"globals": "^16.3",
