@@ -30,7 +30,7 @@
 		"@vitejs/plugin-react-swc": "^4.0",
 		"eslint": "^9.38",
 		"eslint-plugin-react-hooks": "^7.1",
-		"eslint-plugin-react-refresh": "^0.4",
+		"eslint-plugin-react-refresh": "^0.5",
 		"globals": "^17.6",
 		"prettier": "^3.6",
 		"typescript": "^5.9",
