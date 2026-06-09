@@ -1282,9 +1282,9 @@
     lodash "4.18.1"
 
 "@nestjs/core@^11.1":
-  version "11.1.25"
-  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-11.1.25.tgz#f8722c5ce66c14f42eea600551885b446141d3f6"
-  integrity sha512-tkpoJlSB1CPGWHzEw3AyiUZhazngzhzKw14DbF9Rb5Ny50GP0zV6diTFkahob+HqzDDVjK/2DTt41OMFa4lK5w==
+  version "11.1.26"
+  resolved "https://registry.yarnpkg.com/@nestjs/core/-/core-11.1.26.tgz#db28b97c7cdba4b06b262e78b73516b5ad5a4033"
+  integrity sha512-K45zUwYpowEsVqm8qNIzsMcl4LJev0MK9zVhDnmym7YRTJ2/caslqVeKYhPRd5+Fh81IkvWUVu6vEo46uZ5mgQ==
   dependencies:
     uid "2.0.2"
     fast-safe-stringify "2.1.1"
