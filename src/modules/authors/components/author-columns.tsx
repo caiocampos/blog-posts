@@ -1,4 +1,4 @@
-import { Tooltip, Button, Popconfirm } from 'antd';
+import { Tooltip, Button, Popconfirm } from '@/common/components/antd';
 import { ProColumns } from '@ant-design/pro-table';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 

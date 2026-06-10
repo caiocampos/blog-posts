@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, Input, Button, Modal } from 'antd';
+import { Form, Input, Button, Modal } from '@/common/components/antd';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import { IAddAuthorRequestDTO } from '../interfaces/author.interface';
 import CustomDatePicker from '@/components/custom-date-picker';

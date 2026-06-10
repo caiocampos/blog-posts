@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { List, Button, Input } from 'antd';
+import { List, Button, Input } from '@/common/components/antd';
 import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
 import { observer } from 'mobx-react-lite';
 import Layout from '@/components/layout';

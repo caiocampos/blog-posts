@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Form, Input, Button, Modal } from 'antd';
+import { Form, Input, Button, Modal } from '@/common/components/antd';
 import PlusOutlined from '@ant-design/icons/PlusOutlined';
 import { IAddPostRequestDTO } from '../interfaces/post.interface';
 import AuthorSelect from '@/modules/authors/components/author-select';

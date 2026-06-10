@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { Select } from 'antd';
+import { Select } from '@/common/components/antd';
 import { observer } from 'mobx-react-lite';
 import useStores from '@/common/hooks/use-stores';
 

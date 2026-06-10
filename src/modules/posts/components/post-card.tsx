@@ -1,4 +1,4 @@
-import { Card, Popconfirm, Tooltip, Button } from 'antd';
+import { Card, Popconfirm, Tooltip, Button } from '@/common/components/antd';
 import DeleteOutlined from '@ant-design/icons/DeleteOutlined';
 import classes from './post-card.module.scss';
 

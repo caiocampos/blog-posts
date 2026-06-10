@@ -1,6 +1,6 @@
 import { ReactNode } from 'react';
 import { observer } from 'mobx-react-lite';
-import { Layout as AntLayout, Menu, Modal, ConfigProvider } from 'antd';
+import { Layout as AntLayout, Menu, Modal, ConfigProvider } from '@/common/components/antd';
 import ptBR from 'antd/es/locale/pt_BR';
 import { PageHeader } from '@ant-design/pro-layout';
 import { useLocation, useNavigate } from 'react-router-dom';
