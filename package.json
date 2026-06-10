@@ -14,7 +14,7 @@
 	"dependencies": {
 		"@ant-design/pro-layout": "^7.22",
 		"@ant-design/pro-table": "^3.21",
-		"antd": "^5.27",
+		"antd": "^5.29",
 		"axios": "^1.17.0",
 		"mobx": "^6.16",
 		"mobx-react-lite": "^4.1",
