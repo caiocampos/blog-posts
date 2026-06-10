@@ -41,6 +41,10 @@ export default defineConfig({
 						{
 							test: /node_modules\/@ant-design\/pro-table/,
 							name: 'antd-pro-table'
+						},
+						{
+							test: /node_modules\/@ant-design\/icons/,
+							name: 'antd-icons'
 						}
 					]
 				}
