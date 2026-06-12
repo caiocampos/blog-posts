@@ -6,7 +6,7 @@ export default class AuthorResponseDTO {
     public name: string,
     public nickname: string,
     public birthDate: string,
-    public posts?: Array<any>,
+    public posts?: Array<object>,
   ) {}
 
   static from = ({
@@ -16,5 +16,11 @@ export default class AuthorResponseDTO {
     birthDate,
     posts,
   }: AuthorDocument): AuthorResponseDTO =>
-    new AuthorResponseDTO(_id.toHexString(), realname, nickname, birthDate, posts);
+    new AuthorResponseDTO(
+      _id.toHexString(),
+      realname,
+      nickname,
+      birthDate,
+      posts,
+    );
 }

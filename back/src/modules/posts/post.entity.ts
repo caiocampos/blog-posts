@@ -17,6 +17,18 @@ export class Post {
 
   @Prop({ required: true, type: Types.ObjectId, ref: 'Author' })
   author: AuthorDocument;
+
+  public constructor(
+    title: string,
+    body: string,
+    creationDate: string,
+    author: AuthorDocument,
+  ) {
+    this.title = title;
+    this.body = body;
+    this.creationDate = creationDate;
+    this.author = author;
+  }
 }
 
 export const PostSchema = SchemaFactory.createForClass(Post);

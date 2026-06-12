@@ -17,6 +17,18 @@ export class Author {
 
   @Prop({ type: [{ type: Types.ObjectId, ref: 'Post' }] })
   posts: Array<PostDocument>;
+
+  public constructor(
+    realname: string,
+    nickname: string,
+    birthDate: string,
+    posts: Array<PostDocument>,
+  ) {
+    this.realname = realname;
+    this.nickname = nickname;
+    this.birthDate = birthDate;
+    this.posts = posts;
+  }
 }
 
 export const AuthorSchema = SchemaFactory.createForClass(Author);

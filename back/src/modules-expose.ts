@@ -3,6 +3,7 @@ import { MongooseModule } from '@nestjs/mongoose';
 import { AuthorsModule } from './modules/authors/authors.module';
 import { PostsModule } from './modules/posts/posts.module';
 import { connectionName } from './mongoose-connection';
+import { forceString } from './common/utils';
 
 export const moduleList: (
   | Type<any>
@@ -10,9 +11,10 @@ export const moduleList: (
   | Promise<DynamicModule>
   | ForwardReference<any>
 )[] = [
-  MongooseModule.forRoot(process.env.MONGO_URI_BLOG ?? process.env.MONGO_URI, {
-    connectionName,
-  }),
+  MongooseModule.forRoot(
+    forceString(process.env.MONGO_URI_BLOG ?? process.env.MONGO_URI),
+    { connectionName },
+  ),
   AuthorsModule,
   PostsModule,
 ];

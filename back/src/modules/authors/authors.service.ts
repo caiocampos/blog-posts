@@ -17,8 +17,10 @@ export class AuthorsService {
   private readonly logger = new Logger(AuthorsService.name);
 
   constructor(
-    @InjectModel(Author.name, connectionName) private authorModel: Model<AuthorDocument>,
-    @InjectModel(Post.name, connectionName) private postModel: Model<PostDocument>,
+    @InjectModel(Author.name, connectionName)
+    private authorModel: Model<AuthorDocument>,
+    @InjectModel(Post.name, connectionName)
+    private postModel: Model<PostDocument>,
   ) {}
 
   async count(): Promise<number> {
@@ -44,9 +46,12 @@ export class AuthorsService {
     }
   }
 
-  async findOne(id: string): Promise<AuthorResponseDTO> {
+  async findOne(id: string): Promise<AuthorResponseDTO | null> {
     const _id = new ObjectId(id);
     const author = await this.authorModel.findById(_id).exec();
+    if (author === null) {
+      return null;
+    }
     return AuthorResponseDTO.from(author);
   }
 
@@ -73,6 +78,12 @@ export class AuthorsService {
       const newPost = new this.postModel(requestDto as Post);
       const _id = new ObjectId(id);
       const author = await this.authorModel.findById(_id).exec();
+      if (author === null) {
+        throw new HttpException(
+          'Erro ao gravar a postagem, author não encontrado',
+          HttpStatus.NOT_FOUND,
+        );
+      }
       newPost.author = author;
       newPost.creationDate = new Date().toISOString().slice(0, 10);
       const post = await newPost.save();
