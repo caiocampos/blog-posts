@@ -57,10 +57,9 @@ const mongoose_1 = __webpack_require__(6);
 const authors_module_1 = __webpack_require__(7);
 const posts_module_1 = __webpack_require__(20);
 const mongoose_connection_1 = __webpack_require__(18);
+const utils_1 = __webpack_require__(23);
 exports.moduleList = [
-    mongoose_1.MongooseModule.forRoot((_a = process.env.MONGO_URI_BLOG) !== null && _a !== void 0 ? _a : process.env.MONGO_URI, {
-        connectionName: mongoose_connection_1.connectionName,
-    }),
+    mongoose_1.MongooseModule.forRoot((0, utils_1.forceString)((_a = process.env.MONGO_URI_BLOG) !== null && _a !== void 0 ? _a : process.env.MONGO_URI), { connectionName: mongoose_connection_1.connectionName }),
     authors_module_1.AuthorsModule,
     posts_module_1.PostsModule,
 ];
@@ -124,13 +123,19 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var _a;
+var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.PostSchema = exports.Post = void 0;
 const mongoose_1 = __webpack_require__(6);
 const mongoose_2 = __webpack_require__(9);
 const author_entity_1 = __webpack_require__(10);
 let Post = class Post {
+    constructor(title, body, creationDate, author) {
+        this.title = title;
+        this.body = body;
+        this.creationDate = creationDate;
+        this.author = author;
+    }
 };
 exports.Post = Post;
 __decorate([
@@ -147,10 +152,11 @@ __decorate([
 ], Post.prototype, "creationDate", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ required: true, type: mongoose_2.Types.ObjectId, ref: 'Author' }),
-    __metadata("design:type", typeof (_a = typeof author_entity_1.AuthorDocument !== "undefined" && author_entity_1.AuthorDocument) === "function" ? _a : Object)
+    __metadata("design:type", typeof (_b = typeof author_entity_1.AuthorDocument !== "undefined" && author_entity_1.AuthorDocument) === "function" ? _b : Object)
 ], Post.prototype, "author", void 0);
 exports.Post = Post = __decorate([
-    (0, mongoose_1.Schema)({ collection: 'posts' })
+    (0, mongoose_1.Schema)({ collection: 'posts' }),
+    __metadata("design:paramtypes", [String, String, String, typeof (_a = typeof author_entity_1.AuthorDocument !== "undefined" && author_entity_1.AuthorDocument) === "function" ? _a : Object])
 ], Post);
 exports.PostSchema = mongoose_1.SchemaFactory.createForClass(Post);
 
@@ -175,12 +181,18 @@ var __decorate = (this && this.__decorate) || function (decorators, target, key,
 var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
-var _a;
+var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AuthorSchema = exports.Author = void 0;
 const mongoose_1 = __webpack_require__(6);
 const mongoose_2 = __webpack_require__(9);
 let Author = class Author {
+    constructor(realname, nickname, birthDate, posts) {
+        this.realname = realname;
+        this.nickname = nickname;
+        this.birthDate = birthDate;
+        this.posts = posts;
+    }
 };
 exports.Author = Author;
 __decorate([
@@ -197,10 +209,11 @@ __decorate([
 ], Author.prototype, "birthDate", void 0);
 __decorate([
     (0, mongoose_1.Prop)({ type: [{ type: mongoose_2.Types.ObjectId, ref: 'Post' }] }),
-    __metadata("design:type", typeof (_a = typeof Array !== "undefined" && Array) === "function" ? _a : Object)
+    __metadata("design:type", typeof (_b = typeof Array !== "undefined" && Array) === "function" ? _b : Object)
 ], Author.prototype, "posts", void 0);
 exports.Author = Author = __decorate([
-    (0, mongoose_1.Schema)({ collection: 'authors' })
+    (0, mongoose_1.Schema)({ collection: 'authors' }),
+    __metadata("design:paramtypes", [String, String, String, typeof (_a = typeof Array !== "undefined" && Array) === "function" ? _a : Object])
 ], Author);
 exports.AuthorSchema = mongoose_1.SchemaFactory.createForClass(Author);
 
@@ -222,13 +235,16 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var _a, _b, _c, _d, _e, _f, _g;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AuthorsController = void 0;
 const common_1 = __webpack_require__(1);
-const post_add_request_dto_1 = __webpack_require__(12);
+const post_add_request_dto_1 = __importDefault(__webpack_require__(12));
 const authors_service_1 = __webpack_require__(15);
-const author_add_request_dto_1 = __webpack_require__(19);
+const author_add_request_dto_1 = __importDefault(__webpack_require__(19));
 let AuthorsController = class AuthorsController {
     constructor(authorsService) {
         this.authorsService = authorsService;
@@ -310,6 +326,10 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const class_validator_1 = __webpack_require__(13);
 const validation_messages_constants_1 = __webpack_require__(14);
 class PostAddRequestDTO {
+    constructor(title, body) {
+        this.title = title;
+        this.body = body;
+    }
 }
 exports["default"] = PostAddRequestDTO;
 __decorate([
@@ -358,6 +378,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var AuthorsService_1;
 var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
@@ -366,10 +389,10 @@ const common_1 = __webpack_require__(1);
 const mongoose_1 = __webpack_require__(6);
 const class_validator_1 = __webpack_require__(13);
 const mongoose_2 = __webpack_require__(9);
-const post_response_dto_1 = __webpack_require__(16);
+const post_response_dto_1 = __importDefault(__webpack_require__(16));
 const post_entity_1 = __webpack_require__(8);
 const author_entity_1 = __webpack_require__(10);
-const author_response_dto_1 = __webpack_require__(17);
+const author_response_dto_1 = __importDefault(__webpack_require__(17));
 const mongoose_connection_1 = __webpack_require__(18);
 const { ObjectId } = mongoose_2.Types;
 let AuthorsService = AuthorsService_1 = class AuthorsService {
@@ -398,6 +421,9 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
     async findOne(id) {
         const _id = new ObjectId(id);
         const author = await this.authorModel.findById(_id).exec();
+        if (author === null) {
+            return null;
+        }
         return author_response_dto_1.default.from(author);
     }
     async add(requestDto) {
@@ -420,6 +446,9 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
             const newPost = new this.postModel(requestDto);
             const _id = new ObjectId(id);
             const author = await this.authorModel.findById(_id).exec();
+            if (author === null) {
+                throw new common_1.HttpException('Erro ao gravar a postagem, author não encontrado', common_1.HttpStatus.NOT_FOUND);
+            }
             newPost.author = author;
             newPost.creationDate = new Date().toISOString().slice(0, 10);
             const post = await newPost.save();
@@ -451,11 +480,14 @@ exports.AuthorsService = AuthorsService = AuthorsService_1 = __decorate([
 
 /***/ }),
 /* 16 */
-/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
+/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
 
 
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const author_response_dto_1 = __webpack_require__(17);
+const author_response_dto_1 = __importDefault(__webpack_require__(17));
 class PostResponseDTO {
     constructor(id, title, body, creationDate, author) {
         this.id = id;
@@ -516,6 +548,11 @@ Object.defineProperty(exports, "__esModule", ({ value: true }));
 const class_validator_1 = __webpack_require__(13);
 const validation_messages_constants_1 = __webpack_require__(14);
 class AuthorAddRequestDTO {
+    constructor(name, nickname, birthDate) {
+        this.name = name;
+        this.nickname = nickname;
+        this.birthDate = birthDate;
+    }
 }
 exports["default"] = AuthorAddRequestDTO;
 __decorate([
@@ -642,6 +679,9 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
 var PostsService_1;
 var _a, _b;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
@@ -650,7 +690,7 @@ const common_1 = __webpack_require__(1);
 const mongoose_1 = __webpack_require__(6);
 const mongoose_2 = __webpack_require__(9);
 const post_entity_1 = __webpack_require__(8);
-const post_response_dto_1 = __webpack_require__(16);
+const post_response_dto_1 = __importDefault(__webpack_require__(16));
 const author_entity_1 = __webpack_require__(10);
 const mongoose_connection_1 = __webpack_require__(18);
 let PostsService = PostsService_1 = class PostsService {
@@ -695,6 +735,19 @@ exports.PostsService = PostsService = PostsService_1 = __decorate([
     __param(1, (0, mongoose_1.InjectModel)(post_entity_1.Post.name, mongoose_connection_1.connectionName)),
     __metadata("design:paramtypes", [typeof (_a = typeof mongoose_2.Model !== "undefined" && mongoose_2.Model) === "function" ? _a : Object, typeof (_b = typeof mongoose_2.Model !== "undefined" && mongoose_2.Model) === "function" ? _b : Object])
 ], PostsService);
+
+
+/***/ }),
+/* 23 */
+/***/ ((__unused_webpack_module, exports) => {
+
+
+Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.forceString = exports.forceNumber = void 0;
+const forceNumber = (num) => Number(num) || 0;
+exports.forceNumber = forceNumber;
+const forceString = (str) => String(str) || '';
+exports.forceString = forceString;
 
 
 /***/ })
