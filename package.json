@@ -16,7 +16,7 @@
 		"@ant-design/pro-table": "^3.21",
 		"@ant-design/icons": "^6.2",
 		"antd": "^6.4",
-		"axios": "^1.17.0",
+		"axios": "^1.18.0",
 		"mobx": "^6.16",
 		"mobx-react-lite": "^4.1",
 		"rc-field-form": "^2.7",
