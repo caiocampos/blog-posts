@@ -1,74 +1,98 @@
-import { useState } from 'react';
-import { Form, Input, Button, Modal } from '@/common/components/antd';
-import PlusOutlined from '@ant-design/icons/PlusOutlined';
+import { FormEvent, useState } from 'react';
+import { Plus } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger
+} from '@/components/ui/dialog';
 import { IAddAuthorRequestDTO } from '../interfaces/author.interface';
-import CustomDatePicker from '@/components/custom-date-picker';
-import { formLayout, formTailLayout, requiredRule } from '@/common/constants';
-import type { Dayjs } from 'dayjs';
 
-export interface IAuthor {
-	name: string;
-	nickname: string;
-	birthDate: Dayjs;
-}
+const emptyForm = { name: '', nickname: '', birthDate: '' };
 
-const EditAuthor = ({
-	onSubmit,
-	className,
-	...rest
-}: {
-	onSubmit: (values: IAddAuthorRequestDTO) => Promise<void>;
-	className?: string;
-}) => {
-	const [isModalVisible, setIsModalVisible] = useState(false);
+const EditAuthor = ({ onSubmit }: { onSubmit: (values: IAddAuthorRequestDTO) => Promise<void> }) => {
+	const [isOpen, setIsOpen] = useState(false);
 	const [isInserting, setIsInserting] = useState(false);
-	const [form] = Form.useForm();
+	const [form, setForm] = useState(emptyForm);
 
-	const onFinish = async (valuefieldsValues: IAuthor) => {
+	const onOpenChange = (open: boolean) => {
+		if (open) {
+			setForm(emptyForm);
+		}
+		setIsOpen(open);
+	};
+
+	const onFinish = async (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
 		setIsInserting(true);
-		const values = { ...valuefieldsValues, birthDate: valuefieldsValues.birthDate.format('YYYY-MM-DD') };
-		await onSubmit(values);
+		await onSubmit(form);
 		setIsInserting(false);
-		setIsModalVisible(false);
+		setIsOpen(false);
 	};
 
-	const onReset = () => {
-		form.resetFields();
-	};
-
-	const openModal = () => {
-		form.resetFields();
-		setIsInserting(false);
-		setIsModalVisible(true);
-	};
+	const isValid = form.name.trim() && form.nickname.trim() && form.birthDate;
 
 	return (
-		<>
-			<Button type="primary" onClick={openModal} icon={<PlusOutlined />} className={className} {...rest}>
-				Novo
-			</Button>
-			<Modal title="Novo Author" open={isModalVisible} footer={null} onCancel={() => setIsModalVisible(false)}>
-				<Form {...formLayout} form={form} name="control-hooks" onFinish={onFinish}>
-					<Form.Item name="name" label="Nome" rules={requiredRule}>
-						<Input />
-					</Form.Item>
-					<Form.Item name="nickname" label="Apelido" rules={requiredRule}>
-						<Input />
-					</Form.Item>
-					<Form.Item name="birthDate" label="Data de Nascimento" rules={requiredRule}>
-						<CustomDatePicker />
-					</Form.Item>
-					<Form.Item {...formTailLayout}>
-						<Button type="primary" htmlType="submit" loading={isInserting}>
+		<Dialog open={isOpen} onOpenChange={onOpenChange}>
+			<DialogTrigger
+				render={
+					<Button>
+						<Plus />
+						Novo
+					</Button>
+				}
+			/>
+			<DialogContent>
+				<form onSubmit={onFinish} className="flex flex-col gap-4">
+					<DialogHeader>
+						<DialogTitle>Novo Autor</DialogTitle>
+						<DialogDescription>Preencha os dados abaixo para cadastrar um novo autor.</DialogDescription>
+					</DialogHeader>
+					<div className="flex flex-col gap-2">
+						<Label htmlFor="author-name">Nome</Label>
+						<Input
+							id="author-name"
+							required
+							value={form.name}
+							onChange={(event) => setForm({ ...form, name: event.target.value })}
+						/>
+					</div>
+					<div className="flex flex-col gap-2">
+						<Label htmlFor="author-nickname">Apelido</Label>
+						<Input
+							id="author-nickname"
+							required
+							value={form.nickname}
+							onChange={(event) => setForm({ ...form, nickname: event.target.value })}
+						/>
+					</div>
+					<div className="flex flex-col gap-2">
+						<Label htmlFor="author-birth-date">Data de Nascimento</Label>
+						<Input
+							id="author-birth-date"
+							type="date"
+							required
+							value={form.birthDate}
+							onChange={(event) => setForm({ ...form, birthDate: event.target.value })}
+						/>
+					</div>
+					<DialogFooter>
+						<Button type="submit" loading={isInserting} disabled={!isValid}>
 							Criar
 						</Button>
-						<Button htmlType="button" onClick={onReset}>
+						<Button type="button" variant="outline" onClick={() => setForm(emptyForm)}>
 							Limpar
 						</Button>
-					</Form.Item>
-				</Form>
-			</Modal>
-		</>
+					</DialogFooter>
+				</form>
+			</DialogContent>
+		</Dialog>
 	);
 };
 

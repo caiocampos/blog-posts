@@ -12,20 +12,23 @@
 		"format": "prettier --write ."
 	},
 	"dependencies": {
-		"@ant-design/pro-layout": "^7.22",
-		"@ant-design/pro-table": "^3.21",
-		"@ant-design/icons": "^6.2",
-		"antd": "^6.5",
+		"@base-ui/react": "^1.6",
 		"axios": "^1.18.1",
+		"class-variance-authority": "^0.7",
+		"clsx": "^2.1",
+		"date-fns": "^4.1",
+		"lucide-react": "^0.500",
 		"mobx": "^6.16",
 		"mobx-react-lite": "^4.1",
-		"rc-field-form": "^2.7",
 		"react": "^19.2",
 		"react-dom": "^19.2",
-		"react-router-dom": "^7.18"
+		"react-router-dom": "^7.18",
+		"sonner": "^2.0",
+		"tailwind-merge": "^3.0"
 	},
 	"devDependencies": {
 		"@eslint/js": "^10.0",
+		"@tailwindcss/vite": "^4.1",
 		"@types/node": "^26.1",
 		"@types/react": "^19.2",
 		"@types/react-dom": "^19.2",
@@ -35,10 +38,9 @@
 		"eslint-plugin-react-refresh": "^0.5",
 		"globals": "^17.7",
 		"prettier": "^3.9",
+		"tailwindcss": "^4.1",
 		"typescript": "^6.0",
 		"typescript-eslint": "^8.62",
-		"sass": "^1.101",
-		"sass-loader": "^17.0",
 		"vite": "^8.1"
 	}
 }

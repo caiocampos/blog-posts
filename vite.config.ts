@@ -1,11 +1,12 @@
 import { defineConfig } from 'vite';
 import react from '@vitejs/plugin-react';
+import tailwindcss from '@tailwindcss/vite';
 import { resolve } from 'path';
 
 // https://vite.dev/config/
 export default defineConfig({
 	base: '/blog-posts/',
-	plugins: [react()],
+	plugins: [react(), tailwindcss()],
 	resolve: {
 		alias: {
 			'@': resolve(__dirname, './src'),
@@ -31,20 +32,12 @@ export default defineConfig({
 							name: 'react-router-dom'
 						},
 						{
-							test: /node_modules\/antd/,
-							name: 'antd'
+							test: /node_modules\/@base-ui\/react/,
+							name: 'base-ui'
 						},
 						{
-							test: /node_modules\/@ant-design\/pro-layout/,
-							name: 'antd-pro-layout'
-						},
-						{
-							test: /node_modules\/@ant-design\/pro-table/,
-							name: 'antd-pro-table'
-						},
-						{
-							test: /node_modules\/@ant-design\/icons/,
-							name: 'antd-icons'
+							test: /node_modules\/lucide-react/,
+							name: 'lucide-react'
 						}
 					]
 				}

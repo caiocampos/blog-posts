@@ -1,14 +1,14 @@
 import { useEffect, useState } from 'react';
-import { Select } from '@/common/components/antd';
 import { observer } from 'mobx-react-lite';
 import useStores from '@/common/hooks/use-stores';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
 interface Option {
 	label: string;
 	value: string;
 }
 
-const AuthorSelect = ({ onChange, ...rest }: { onChange?: (authorId: string) => void }) => {
+const AuthorSelect = ({ value, onValueChange }: { value?: string; onValueChange?: (authorId: string) => void }) => {
 	const [isLoading, setIsLoading] = useState(false);
 	const [options, setOptions] = useState<Option[]>([]);
 	const {
@@ -17,6 +17,7 @@ const AuthorSelect = ({ onChange, ...rest }: { onChange?: (authorId: string) => 
 
 	useEffect(() => {
 		let cancel = false;
+		// eslint-disable-next-line react-hooks/set-state-in-effect -- initial data fetch on mount
 		setIsLoading(true);
 		const getAuthors = async () => {
 			const authorsResult = await getAll();
@@ -33,7 +34,20 @@ const AuthorSelect = ({ onChange, ...rest }: { onChange?: (authorId: string) => 
 		};
 	}, [getAll]);
 
-	return <Select loading={isLoading} {...rest} options={options} onChange={onChange} />;
+	return (
+		<Select value={value} onValueChange={(newValue) => onValueChange?.(newValue as string)}>
+			<SelectTrigger>
+				<SelectValue placeholder={isLoading ? 'Carregando...' : 'Selecione um autor'} />
+			</SelectTrigger>
+			<SelectContent>
+				{options.map((option) => (
+					<SelectItem key={option.value} value={option.value}>
+						{option.label}
+					</SelectItem>
+				))}
+			</SelectContent>
+		</Select>
+	);
 };
 
 const AuthorSelectObserver = observer(AuthorSelect);

@@ -1,80 +1,95 @@
-import { useState } from 'react';
-import { Form, Input, Button, Modal } from '@/common/components/antd';
-import PlusOutlined from '@ant-design/icons/PlusOutlined';
-import { IAddPostRequestDTO } from '../interfaces/post.interface';
+import { FormEvent, useState } from 'react';
+import { Plus } from 'lucide-react';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Textarea } from '@/components/ui/textarea';
+import {
+	Dialog,
+	DialogContent,
+	DialogDescription,
+	DialogFooter,
+	DialogHeader,
+	DialogTitle,
+	DialogTrigger
+} from '@/components/ui/dialog';
 import AuthorSelect from '@/modules/authors/components/author-select';
-import { formLayout, formTailLayout, requiredRule } from '@/common/constants';
+import { IAddPostRequestDTO } from '../interfaces/post.interface';
 
-const { TextArea } = Input;
+const emptyForm = { title: '', body: '', author: '' };
 
-export interface IPost {
-	author: string
-	title: string;
-	body: string;
-}
-
-const EditPost = ({
-	onSubmit,
-	className,
-	...rest
-}: {
-	onSubmit: (idAuthor: string, post: IAddPostRequestDTO) => Promise<void>;
-	className?: string;
-}) => {
-	const [isModalVisible, setIsModalVisible] = useState(false);
+const EditPost = ({ onSubmit }: { onSubmit: (idAuthor: string, post: IAddPostRequestDTO) => Promise<void> }) => {
+	const [isOpen, setIsOpen] = useState(false);
 	const [isInserting, setIsInserting] = useState(false);
-	const [form] = Form.useForm();
+	const [form, setForm] = useState(emptyForm);
 
-	const onFinish = async (valuefieldsValues: IPost) => {
+	const onOpenChange = (open: boolean) => {
+		if (open) {
+			setForm(emptyForm);
+		}
+		setIsOpen(open);
+	};
+
+	const onFinish = async (event: FormEvent<HTMLFormElement>) => {
+		event.preventDefault();
 		setIsInserting(true);
-		const values = { title: valuefieldsValues.title, body: valuefieldsValues.body };
-		await onSubmit(valuefieldsValues.author, values);
+		await onSubmit(form.author, { title: form.title, body: form.body });
 		setIsInserting(false);
-		setIsModalVisible(false);
+		setIsOpen(false);
 	};
 
-	const onReset = () => {
-		form.resetFields();
-	};
-
-	const openModal = () => {
-		form.resetFields();
-		setIsInserting(false);
-		setIsModalVisible(true);
-	};
+	const isValid = form.title.trim() && form.body.trim() && form.author;
 
 	return (
-		<>
-			<Button type="primary" onClick={openModal} icon={<PlusOutlined />} className={className} {...rest}>
-				Novo
-			</Button>
-			<Modal
-				title="Nova Postagem"
-				open={isModalVisible}
-				footer={null}
-				onCancel={() => setIsModalVisible(false)}
-			>
-				<Form {...formLayout} form={form} name="control-hooks" onFinish={onFinish}>
-					<Form.Item name="title" label="Título" rules={requiredRule}>
-						<Input />
-					</Form.Item>
-					<Form.Item name="body" label="Texto" rules={requiredRule}>
-						<TextArea />
-					</Form.Item>
-					<Form.Item name="author" label="Autor" rules={requiredRule}>
-						<AuthorSelect />
-					</Form.Item>
-					<Form.Item {...formTailLayout}>
-						<Button type="primary" htmlType="submit" loading={isInserting}>
+		<Dialog open={isOpen} onOpenChange={onOpenChange}>
+			<DialogTrigger
+				render={
+					<Button>
+						<Plus />
+						Novo
+					</Button>
+				}
+			/>
+			<DialogContent>
+				<form onSubmit={onFinish} className="flex flex-col gap-4">
+					<DialogHeader>
+						<DialogTitle>Nova Postagem</DialogTitle>
+						<DialogDescription>Preencha os dados abaixo para criar uma nova postagem.</DialogDescription>
+					</DialogHeader>
+					<div className="flex flex-col gap-2">
+						<Label htmlFor="post-title">Título</Label>
+						<Input
+							id="post-title"
+							required
+							value={form.title}
+							onChange={(event) => setForm({ ...form, title: event.target.value })}
+						/>
+					</div>
+					<div className="flex flex-col gap-2">
+						<Label htmlFor="post-body">Texto</Label>
+						<Textarea
+							id="post-body"
+							required
+							rows={5}
+							value={form.body}
+							onChange={(event) => setForm({ ...form, body: event.target.value })}
+						/>
+					</div>
+					<div className="flex flex-col gap-2">
+						<Label htmlFor="post-author">Autor</Label>
+						<AuthorSelect value={form.author} onValueChange={(author) => setForm({ ...form, author })} />
+					</div>
+					<DialogFooter>
+						<Button type="submit" loading={isInserting} disabled={!isValid}>
 							Criar
 						</Button>
-						<Button htmlType="button" onClick={onReset}>
+						<Button type="button" variant="outline" onClick={() => setForm(emptyForm)}>
 							Limpar
 						</Button>
-					</Form.Item>
-				</Form>
-			</Modal>
-		</>
+					</DialogFooter>
+				</form>
+			</DialogContent>
+		</Dialog>
 	);
 };
 

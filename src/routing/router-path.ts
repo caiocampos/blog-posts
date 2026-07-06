@@ -1,6 +1,5 @@
-import { ExoticComponent } from 'react';
-import FileOutlined from '@ant-design/icons/FileOutlined';
-import UserOutlined from '@ant-design/icons/UserOutlined';
+import { FileText, Users } from 'lucide-react';
+import type { LucideIcon } from 'lucide-react';
 
 export enum RouterPath {
 	HOME = '/',
@@ -12,7 +11,7 @@ export interface IPage {
 	id: string;
 	name: string;
 	path: string;
-	icon: ExoticComponent;
+	icon: LucideIcon;
 }
 
 export interface IPages {
@@ -25,12 +24,12 @@ export const pages: IPages = {
 		id: 'posts',
 		name: 'Postagens',
 		path: RouterPath.POSTS,
-		icon: FileOutlined
+		icon: FileText
 	},
 	authors: {
 		id: 'authors',
 		name: 'Autores',
 		path: RouterPath.AUTHORS,
-		icon: UserOutlined
+		icon: Users
 	}
 };

@@ -1,105 +1,102 @@
-import { useCallback, useEffect, useState } from 'react';
-import { List, Button, Input } from '@/common/components/antd';
-import ReloadOutlined from '@ant-design/icons/ReloadOutlined';
+import { useCallback, useEffect, useMemo, useState } from 'react';
 import { observer } from 'mobx-react-lite';
+import { RefreshCw, Search } from 'lucide-react';
 import Layout from '@/components/layout';
 import useStores from '@/common/hooks/use-stores';
+import { Button } from '@/components/ui/button';
+import { Input } from '@/components/ui/input';
 import EditPost from './edit-post';
 import { IAddPostRequestDTO, IPost } from '../interfaces/post.interface';
 import PostCard from './post-card';
-import classes from './posts-page.module.scss';
-
-const { Search } = Input;
 
 const Posts = () => {
 	const { posts } = useStores();
 	const [isLoading, setIsLoading] = useState(false);
-	const [needReload, setNeedReload] = useState(true);
-	const [authorSearch, setAuthorSearch] = useState('');
+	const [search, setSearch] = useState('');
 	const [postList, setPostList] = useState<Array<IPost>>([]);
 
-	const onSearch = (value: string) => {
-		setAuthorSearch(value);
-		setNeedReload(true);
-	};
-
-	const getPosts = useCallback(async () => await posts.getAll(authorSearch), [posts, authorSearch]);
+	const loadPosts = useCallback(async () => {
+		setIsLoading(true);
+		const postsResult = await posts.getAll('');
+		setPostList(postsResult);
+		setIsLoading(false);
+	}, [posts]);
 
 	useEffect(() => {
-		let cancel = false;
-		if (needReload) {
-			setIsLoading(true);
-			getPosts().then((postsResult) => {
-				if (!cancel) {
-					setPostList(postsResult);
-					setNeedReload(false);
-					setIsLoading(false);
-				}
-			});
-		}
-		return () => {
-			cancel = true;
-		};
-	}, [needReload, getPosts]);
+		// eslint-disable-next-line react-hooks/set-state-in-effect -- initial data fetch on mount
+		loadPosts();
+	}, [loadPosts]);
 
 	const requestNewPost = useCallback(
 		async (idAuthor: string, post: IAddPostRequestDTO) => {
 			await posts.create(idAuthor, post);
-			setNeedReload(true);
+			await loadPosts();
 		},
-		[posts]
+		[posts, loadPosts]
 	);
 
 	const deletePost = useCallback(
 		async (id: string) => {
 			await posts.delete(id);
-			setNeedReload(true);
+			await loadPosts();
 		},
-		[posts]
+		[posts, loadPosts]
 	);
+
+	const filteredPosts = useMemo(() => {
+		const term = search.trim().toLowerCase();
+		if (!term) {
+			return postList;
+		}
+		return postList.filter(
+			({ title, author }) =>
+				title.toLowerCase().includes(term) ||
+				author?.name?.toLowerCase().includes(term) ||
+				author?.nickname?.toLowerCase().includes(term)
+		);
+	}, [postList, search]);
+
 	return (
-		<Layout title="Postagens" className={classes.PostsPage}>
-			<List
-				loading={isLoading}
-				size="small"
-				dataSource={postList}
-				header={
-					<>
-						<div className={classes.HeaderInputWrapper}>
-							<Search
-								placeholder="Busque por autor"
-								onSearch={onSearch}
-								enterButton
-								allowClear
-								disabled={!authorSearch && postList.length === 0}
+		<Layout title="Postagens">
+			<div className="flex flex-col gap-4">
+				<div className="flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+					<div className="relative w-full sm:max-w-sm">
+						<Search className="text-muted-foreground pointer-events-none absolute top-1/2 left-3 size-4 -translate-y-1/2" />
+						<Input
+							className="pl-9"
+							placeholder="Busque por título ou autor"
+							value={search}
+							onChange={(event) => setSearch(event.target.value)}
+						/>
+					</div>
+					<div className="flex items-center gap-2">
+						<EditPost onSubmit={requestNewPost} />
+						<Button variant="outline" size="icon" loading={isLoading} onClick={() => loadPosts()}>
+							<RefreshCw />
+						</Button>
+					</div>
+				</div>
+				{filteredPosts.length === 0 && !isLoading ? (
+					<div className="text-muted-foreground flex h-32 items-center justify-center rounded-lg border border-dashed">
+						Nenhuma postagem encontrada.
+					</div>
+				) : (
+					<div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+						{filteredPosts.map(({ id, title, body, creationDate, author }) => (
+							<PostCard
+								key={id}
+								id={id}
+								title={title}
+								body={body}
+								creationDate={creationDate}
+								authorName={author?.name}
+								authorNickname={author?.nickname}
+								deletePost={deletePost}
 							/>
-						</div>
-						<div className={classes.HeaderButtonsWrapper}>
-							<EditPost onSubmit={requestNewPost} />
-							<Button
-								type="text"
-								shape="circle"
-								size="middle"
-								icon={<ReloadOutlined />}
-								loading={isLoading}
-								onClick={() => setNeedReload(true)}
-							/>
-						</div>
-					</>
-				}
-				renderItem={({ id, title, body, creationDate, author }) => (
-					<PostCard
-						key={id}
-						id={id}
-						title={title}
-						body={body}
-						creationDate={creationDate}
-						authorName={author?.name}
-						authorNickname={author?.nickname}
-						deletePost={deletePost}
-					/>
+						))}
+					</div>
 				)}
-			/>
+			</div>
 		</Layout>
 	);
 };

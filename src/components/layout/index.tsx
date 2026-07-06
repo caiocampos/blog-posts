@@ -1,20 +1,9 @@
 import { ReactNode } from 'react';
-import { observer } from 'mobx-react-lite';
-import { Layout as AntLayout, Menu, Modal, ConfigProvider } from '@/common/components/antd';
-import ptBR from 'antd/es/locale/pt_BR';
-import { PageHeader } from '@ant-design/pro-layout';
 import { useLocation, useNavigate } from 'react-router-dom';
-import { pages, IPages, IPage } from '@/routing/router-path';
-import useStores from '@/common/hooks/use-stores';
-import classes from './layout.module.scss';
-
-const { Content, Sider } = AntLayout;
-
-const menuItems = Object.values(pages).map(({ icon: Icon, path, name }: IPage) => ({
-	label: name,
-	key: path,
-	icon: <Icon />
-}));
+import { pages, IPages, IPage, RouterPath } from '@/routing/router-path';
+import { Tabs, TabsList, TabsTrigger } from '@/components/ui/tabs';
+import { Toaster } from '@/components/ui/sonner';
+import { cn } from '@/lib/utils';
 
 const Layout = ({
 	children,
@@ -30,40 +19,42 @@ const Layout = ({
 }) => {
 	const location = useLocation();
 	const navigate = useNavigate();
-	const {
-		error,
-		clearError,
-		layout: { collapsed, setCollapsed }
-	} = useStores();
-	const pageKey = (location.pathname || '').slice(1) as keyof IPages;
-	const page: IPage = pages[pageKey] || {};
+	const pageKey = ((location.pathname === RouterPath.HOME ? RouterPath.POSTS : location.pathname) || '').slice(
+		1
+	) as keyof IPages;
+	const page: IPage | undefined = pages[pageKey];
 
 	return (
-		<ConfigProvider locale={ptBR}>
-			<AntLayout className={`${classes.Page} ${className}`} {...rest}>
-				<Sider collapsible collapsed={collapsed} onCollapse={setCollapsed}>
-					<div className={classes.Logo} />
-					<Menu
-						theme="dark"
-						selectedKeys={[page.id]}
-						mode="inline"
-						items={menuItems}
-						onClick={({ key }) => navigate(key)}
-					/>
-				</Sider>
-				<AntLayout>
-					<PageHeader title={title} subTitle={subtitle}>
-						<Modal title="Erro!" open={error !== null} onOk={clearError} onCancel={clearError}>
-							{error}
-						</Modal>
-						<Content className={classes.Content}>{children}</Content>
-					</PageHeader>
-				</AntLayout>
-			</AntLayout>
-		</ConfigProvider>
+		<div className="bg-background min-h-dvh">
+			<Toaster />
+			<header className="bg-card border-b">
+				<div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
+					<div className="flex items-center gap-3">
+						<div className="bg-primary text-primary-foreground flex size-9 items-center justify-center rounded-lg font-bold">
+							BP
+						</div>
+						<div>
+							<h1 className="text-lg leading-tight font-semibold">{title ?? 'Blog Posts'}</h1>
+							{subtitle && <p className="text-muted-foreground text-sm">{subtitle}</p>}
+						</div>
+					</div>
+					<Tabs value={page?.path} onValueChange={(value) => navigate(value as string)}>
+						<TabsList>
+							{Object.values(pages).map(({ id, name, path, icon: Icon }: IPage) => (
+								<TabsTrigger key={id} value={path}>
+									<Icon className="size-4" />
+									{name}
+								</TabsTrigger>
+							))}
+						</TabsList>
+					</Tabs>
+				</div>
+			</header>
+			<main className={cn('mx-auto max-w-5xl px-4 py-6', className)} {...rest}>
+				{children}
+			</main>
+		</div>
 	);
 };
 
-const LayoutObserver = observer(Layout);
-
-export default LayoutObserver;
+export default Layout;
