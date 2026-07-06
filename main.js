@@ -235,16 +235,13 @@ var __metadata = (this && this.__metadata) || function (k, v) {
 var __param = (this && this.__param) || function (paramIndex, decorator) {
     return function (target, key) { decorator(target, key, paramIndex); }
 };
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 var _a, _b, _c, _d, _e, _f, _g;
 Object.defineProperty(exports, "__esModule", ({ value: true }));
 exports.AuthorsController = void 0;
 const common_1 = __webpack_require__(1);
-const post_add_request_dto_1 = __importDefault(__webpack_require__(12));
+const post_add_request_dto_1 = __webpack_require__(12);
 const authors_service_1 = __webpack_require__(15);
-const author_add_request_dto_1 = __importDefault(__webpack_require__(19));
+const author_add_request_dto_1 = __webpack_require__(19);
 let AuthorsController = class AuthorsController {
     constructor(authorsService) {
         this.authorsService = authorsService;
@@ -283,7 +280,7 @@ __decorate([
     (0, common_1.HttpCode)(201),
     __param(0, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [typeof (_d = typeof author_add_request_dto_1.default !== "undefined" && author_add_request_dto_1.default) === "function" ? _d : Object]),
+    __metadata("design:paramtypes", [typeof (_d = typeof author_add_request_dto_1.AuthorAddRequestDTO !== "undefined" && author_add_request_dto_1.AuthorAddRequestDTO) === "function" ? _d : Object]),
     __metadata("design:returntype", typeof (_e = typeof Promise !== "undefined" && Promise) === "function" ? _e : Object)
 ], AuthorsController.prototype, "add", null);
 __decorate([
@@ -292,7 +289,7 @@ __decorate([
     __param(0, (0, common_1.Param)('id')),
     __param(1, (0, common_1.Body)()),
     __metadata("design:type", Function),
-    __metadata("design:paramtypes", [String, typeof (_f = typeof post_add_request_dto_1.default !== "undefined" && post_add_request_dto_1.default) === "function" ? _f : Object]),
+    __metadata("design:paramtypes", [String, typeof (_f = typeof post_add_request_dto_1.PostAddRequestDTO !== "undefined" && post_add_request_dto_1.PostAddRequestDTO) === "function" ? _f : Object]),
     __metadata("design:returntype", typeof (_g = typeof Promise !== "undefined" && Promise) === "function" ? _g : Object)
 ], AuthorsController.prototype, "addPost", null);
 __decorate([
@@ -323,15 +320,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.PostAddRequestDTO = void 0;
 const class_validator_1 = __webpack_require__(13);
 const validation_messages_constants_1 = __webpack_require__(14);
 class PostAddRequestDTO {
-    constructor(title, body) {
-        this.title = title;
-        this.body = body;
-    }
 }
-exports["default"] = PostAddRequestDTO;
+exports.PostAddRequestDTO = PostAddRequestDTO;
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)({ message: validation_messages_constants_1.ValidationMessages.IS_NOT_EMPTY }),
@@ -482,14 +476,12 @@ exports.AuthorsService = AuthorsService = AuthorsService_1 = __decorate([
 
 /***/ }),
 /* 16 */
-/***/ (function(__unused_webpack_module, exports, __webpack_require__) {
+/***/ ((__unused_webpack_module, exports, __webpack_require__) => {
 
 
-var __importDefault = (this && this.__importDefault) || function (mod) {
-    return (mod && mod.__esModule) ? mod : { "default": mod };
-};
 Object.defineProperty(exports, "__esModule", ({ value: true }));
-const author_response_dto_1 = __importDefault(__webpack_require__(17));
+exports.PostResponseDTO = void 0;
+const author_response_dto_1 = __webpack_require__(17);
 class PostResponseDTO {
     constructor(id, title, body, creationDate, author) {
         this.id = id;
@@ -499,8 +491,8 @@ class PostResponseDTO {
         this.author = author;
     }
 }
-PostResponseDTO.from = ({ _id, title, body, creationDate, author, }) => new PostResponseDTO(_id.toHexString(), title, body, creationDate, author_response_dto_1.default.from(author));
-exports["default"] = PostResponseDTO;
+exports.PostResponseDTO = PostResponseDTO;
+PostResponseDTO.from = ({ _id, title, body, creationDate, author, }) => new PostResponseDTO(_id.toHexString(), title, body, creationDate, author_response_dto_1.AuthorResponseDTO.from(author));
 
 
 /***/ }),
@@ -509,6 +501,7 @@ exports["default"] = PostResponseDTO;
 
 
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AuthorResponseDTO = void 0;
 class AuthorResponseDTO {
     constructor(id, name, nickname, birthDate, posts) {
         this.id = id;
@@ -518,8 +511,8 @@ class AuthorResponseDTO {
         this.posts = posts;
     }
 }
+exports.AuthorResponseDTO = AuthorResponseDTO;
 AuthorResponseDTO.from = ({ _id, realname, nickname, birthDate, posts, }) => new AuthorResponseDTO(_id.toHexString(), realname, nickname, birthDate, posts);
-exports["default"] = AuthorResponseDTO;
 
 
 /***/ }),
@@ -547,16 +540,12 @@ var __metadata = (this && this.__metadata) || function (k, v) {
     if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
 };
 Object.defineProperty(exports, "__esModule", ({ value: true }));
+exports.AuthorAddRequestDTO = void 0;
 const class_validator_1 = __webpack_require__(13);
 const validation_messages_constants_1 = __webpack_require__(14);
 class AuthorAddRequestDTO {
-    constructor(name, nickname, birthDate) {
-        this.name = name;
-        this.nickname = nickname;
-        this.birthDate = birthDate;
-    }
 }
-exports["default"] = AuthorAddRequestDTO;
+exports.AuthorAddRequestDTO = AuthorAddRequestDTO;
 __decorate([
     (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)({ message: validation_messages_constants_1.ValidationMessages.IS_NOT_EMPTY }),
