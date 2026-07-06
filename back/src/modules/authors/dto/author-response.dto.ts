@@ -1,6 +1,6 @@
 import { AuthorDocument } from '../author.entity';
 
-export default class AuthorResponseDTO {
+export class AuthorResponseDTO {
   constructor(
     public id: string,
     public name: string,

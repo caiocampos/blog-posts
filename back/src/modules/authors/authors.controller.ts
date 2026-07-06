@@ -7,11 +7,11 @@ import {
   Param,
   Post,
 } from '@nestjs/common';
-import PostAddRequestDTO from '../posts/dto/post-add-request.dto';
-import PostResponseDTO from '../posts/dto/post-response.dto';
+import { PostAddRequestDTO } from '../posts/dto/post-add-request.dto';
+import { PostResponseDTO } from '../posts/dto/post-response.dto';
 import { AuthorsService } from './authors.service';
-import AuthorAddRequestDTO from './dto/author-add-request.dto';
-import AuthorResponseDTO from './dto/author-response.dto';
+import { AuthorAddRequestDTO } from './dto/author-add-request.dto';
+import { AuthorResponseDTO } from './dto/author-response.dto';
 
 @Controller('authors')
 export class AuthorsController {

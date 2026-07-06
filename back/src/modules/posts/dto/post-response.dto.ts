@@ -1,7 +1,7 @@
-import AuthorResponseDTO from '../../authors/dto/author-response.dto';
+import { AuthorResponseDTO } from '../../authors/dto/author-response.dto';
 import { PostDocument } from '../post.entity';
 
-export default class PostResponseDTO {
+export class PostResponseDTO {
   constructor(
     public id: string,
     public title: string,
