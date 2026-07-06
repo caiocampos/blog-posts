@@ -2,12 +2,12 @@ import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { validateOrReject } from 'class-validator';
 import { Model, Types } from 'mongoose';
-import PostAddRequestDTO from '../posts/dto/post-add-request.dto';
-import PostResponseDTO from '../posts/dto/post-response.dto';
+import { PostAddRequestDTO } from '../posts/dto/post-add-request.dto';
+import { PostResponseDTO } from '../posts/dto/post-response.dto';
 import { Post, PostDocument } from '../posts/post.entity';
 import { Author, AuthorDocument } from './author.entity';
-import AuthorAddRequestDTO from './dto/author-add-request.dto';
-import AuthorResponseDTO from './dto/author-response.dto';
+import { AuthorAddRequestDTO } from './dto/author-add-request.dto';
+import { AuthorResponseDTO } from './dto/author-response.dto';
 import { connectionName } from '../../mongoose-connection';
 
 const { ObjectId } = Types;

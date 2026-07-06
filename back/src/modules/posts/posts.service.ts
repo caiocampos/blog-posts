@@ -2,7 +2,7 @@ import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { Model, Types } from 'mongoose';
 import { Post, PostDocument } from './post.entity';
-import PostResponseDTO from './dto/post-response.dto';
+import { PostResponseDTO } from './dto/post-response.dto';
 import { Author, AuthorDocument } from '../authors/author.entity';
 import { connectionName } from '../../mongoose-connection';
 
@@ -11,8 +11,10 @@ export class PostsService {
   private readonly logger = new Logger(PostsService.name);
 
   constructor(
-    @InjectModel(Author.name, connectionName) private authorModel: Model<AuthorDocument>,
-    @InjectModel(Post.name, connectionName) private postModel: Model<PostDocument>,
+    @InjectModel(Author.name, connectionName)
+    private authorModel: Model<AuthorDocument>,
+    @InjectModel(Post.name, connectionName)
+    private postModel: Model<PostDocument>,
   ) {}
 
   async findAll(authorName?: string): Promise<Array<PostResponseDTO>> {
