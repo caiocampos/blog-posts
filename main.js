@@ -333,10 +333,12 @@ class PostAddRequestDTO {
 }
 exports["default"] = PostAddRequestDTO;
 __decorate([
+    (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)({ message: validation_messages_constants_1.ValidationMessages.IS_NOT_EMPTY }),
     __metadata("design:type", String)
 ], PostAddRequestDTO.prototype, "title", void 0);
 __decorate([
+    (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)({ message: validation_messages_constants_1.ValidationMessages.IS_NOT_EMPTY }),
     __metadata("design:type", String)
 ], PostAddRequestDTO.prototype, "body", void 0);
@@ -556,16 +558,19 @@ class AuthorAddRequestDTO {
 }
 exports["default"] = AuthorAddRequestDTO;
 __decorate([
+    (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)({ message: validation_messages_constants_1.ValidationMessages.IS_NOT_EMPTY }),
     __metadata("design:type", String)
 ], AuthorAddRequestDTO.prototype, "name", void 0);
 __decorate([
+    (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)({ message: validation_messages_constants_1.ValidationMessages.IS_NOT_EMPTY }),
     __metadata("design:type", String)
 ], AuthorAddRequestDTO.prototype, "nickname", void 0);
 __decorate([
+    (0, class_validator_1.IsString)(),
     (0, class_validator_1.IsNotEmpty)({ message: validation_messages_constants_1.ValidationMessages.IS_NOT_EMPTY }),
-    (0, class_validator_1.IsDateString)({}, { message: validation_messages_constants_1.ValidationMessages.IS_NOT_EMPTY }),
+    (0, class_validator_1.IsDateString)(undefined, { message: validation_messages_constants_1.ValidationMessages.IS_NOT_EMPTY }),
     __metadata("design:type", String)
 ], AuthorAddRequestDTO.prototype, "birthDate", void 0);
 
