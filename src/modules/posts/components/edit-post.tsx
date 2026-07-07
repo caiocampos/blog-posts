@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react"
+import { type SubmitEvent, useState } from "react"
 import { Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -14,7 +14,7 @@ import {
   DialogTrigger,
 } from "@/components/ui/dialog"
 import AuthorSelect from "@/modules/authors/components/author-select"
-import { IAddPostRequestDTO } from "../interfaces/post.interface"
+import type { IAddPostRequestDTO } from "../interfaces/post.interface"
 
 const emptyForm = { title: "", body: "", author: "" }
 
@@ -34,7 +34,7 @@ const EditPost = ({
     setIsOpen(open)
   }
 
-  const onFinish = async (event: FormEvent<HTMLFormElement>) => {
+  const onFinish = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
     setIsInserting(true)
     await onSubmit(form.author, { title: form.title, body: form.body })
@@ -76,6 +76,7 @@ const EditPost = ({
           <div className="flex flex-col gap-2">
             <Label htmlFor="post-body">Texto</Label>
             <Textarea
+              className="h-32 max-h-48 resize-none"
               id="post-body"
               required
               rows={5}
@@ -93,7 +94,7 @@ const EditPost = ({
             />
           </div>
           <DialogFooter>
-            <Button type="submit" loading={isInserting} disabled={!isValid}>
+            <Button type="submit" disabled={!isValid || isInserting}>
               Criar
             </Button>
             <Button

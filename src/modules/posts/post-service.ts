@@ -1,5 +1,5 @@
 import { axiosInstance } from "@/services"
-import { IAddPostRequestDTO, IPost } from "./interfaces/post.interface"
+import type { IAddPostRequestDTO, IPost } from "./interfaces/post.interface"
 
 export default class PostService {
   static getAll = async (author: string): Promise<Array<IPost>> => {

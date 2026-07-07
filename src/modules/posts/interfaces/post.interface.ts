@@ -1,4 +1,4 @@
-import { IAuthor } from "@/modules/authors/interfaces/author.interface"
+import type { IAuthor } from "@/modules/authors/interfaces/author.interface"
 
 export interface IAddPostRequestDTO {
   title: string

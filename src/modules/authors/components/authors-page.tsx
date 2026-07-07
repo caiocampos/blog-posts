@@ -29,8 +29,12 @@ import {
   AlertDialogTitle,
   AlertDialogTrigger,
 } from "@/components/ui/alert-dialog"
-import { IAddAuthorRequestDTO, IAuthor } from "../interfaces/author.interface"
+import type {
+  IAddAuthorRequestDTO,
+  IAuthor,
+} from "../interfaces/author.interface"
 import EditAuthor from "./edit-author"
+import { Spinner } from "@/components/ui/spinner"
 
 const Authors = () => {
   const { authors } = useStores()
@@ -75,10 +79,10 @@ const Authors = () => {
             <Button
               variant="outline"
               size="icon"
-              loading={isLoading}
+              disabled={isLoading}
               onClick={() => loadAuthors()}
             >
-              <RefreshCw />
+              {isLoading ? <Spinner data-icon="inline-start" /> : <RefreshCw />}
             </Button>
           </div>
         </div>

@@ -4,6 +4,7 @@ import useStores from "@/common/hooks/use-stores"
 import {
   Select,
   SelectContent,
+  SelectGroup,
   SelectItem,
   SelectTrigger,
   SelectValue,
@@ -49,22 +50,32 @@ const AuthorSelect = ({
     }
   }, [getAll])
 
+  const placeholderText = isLoading ? "Carregando..." : "Selecione um autor"
+
   return (
     <Select
       value={value}
       onValueChange={(newValue) => onValueChange?.(newValue as string)}
     >
       <SelectTrigger>
-        <SelectValue
-          placeholder={isLoading ? "Carregando..." : "Selecione um autor"}
-        />
+        <SelectValue placeholder={placeholderText}>
+          {(value) => {
+            if (!value) {
+              return placeholderText
+            }
+            const selected = options.find((option) => option.value === value)
+            return selected?.label ?? value
+          }}
+        </SelectValue>
       </SelectTrigger>
       <SelectContent>
-        {options.map((option) => (
-          <SelectItem key={option.value} value={option.value}>
-            {option.label}
-          </SelectItem>
-        ))}
+        <SelectGroup>
+          {options.map((option) => (
+            <SelectItem key={option.value} value={option.value}>
+              {option.label}
+            </SelectItem>
+          ))}
+        </SelectGroup>
       </SelectContent>
     </Select>
   )

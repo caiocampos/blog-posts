@@ -1,4 +1,4 @@
-import {
+import type {
   IAddAuthorRequestDTO,
   IAuthor,
 } from "@/modules/authors/interfaces/author.interface"

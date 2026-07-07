@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react"
+import { type SubmitEvent, useState } from "react"
 import { Plus } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
@@ -12,7 +12,7 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { IAddAuthorRequestDTO } from "../interfaces/author.interface"
+import type { IAddAuthorRequestDTO } from "../interfaces/author.interface"
 
 const emptyForm = { name: "", nickname: "", birthDate: "" }
 
@@ -32,7 +32,7 @@ const EditAuthor = ({
     setIsOpen(open)
   }
 
-  const onFinish = async (event: FormEvent<HTMLFormElement>) => {
+  const onFinish = async (event: SubmitEvent<HTMLFormElement>) => {
     event.preventDefault()
     setIsInserting(true)
     await onSubmit(form)
@@ -95,7 +95,7 @@ const EditAuthor = ({
             />
           </div>
           <DialogFooter>
-            <Button type="submit" loading={isInserting} disabled={!isValid}>
+            <Button type="submit" disabled={!isValid || isInserting}>
               Criar
             </Button>
             <Button

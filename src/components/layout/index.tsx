@@ -1,9 +1,14 @@
-import { ReactNode } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
-import { pages, IPages, IPage, RouterPath } from "@/routing/router-path"
+import {
+  pages,
+  type IPages,
+  type IPage,
+  RouterPath,
+} from "@/routing/router-path"
 import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Toaster } from "@/components/ui/sonner"
 import { cn } from "@/lib/utils"
+import PostsIcon from "@/assets/posts.svg"
 
 const Layout = ({
   children,
@@ -12,7 +17,7 @@ const Layout = ({
   className,
   ...rest
 }: {
-  children?: ReactNode
+  children?: React.ReactNode
   title?: string
   subtitle?: string
   className?: string
@@ -32,8 +37,8 @@ const Layout = ({
       <header className="border-b bg-card">
         <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex size-9 items-center justify-center rounded-lg bg-primary font-bold text-primary-foreground">
-              BP
+            <div className="flex size-9 items-center justify-center rounded-lg bg-secondary font-bold text-secondary-foreground">
+              <img src={PostsIcon} />
             </div>
             <div>
               <h1 className="text-lg leading-tight font-semibold">

@@ -6,8 +6,9 @@ import useStores from "@/common/hooks/use-stores"
 import { Button } from "@/components/ui/button"
 import { Input } from "@/components/ui/input"
 import EditPost from "./edit-post"
-import { IAddPostRequestDTO, IPost } from "../interfaces/post.interface"
+import type { IAddPostRequestDTO, IPost } from "../interfaces/post.interface"
 import PostCard from "./post-card"
+import { Spinner } from "@/components/ui/spinner"
 
 const Posts = () => {
   const { posts } = useStores()
@@ -74,10 +75,10 @@ const Posts = () => {
             <Button
               variant="outline"
               size="icon"
-              loading={isLoading}
+              disabled={isLoading}
               onClick={() => loadPosts()}
             >
-              <RefreshCw />
+              {isLoading ? <Spinner data-icon="inline-start" /> : <RefreshCw />}
             </Button>
           </div>
         </div>

@@ -1,9 +1,9 @@
-import { JSX } from "react"
 import { createBrowserRouter, RouterProvider } from "react-router-dom"
 import Posts from "@/modules/posts/components/posts-page"
 import Authors from "@/modules/authors/components/authors-page"
 import { RouterPath } from "./router-path"
 import { EmptyRoute } from "./empty-route"
+import type { JSX } from "react/jsx-runtime"
 
 const router = createBrowserRouter(
   [
