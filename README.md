@@ -1,21 +1,7 @@
-# React + TypeScript + Vite + shadcn/ui
+# blog-posts
 
-This is a template for a new Vite project with React, TypeScript, and shadcn/ui.
+[![Deploy Back-end](https://github.com/caiocampos/blog-posts/actions/workflows/deploy-back.yml/badge.svg)](https://github.com/caiocampos/asteroid-score/actions/workflows/deploy-back.yml)
+[![Deploy Front-end](https://github.com/caiocampos/blog-posts/actions/workflows/deploy.yml/badge.svg)](https://github.com/caiocampos/asteroid-score/actions/workflows/deploy.yml)
+[![License](https://img.shields.io/github/license/caiocampos/blog-posts.svg)](LICENSE)
 
-## Adding components
-
-To add components to your app, run the following command:
-
-```bash
-npx shadcn@latest add button
-```
-
-This will place the ui components in the `src/components` directory.
-
-## Using components
-
-To use the components in your app, import them as follows:
-
-```tsx
-import { Button } from "@/components/ui/button"
-```
+Página de postagens usando React, NestJS e MongoDB (Mongoose)
