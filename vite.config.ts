@@ -5,10 +5,12 @@ import { defineConfig } from "vite"
 
 // https://vite.dev/config/
 export default defineConfig({
+  base: "/blog-posts/",
   plugins: [react(), tailwindcss()],
   resolve: {
     alias: {
       "@": path.resolve(__dirname, "./src"),
+      public: path.resolve(__dirname, "./public"),
     },
   },
 })
