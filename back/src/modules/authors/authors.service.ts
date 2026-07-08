@@ -1,4 +1,4 @@
-import { HttpException, HttpStatus, Injectable, Logger } from '@nestjs/common';
+import { BadRequestException, Injectable, Logger } from '@nestjs/common';
 import { InjectModel } from '@nestjs/mongoose';
 import { validateOrReject } from 'class-validator';
 import { Model, Types } from 'mongoose';
@@ -27,10 +27,9 @@ export class AuthorsService {
     try {
       return await this.authorModel.countDocuments().exec();
     } catch (error) {
-      throw new HttpException(
-        'Erro ao contar os autores',
-        HttpStatus.BAD_REQUEST,
-      );
+      const msg = 'Erro ao contar os autores';
+      console.error(msg, error);
+      throw new BadRequestException(msg);
     }
   }
 
@@ -39,20 +38,25 @@ export class AuthorsService {
       const authors = await this.authorModel.find().exec();
       return authors.map(AuthorResponseDTO.from);
     } catch (error) {
-      throw new HttpException(
-        'Erro ao buscar os autores',
-        HttpStatus.BAD_REQUEST,
-      );
+      const msg = 'Erro ao buscar os autores';
+      console.error(msg, error);
+      throw new BadRequestException(msg);
     }
   }
 
   async findOne(id: string): Promise<AuthorResponseDTO | null> {
-    const _id = new ObjectId(id);
-    const author = await this.authorModel.findById(_id).exec();
-    if (author === null) {
-      return null;
+    try {
+      const _id = new ObjectId(id);
+      const author = await this.authorModel.findById(_id).exec();
+      if (author === null) {
+        return null;
+      }
+      return AuthorResponseDTO.from(author);
+    } catch (error) {
+      const msg = 'Erro ao buscar o autor';
+      console.error(msg, error);
+      throw new BadRequestException(msg);
     }
-    return AuthorResponseDTO.from(author);
   }
 
   async add(requestDto: AuthorAddRequestDTO): Promise<AuthorResponseDTO> {
@@ -65,7 +69,9 @@ export class AuthorsService {
       const author = await newAuthor.save();
       return AuthorResponseDTO.from(author);
     } catch (error) {
-      throw new HttpException('Erro ao gravar o autor', HttpStatus.BAD_REQUEST);
+      const msg = 'Erro ao gravar o autor';
+      console.error(msg, error);
+      throw new BadRequestException(msg);
     }
   }
 
@@ -79,20 +85,18 @@ export class AuthorsService {
       const _id = new ObjectId(id);
       const author = await this.authorModel.findById(_id).exec();
       if (author === null) {
-        throw new HttpException(
-          'Erro ao gravar a postagem, author não encontrado',
-          HttpStatus.NOT_FOUND,
-        );
+        const msg = 'Erro ao gravar a postagem, author não encontrado';
+        console.error(msg);
+        throw new BadRequestException(msg);
       }
       newPost.author = author;
       newPost.creationDate = new Date().toISOString().slice(0, 10);
       const post = await newPost.save();
       return PostResponseDTO.from(post);
     } catch (error) {
-      throw new HttpException(
-        'Erro ao gravar a postagem',
-        HttpStatus.BAD_REQUEST,
-      );
+      const msg = 'Erro ao gravar a postagem';
+      console.error(msg, error);
+      throw new BadRequestException(msg);
     }
   }
 
@@ -102,7 +106,9 @@ export class AuthorsService {
       await this.postModel.deleteMany({ author: { $eq: _id } }).exec();
       return await this.authorModel.findByIdAndDelete(_id).exec();
     } catch (error) {
-      throw new HttpException('Erro ao apagar o autor', HttpStatus.BAD_REQUEST);
+      const msg = 'Erro ao apagar o autor';
+      console.error(msg, error);
+      throw new BadRequestException(msg);
     }
   }
 }
