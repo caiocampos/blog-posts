@@ -399,7 +399,9 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
             return await this.authorModel.countDocuments().exec();
         }
         catch (error) {
-            throw new common_1.HttpException('Erro ao contar os autores', common_1.HttpStatus.BAD_REQUEST);
+            const msg = 'Erro ao contar os autores';
+            console.error(msg, error);
+            throw new common_1.BadRequestException(msg);
         }
     }
     async findAll() {
@@ -408,16 +410,25 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
             return authors.map(author_response_dto_1.AuthorResponseDTO.from);
         }
         catch (error) {
-            throw new common_1.HttpException('Erro ao buscar os autores', common_1.HttpStatus.BAD_REQUEST);
+            const msg = 'Erro ao buscar os autores';
+            console.error(msg, error);
+            throw new common_1.BadRequestException(msg);
         }
     }
     async findOne(id) {
-        const _id = new ObjectId(id);
-        const author = await this.authorModel.findById(_id).exec();
-        if (author === null) {
-            return null;
+        try {
+            const _id = new ObjectId(id);
+            const author = await this.authorModel.findById(_id).exec();
+            if (author === null) {
+                return null;
+            }
+            return author_response_dto_1.AuthorResponseDTO.from(author);
         }
-        return author_response_dto_1.AuthorResponseDTO.from(author);
+        catch (error) {
+            const msg = 'Erro ao buscar o autor';
+            console.error(msg, error);
+            throw new common_1.BadRequestException(msg);
+        }
     }
     async add(requestDto) {
         await (0, class_validator_1.validateOrReject)(requestDto);
@@ -430,7 +441,9 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
             return author_response_dto_1.AuthorResponseDTO.from(author);
         }
         catch (error) {
-            throw new common_1.HttpException('Erro ao gravar o autor', common_1.HttpStatus.BAD_REQUEST);
+            const msg = 'Erro ao gravar o autor';
+            console.error(msg, error);
+            throw new common_1.BadRequestException(msg);
         }
     }
     async addPost(id, requestDto) {
@@ -440,7 +453,9 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
             const _id = new ObjectId(id);
             const author = await this.authorModel.findById(_id).exec();
             if (author === null) {
-                throw new common_1.HttpException('Erro ao gravar a postagem, author não encontrado', common_1.HttpStatus.NOT_FOUND);
+                const msg = 'Erro ao gravar a postagem, author não encontrado';
+                console.error(msg);
+                throw new common_1.BadRequestException(msg);
             }
             newPost.author = author;
             newPost.creationDate = new Date().toISOString().slice(0, 10);
@@ -448,7 +463,9 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
             return post_response_dto_1.PostResponseDTO.from(post);
         }
         catch (error) {
-            throw new common_1.HttpException('Erro ao gravar a postagem', common_1.HttpStatus.BAD_REQUEST);
+            const msg = 'Erro ao gravar a postagem';
+            console.error(msg, error);
+            throw new common_1.BadRequestException(msg);
         }
     }
     async delete(id) {
@@ -458,7 +475,9 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
             return await this.authorModel.findByIdAndDelete(_id).exec();
         }
         catch (error) {
-            throw new common_1.HttpException('Erro ao apagar o autor', common_1.HttpStatus.BAD_REQUEST);
+            const msg = 'Erro ao apagar o autor';
+            console.error(msg, error);
+            throw new common_1.BadRequestException(msg);
         }
     }
 };
@@ -703,7 +722,9 @@ let PostsService = PostsService_1 = class PostsService {
             return posts.map(post_response_dto_1.PostResponseDTO.from);
         }
         catch (error) {
-            throw new common_1.HttpException('Erro ao buscar as postagens', common_1.HttpStatus.BAD_REQUEST);
+            const msg = 'Erro ao buscar as postagens';
+            console.error(msg, error);
+            throw new common_1.BadRequestException(msg);
         }
     }
     async delete(id) {
@@ -712,7 +733,9 @@ let PostsService = PostsService_1 = class PostsService {
             return await this.postModel.findByIdAndDelete(_id).exec();
         }
         catch (error) {
-            throw new common_1.HttpException('Erro ao apagar a postagem', common_1.HttpStatus.BAD_REQUEST);
+            const msg = 'Erro ao apagar a postagem';
+            console.error(msg, error);
+            throw new common_1.BadRequestException(msg);
         }
     }
 };
