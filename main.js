@@ -400,7 +400,7 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
         }
         catch (error) {
             const msg = 'Erro ao contar os autores';
-            console.error(msg, error);
+            this.logger.error(msg, error);
             throw new common_1.BadRequestException(msg);
         }
     }
@@ -411,7 +411,7 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
         }
         catch (error) {
             const msg = 'Erro ao buscar os autores';
-            console.error(msg, error);
+            this.logger.error(msg, error);
             throw new common_1.BadRequestException(msg);
         }
     }
@@ -426,7 +426,7 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
         }
         catch (error) {
             const msg = 'Erro ao buscar o autor';
-            console.error(msg, error);
+            this.logger.error(msg, error);
             throw new common_1.BadRequestException(msg);
         }
     }
@@ -442,7 +442,7 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
         }
         catch (error) {
             const msg = 'Erro ao gravar o autor';
-            console.error(msg, error);
+            this.logger.error(msg, error);
             throw new common_1.BadRequestException(msg);
         }
     }
@@ -454,7 +454,7 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
             const author = await this.authorModel.findById(_id).exec();
             if (author === null) {
                 const msg = 'Erro ao gravar a postagem, author não encontrado';
-                console.error(msg);
+                this.logger.error(msg);
                 throw new common_1.BadRequestException(msg);
             }
             newPost.author = author;
@@ -464,7 +464,7 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
         }
         catch (error) {
             const msg = 'Erro ao gravar a postagem';
-            console.error(msg, error);
+            this.logger.error(msg, error);
             throw new common_1.BadRequestException(msg);
         }
     }
@@ -476,7 +476,7 @@ let AuthorsService = AuthorsService_1 = class AuthorsService {
         }
         catch (error) {
             const msg = 'Erro ao apagar o autor';
-            console.error(msg, error);
+            this.logger.error(msg, error);
             throw new common_1.BadRequestException(msg);
         }
     }
@@ -723,7 +723,7 @@ let PostsService = PostsService_1 = class PostsService {
         }
         catch (error) {
             const msg = 'Erro ao buscar as postagens';
-            console.error(msg, error);
+            this.logger.error(msg, error);
             throw new common_1.BadRequestException(msg);
         }
     }
@@ -734,7 +734,7 @@ let PostsService = PostsService_1 = class PostsService {
         }
         catch (error) {
             const msg = 'Erro ao apagar a postagem';
-            console.error(msg, error);
+            this.logger.error(msg, error);
             throw new common_1.BadRequestException(msg);
         }
     }
