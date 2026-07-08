@@ -28,7 +28,7 @@ export class AuthorsService {
       return await this.authorModel.countDocuments().exec();
     } catch (error) {
       const msg = 'Erro ao contar os autores';
-      console.error(msg, error);
+      this.logger.error(msg, error);
       throw new BadRequestException(msg);
     }
   }
@@ -39,7 +39,7 @@ export class AuthorsService {
       return authors.map(AuthorResponseDTO.from);
     } catch (error) {
       const msg = 'Erro ao buscar os autores';
-      console.error(msg, error);
+      this.logger.error(msg, error);
       throw new BadRequestException(msg);
     }
   }
@@ -54,7 +54,7 @@ export class AuthorsService {
       return AuthorResponseDTO.from(author);
     } catch (error) {
       const msg = 'Erro ao buscar o autor';
-      console.error(msg, error);
+      this.logger.error(msg, error);
       throw new BadRequestException(msg);
     }
   }
@@ -70,7 +70,7 @@ export class AuthorsService {
       return AuthorResponseDTO.from(author);
     } catch (error) {
       const msg = 'Erro ao gravar o autor';
-      console.error(msg, error);
+      this.logger.error(msg, error);
       throw new BadRequestException(msg);
     }
   }
@@ -86,7 +86,7 @@ export class AuthorsService {
       const author = await this.authorModel.findById(_id).exec();
       if (author === null) {
         const msg = 'Erro ao gravar a postagem, author não encontrado';
-        console.error(msg);
+        this.logger.error(msg);
         throw new BadRequestException(msg);
       }
       newPost.author = author;
@@ -95,7 +95,7 @@ export class AuthorsService {
       return PostResponseDTO.from(post);
     } catch (error) {
       const msg = 'Erro ao gravar a postagem';
-      console.error(msg, error);
+      this.logger.error(msg, error);
       throw new BadRequestException(msg);
     }
   }
@@ -107,7 +107,7 @@ export class AuthorsService {
       return await this.authorModel.findByIdAndDelete(_id).exec();
     } catch (error) {
       const msg = 'Erro ao apagar o autor';
-      console.error(msg, error);
+      this.logger.error(msg, error);
       throw new BadRequestException(msg);
     }
   }

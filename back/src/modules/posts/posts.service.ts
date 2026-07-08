@@ -33,7 +33,7 @@ export class PostsService {
       return posts.map(PostResponseDTO.from);
     } catch (error) {
       const msg = 'Erro ao buscar as postagens';
-      console.error(msg, error);
+      this.logger.error(msg, error);
       throw new BadRequestException(msg);
     }
   }
@@ -44,7 +44,7 @@ export class PostsService {
       return await this.postModel.findByIdAndDelete(_id).exec();
     } catch (error) {
       const msg = 'Erro ao apagar a postagem';
-      console.error(msg, error);
+      this.logger.error(msg, error);
       throw new BadRequestException(msg);
     }
   }
