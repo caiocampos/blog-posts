@@ -3,6 +3,9 @@ name: Deploy
 on:
   push:
     branches: [ master ]
+    paths-ignore:
+      - '.github/**'
+      - 'back/**'
   workflow_dispatch:
 
 jobs:
