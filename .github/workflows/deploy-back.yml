@@ -3,6 +3,9 @@ name: Deploy Back-end
 on:
   push:
     branches: [ master ]
+    paths:
+      - 'back/**'
+      - '!.github/**'
   workflow_dispatch:
 
 jobs:
