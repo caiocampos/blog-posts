@@ -2926,10 +2926,10 @@ setprototypeof@~1.2.0:
   resolved "https://registry.yarnpkg.com/setprototypeof/-/setprototypeof-1.2.0.tgz#66c9a24a73f9fc28cbe66b09fed3d33dcaf1b424"
   integrity sha512-E5LDX7Wrp85Kil5bhZv46j8jOeboKq5JMmYM3gVGdGH8xFpPWXUMsNrlODCrkoxMEeNi/XZIwuRvY4XNwYMJpw==
 
-shadcn@^4.13.1:
-  version "4.13.1"
-  resolved "https://registry.yarnpkg.com/shadcn/-/shadcn-4.13.1.tgz#8b3d39766bb5ae72b9dd8fbbcbe04c8a621396a0"
-  integrity sha512-pSNPND8mVWGBytdd8l4Cksg7MyRZOsv28HpvNCtFtLwZoxLSGM6v3NMUpmpbOaIoreopS/UOpQvnCyttOHVLAQ==
+shadcn@^4.14.0:
+  version "4.14.0"
+  resolved "https://registry.yarnpkg.com/shadcn/-/shadcn-4.14.0.tgz#a05f0d434bb99f9e2d09169315be6e86acc643c7"
+  integrity sha512-WSSMmB9ERauwy0SQwE0NlSfeaoBANHtzgSjAfoEsIHpRQwVkQBiiLV8Y9yAYOj9Wf3mbCIdQt3oLGzkH7NQFiQ==
   dependencies:
     "@babel/core" "^7.28.0"
     "@babel/parser" "^7.28.0"
