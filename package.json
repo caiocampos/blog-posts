@@ -28,7 +28,7 @@
     "react": "^19.2.8",
     "react-dom": "^19.2.8",
     "react-router-dom": "^7.18",
-    "shadcn": "^4.14.0",
+    "shadcn": "^4.14.1",
     "sonner": "^2.0",
     "tailwind-merge": "^3.6.0",
     "tailwindcss": "^4",
