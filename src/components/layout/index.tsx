@@ -9,6 +9,7 @@ import { Tabs, TabsList, TabsTrigger } from "@/components/ui/tabs"
 import { Toaster } from "@/components/ui/sonner"
 import { cn } from "@/lib/utils"
 import PostsIcon from "@/assets/posts.svg"
+import { ThemeSelector } from "../theme-selector"
 
 const Layout = ({
   children,
@@ -37,7 +38,8 @@ const Layout = ({
       <header className="border-b bg-card">
         <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-            <div className="flex size-9 items-center justify-center rounded-lg bg-secondary font-bold text-secondary-foreground">
+          <ThemeSelector />
+            <div className="flex size-9 items-center justify-center rounded-lg bg-neutral-800 font-bold p-1">
               <img src={PostsIcon} />
             </div>
             <div>
