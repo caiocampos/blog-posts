@@ -35,7 +35,7 @@ const Layout = ({
   return (
     <div className="flex min-h-screen flex-col">
       <Toaster />
-      <header className="border-b bg-card bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
+      <header className="border-b bg-background/95 bg-card backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
             <ThemeSelector />
@@ -68,7 +68,13 @@ const Layout = ({
           </Tabs>
         </div>
       </header>
-      <main className={cn("container mx-auto flex-1 max-w-5xl px-4 py-6 bg-background/70", className)} {...rest}>
+      <main
+        className={cn(
+          "container mx-auto max-w-5xl flex-1 bg-background/70 px-4 py-6",
+          className
+        )}
+        {...rest}
+      >
         {children}
       </main>
     </div>
