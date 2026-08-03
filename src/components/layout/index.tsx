@@ -33,13 +33,13 @@ const Layout = ({
   const page: IPage | undefined = pages[pageKey]
 
   return (
-    <div className="min-h-dvh bg-background">
+    <div className="flex min-h-screen flex-col">
       <Toaster />
-      <header className="border-b bg-card">
+      <header className="border-b bg-card bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
         <div className="mx-auto flex max-w-5xl flex-col gap-4 px-4 py-4 sm:flex-row sm:items-center sm:justify-between">
           <div className="flex items-center gap-3">
-          <ThemeSelector />
-            <div className="flex size-9 items-center justify-center rounded-lg bg-neutral-800 font-bold p-1">
+            <ThemeSelector />
+            <div className="flex size-9 items-center justify-center rounded-lg bg-neutral-800 p-1 font-bold">
               <img src={PostsIcon} />
             </div>
             <div>
@@ -68,7 +68,7 @@ const Layout = ({
           </Tabs>
         </div>
       </header>
-      <main className={cn("mx-auto max-w-5xl px-4 py-6", className)} {...rest}>
+      <main className={cn("container mx-auto flex-1 max-w-5xl px-4 py-6 bg-background/70", className)} {...rest}>
         {children}
       </main>
     </div>
