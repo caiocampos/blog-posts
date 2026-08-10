@@ -14,7 +14,7 @@
     "shadcn-update": "for file in src/components/ui/*.tsx; do npx shadcn@latest add -y -o $(basename \"$file\" .tsx); done"
   },
   "dependencies": {
-    "@base-ui/react": "^1.6.0",
+    "@base-ui/react": "^1.7.0",
     "@fontsource-variable/inter": "^5.3.0",
     "@tailwindcss/vite": "^4",
     "axios": "^1.19.0",
