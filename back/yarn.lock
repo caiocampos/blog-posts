@@ -1328,10 +1328,10 @@
   resolved "https://registry.yarnpkg.com/@nestjs/mongoose/-/mongoose-12.0.0.tgz#41714460f92d8673778b02b7ef44c94e6054f600"
   integrity sha512-Xjv1+9zeRyEh9UE9f7DSVOigEA5CF9kJis8uqfE3v/AB6QNxPC0gb+TcKEhAf9zkVQ3e3dM48QfI+tdP0jrJZA==
 
-"@nestjs/platform-express@^11.2":
-  version "11.2.2"
-  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-11.2.2.tgz#dfa28b39376e7a6730d38f13d7aa0bbb7aadd8a8"
-  integrity sha512-vzOLYkrIC/eGxE1oSWv5I/R+1/4CLBbjeLlRPOIf5gxCjUH1cVmavkO7JJ/w5hCUXiELXGWhoDpBF/+/n245gA==
+"@nestjs/platform-express@^12.0":
+  version "12.0.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/platform-express/-/platform-express-12.0.0.tgz#0c5bae04485009fefcb0318ebb43978a8ec060c4"
+  integrity sha512-34H2cHJyVs2EkCbR9RrPPXEbANOEMQSxNapD1QyRBFyGyr3YvMB2nwbp0R6EM2WexxGoyrfb9CqJfDz3AknNQA==
   dependencies:
     cors "2.8.6"
     express "5.2.1"
