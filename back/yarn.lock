@@ -1312,9 +1312,9 @@
     tslib "2.8.1"
 
 "@nestjs/schematics@^12.0", "@nestjs/schematics@^12.0.0":
-  version "12.0.3"
-  resolved "https://registry.yarnpkg.com/@nestjs/schematics/-/schematics-12.0.3.tgz#18c5b22efc20258227706b1bcf459ec7b911f4f3"
-  integrity sha512-HGF66VyIlQt79yMnBzPfI6TU/dyf6yUg/Ja4DraL1uw6Tt+MsGK15LbZnfDODEErztckZYu2Y/FZoH2Fv14AwQ==
+  version "12.0.4"
+  resolved "https://registry.yarnpkg.com/@nestjs/schematics/-/schematics-12.0.4.tgz#271cd9d9adf310fdbe19e593ba8ca22c8aecbe64"
+  integrity sha512-iUQkaQKoKmcUgu0TZQwDnlHXs8RgeIf3Tzay6s8lfANtmu/3SQZFzg7eXbB/I2iN4I/nnngQb2Pnr3mqQRW7kw==
   dependencies:
     "@angular-devkit/core" "22.1.8"
     "@angular-devkit/schematics" "22.1.8"
