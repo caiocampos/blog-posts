@@ -52,7 +52,7 @@
     "jest": "^30.5",
     "prettier": "^3.9",
     "source-map-support": "^0.5",
-    "supertest": "^7.2",
+    "supertest": "^7.3",
     "ts-jest": "^29.4",
     "ts-loader": "^9.6",
     "ts-node": "^10.9",
