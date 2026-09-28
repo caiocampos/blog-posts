@@ -4007,10 +4007,10 @@ mongodb@~7.6:
     bson "^7.2.0"
     mongodb-connection-string-url "^7.0.1"
 
-mongoose@^9.10.1:
-  version "9.10.1"
-  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-9.10.1.tgz#b13f064dac552c4f2065f398665ba22f24361431"
-  integrity sha512-rRIEGbM3rUgXAY554CEsgp+IxImo6D3ILUr3SJDnC2PLPNTcNe2xxYvazSLtvvTjv3A4MgqvsxCj3ViF4mHUUQ==
+mongoose@^9.10.2:
+  version "9.10.2"
+  resolved "https://registry.yarnpkg.com/mongoose/-/mongoose-9.10.2.tgz#305d940c0d9f96f48fe3eb3683d633ce8f132a14"
+  integrity sha512-oFcFL3dsX5tDzMwBD+GGoDqKIj6RNG3bu3oqlvcUIgPulHP14/6N7c07j3s0XgbrlT7U/lbiXOD89hmPtEXnfQ==
   dependencies:
     "@standard-schema/spec" "^1.1.0"
     kareem "3.4.0"
