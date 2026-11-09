@@ -1301,10 +1301,10 @@
     load-esm "1.0.3"
     tslib "2.8.1"
 
-"@nestjs/config@^12.0":
-  version "12.0.1"
-  resolved "https://registry.yarnpkg.com/@nestjs/config/-/config-12.0.1.tgz#205d6c0e217636707068f4f504d826eb907f17d6"
-  integrity sha512-pxqEtULFi4qXda0TqyR2YFq7o4UoRa7h4K5H0lgFuBMrUGr6x6VVldaJJrowFyh4uvp8dNq9Mie3T+l+uEOTfw==
+"@nestjs/config@^12.1":
+  version "12.1.0"
+  resolved "https://registry.yarnpkg.com/@nestjs/config/-/config-12.1.0.tgz#a5d2eb037551e5fd9238ac5ffc1ba0f13018c4c5"
+  integrity sha512-3r5YNFF6jsgH4lpl+P3kzFI531GLOLJI+frIYVR3pUUS2SnA5TTZEWu0/tQlK9hMHn9NKqnVMsNKTGvvATY9ng==
   dependencies:
     "@standard-schema/spec" "1.1.0"
     dotenv "18.0.3"
