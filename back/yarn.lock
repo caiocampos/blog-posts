@@ -1307,14 +1307,14 @@
     tslib "2.8.1"
 
 "@nestjs/config@^12.1":
-  version "12.1.0"
-  resolved "https://registry.yarnpkg.com/@nestjs/config/-/config-12.1.0.tgz#a5d2eb037551e5fd9238ac5ffc1ba0f13018c4c5"
-  integrity sha512-3r5YNFF6jsgH4lpl+P3kzFI531GLOLJI+frIYVR3pUUS2SnA5TTZEWu0/tQlK9hMHn9NKqnVMsNKTGvvATY9ng==
+  version "12.1.1"
+  resolved "https://registry.yarnpkg.com/@nestjs/config/-/config-12.1.1.tgz#044ddc8fe17681a6a47437614bd4319ef1da2e9a"
+  integrity sha512-e9DrgYbF0NBM6TU9tl6Q645kgzwaJ1fC+M1YYu7KX61+q2nSYm31CqlZmRel5ouhcSa5gaoGO1tMqeelreIBpw==
   dependencies:
     "@standard-schema/spec" "1.1.0"
     dotenv "18.0.3"
     dotenv-expand "13.0.0"
-    es-toolkit "1.52.0"
+    es-toolkit "1.53.1"
 
 "@nestjs/core@^11.2":
   version "11.2.2"
@@ -2671,10 +2671,10 @@ es-set-tostringtag@^2.1.0:
     has-tostringtag "^1.0.2"
     hasown "^2.0.2"
 
-es-toolkit@1.52.0:
-  version "1.52.0"
-  resolved "https://registry.yarnpkg.com/es-toolkit/-/es-toolkit-1.52.0.tgz#71eaf1a8b18834ef77637eccbb885ba4c03cd6dd"
-  integrity sha512-XTNEJQh1tY1ZJVcf6ayP/2n4ZPyaHlW2FWs7xvw5ddPuhUVjLD3olQVQS7kf58JbAB48iL0uL/jerTrjtV3lDA==
+es-toolkit@1.53.1:
+  version "1.53.1"
+  resolved "https://registry.yarnpkg.com/es-toolkit/-/es-toolkit-1.53.1.tgz#740294017da9f4ca052de31544648f3566b8ec5b"
+  integrity sha512-VhMc6IXmexu8iYFfL2aaAww6IvJTdHlqBLruLoEUs33YD4IcP5DdZcLOybMsMmmLsiy1c8PsiLsrM0DdIuuRUA==
 
 escalade@^3.1.1, escalade@^3.2.0:
   version "3.2.0"
